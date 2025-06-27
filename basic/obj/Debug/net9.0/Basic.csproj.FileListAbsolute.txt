@@ -1,0 +1,14 @@
+F:\c# codes\basic\obj\Debug\net9.0\Basic.GeneratedMSBuildEditorConfig.editorconfig
+F:\c# codes\basic\obj\Debug\net9.0\Basic.AssemblyInfoInputs.cache
+F:\c# codes\basic\obj\Debug\net9.0\Basic.AssemblyInfo.cs
+F:\c# codes\basic\obj\Debug\net9.0\Basic.csproj.CoreCompileInputs.cache
+F:\c# codes\basic\bin\Debug\net9.0\Basic.exe
+F:\c# codes\basic\bin\Debug\net9.0\Basic.deps.json
+F:\c# codes\basic\bin\Debug\net9.0\Basic.runtimeconfig.json
+F:\c# codes\basic\bin\Debug\net9.0\Basic.dll
+F:\c# codes\basic\bin\Debug\net9.0\Basic.pdb
+F:\c# codes\basic\obj\Debug\net9.0\Basic.dll
+F:\c# codes\basic\obj\Debug\net9.0\refint\Basic.dll
+F:\c# codes\basic\obj\Debug\net9.0\Basic.pdb
+F:\c# codes\basic\obj\Debug\net9.0\Basic.genruntimeconfig.cache
+F:\c# codes\basic\obj\Debug\net9.0\ref\Basic.dll
