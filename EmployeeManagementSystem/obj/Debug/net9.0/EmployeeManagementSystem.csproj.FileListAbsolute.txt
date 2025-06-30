@@ -1,0 +1,15 @@
+F:\c# codes\DotNet\EmployeeManagementSystem\bin\Debug\net9.0\EmployeeManagementSystem.exe
+F:\c# codes\DotNet\EmployeeManagementSystem\bin\Debug\net9.0\EmployeeManagementSystem.deps.json
+F:\c# codes\DotNet\EmployeeManagementSystem\bin\Debug\net9.0\EmployeeManagementSystem.runtimeconfig.json
+F:\c# codes\DotNet\EmployeeManagementSystem\bin\Debug\net9.0\EmployeeManagementSystem.dll
+F:\c# codes\DotNet\EmployeeManagementSystem\bin\Debug\net9.0\EmployeeManagementSystem.pdb
+F:\c# codes\DotNet\EmployeeManagementSystem\obj\Debug\net9.0\EmployeeManagementSystem.GeneratedMSBuildEditorConfig.editorconfig
+F:\c# codes\DotNet\EmployeeManagementSystem\obj\Debug\net9.0\EmployeeManagementSystem.AssemblyInfoInputs.cache
+F:\c# codes\DotNet\EmployeeManagementSystem\obj\Debug\net9.0\EmployeeManagementSystem.AssemblyInfo.cs
+F:\c# codes\DotNet\EmployeeManagementSystem\obj\Debug\net9.0\EmployeeManagementSystem.csproj.CoreCompileInputs.cache
+F:\c# codes\DotNet\EmployeeManagementSystem\obj\Debug\net9.0\EmployeeManagementSystem.sourcelink.json
+F:\c# codes\DotNet\EmployeeManagementSystem\obj\Debug\net9.0\EmployeeManagementSystem.dll
+F:\c# codes\DotNet\EmployeeManagementSystem\obj\Debug\net9.0\refint\EmployeeManagementSystem.dll
+F:\c# codes\DotNet\EmployeeManagementSystem\obj\Debug\net9.0\EmployeeManagementSystem.pdb
+F:\c# codes\DotNet\EmployeeManagementSystem\obj\Debug\net9.0\EmployeeManagementSystem.genruntimeconfig.cache
+F:\c# codes\DotNet\EmployeeManagementSystem\obj\Debug\net9.0\ref\EmployeeManagementSystem.dll
