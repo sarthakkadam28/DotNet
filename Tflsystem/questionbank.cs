@@ -9,6 +9,8 @@ namespace app
         {
             questions = new List<Question>(); //to store the list of the questions 
         }
+        
+
         public void InsertQuestion(Question thequestion)
         {
             if (thequestion != null)
@@ -19,14 +21,25 @@ namespace app
             else
             {
                 Console.WriteLine("Invalid question.");
-            } 
+            }
         }
-        public void UpdateQuestion(int questionId)
+        public void UpdateQuestion(string  title, Question thequestion)
         {
+
+            foreach (Question qt in questions)
+            {
+                if (qt.Title == title)
+                {
+                    qt.Option = thequestion.Option;
+                    
+                }
+                //
+            }
          
         }
         public void ShowQuestion(int questionId)
         {
+
             
         }
         public void RemoveQuestion(int questionId)

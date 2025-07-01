@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Tflsystem")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a456382b578bc83463f8f2b5e2706309cfab78f5")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8292c0892e0973026b11fc13e4b7dac93eb45d0f")]
 [assembly: System.Reflection.AssemblyProductAttribute("Tflsystem")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Tflsystem")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -3,16 +3,16 @@ namespace app
 {
     public class Question
     {
-        private string question;
+        private string title;
         private string option;
         private string answer;
         private string evalutioncriteria;
 
 
-        public string QuestionText
+        public string Title
         {
-            get { return question; }
-            set { question = value; }
+            get { return title; }
+            set { title = value; }
         }
         public string Option
         {
@@ -29,23 +29,25 @@ namespace app
             get { return evalutioncriteria; }
             set { evalutioncriteria = value; }
         }
-        public Question(string question, string option, string answer, string evalutioncriteria)
+
+
+        public Question(string title, string option, string answer, string evalutioncriteria)
         {
-            this.question = question;
+            this.title = title;
             this.option = option;
             this.answer = answer;
             this.evalutioncriteria = evalutioncriteria;
         }
         public void Display()
         {
-            Console.WriteLine("Question: "+ question);
+            Console.WriteLine("Question: "+ title);
             Console.WriteLine("Option: "+ option);
             Console.WriteLine("Answer: "+ answer);
             Console.WriteLine("Evaluation Criteria: "+evalutioncriteria);
         }
         public override string ToString()
         {
-            return "Question: {question}, Option: {option}, Answer: {answer}, Evaluation Criteria: {evalutioncriteria}";
+            return "Question: {title}, Option: {option}, Answer: {answer}, Evaluation Criteria: {evalutioncriteria}";
         }
 
     }
