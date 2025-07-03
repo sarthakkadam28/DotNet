@@ -3,8 +3,12 @@ namespace app
 {
     public class Question
     {
+
         private string title;
-        private string option;
+        private string optiona;
+        private string optionb;
+        private string optionc;
+        private string optiond;
         private string answer;
         private string evalutioncriteria;
 
@@ -14,10 +18,28 @@ namespace app
             get { return title; }
             set { title = value; }
         }
-        public string Option
+        public string Optiona
         {
-            get { return option; }
-            set { option = value; }
+            get { return optiona; }
+            set { optiona = value; }
+        }
+
+         public string Optionb
+        {
+            get { return optionb; }
+            set { optionb = value; }
+        }
+
+         public string Optionc
+        {
+            get { return optionc; }
+            set { optionc = value; }
+        }
+
+         public string Optiond
+        {
+            get { return optiond; }
+            set { optiond = value; }
         }
         public string Answer
         {
@@ -30,18 +52,28 @@ namespace app
             set { evalutioncriteria = value; }
         }
 
+        public Question()
+        {
 
-        public Question(string title, string option, string answer, string evalutioncriteria)
+        }
+
+        public Question(string title, string optiona,string optionb,string optionc,string optiond, string answer, string evalutioncriteria)
         {
             this.title = title;
-            this.option = option;
+            this.optiona = optiona;
+            this.optionb = optionb;
+            this.optionc = optionc;
+            this.optiond = optiond;
             this.answer = answer;
             this.evalutioncriteria = evalutioncriteria;
         }
         public void Display()
         {
             Console.WriteLine("Question: "+ title);
-            Console.WriteLine("Option: "+ option);
+            Console.WriteLine("Option a: "+ optiona);
+            Console.WriteLine("Option b: "+ optionb);
+            Console.WriteLine("Option c: "+ optionc);
+            Console.WriteLine("Option d: "+ optiond);
             Console.WriteLine("Answer: "+ answer);
             Console.WriteLine("Evaluation Criteria: "+evalutioncriteria);
         }

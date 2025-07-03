@@ -11,11 +11,12 @@ namespace app
         }
         
 
-        public void InsertQuestion(Question thequestion)
+       public void InsertQuestion(Question theQuestion)
         {
-            if (thequestion != null)
+
+            if (theQuestion != null)
             {
-                questions.Add(thequestion);
+                questions.Add(theQuestion);
                 Console.WriteLine("Question added");
             }
             else
@@ -23,46 +24,52 @@ namespace app
                 Console.WriteLine("Invalid question.");
             }
         }
+        
         public void UpdateQuestion(string  title, Question thequestion)
-        {
+         {
+             //This line starts a foreach loop that goes through each item (qt) in the list called questions.
+             // Each qt represents a Question object.
+             foreach (Question qt in questions)
+             {
+                 if (qt.Title == title)
+                 {
+                     qt.Title = thequestion.Title;
+                     qt.Optiona= thequestion.Optiona;
+                     qt.Optionb= thequestion.Optionb;
+                     qt.Optionc= thequestion.Optionc;
+                     qt.Optiond= thequestion.Optiond;
+                     qt.Answer = thequestion.Answer;
+                     qt.EvaluationCriteria = thequestion.EvaluationCriteria;
+                     Console.WriteLine("Question updated");
+                     return;
+                 }
 
-            foreach (Question qt in questions)
+             }
+
+         }
+        public void ShowQuestion()
+        {
+            foreach (Question q in questions)
             {
-                if (qt.Title == title)
+                    q.Display();
+            }
+
+        }
+       public void RemoveQuestion(string questionTitle)
+        {
+            List<Question> AllRemoveQuestions = new List<Question>();
+            foreach (var q in questions)
+            {
+                if (q.Title == questionTitle)
                 {
-                    qt.Title = thequestion.Title;
-                    qt.Option = thequestion.Option;
-                    qt.Answer = thequestion.Answer;
-                    qt.EvaluationCriteria = thequestion.EvaluationCriteria;
-                    Console.WriteLine("Question updated");
+                    questions.Remove(q);
+                    Console.WriteLine("Question removed");
                     return;
                 }
-                
             }
-         
+            // questions.Remove(questionTitle);
+            // Console.WriteLine("Question removed");
         }
-        public void ShowQuestion(int questionId)
-        {
-            if (questionId < 0 || questionId >= questions.Count)
-            {
-                Console.WriteLine("Invalid question ID.");
-                return;
-            }
-            Question qt = questions[questionId];
-            qt.Display();
-            
-        }
-        public void RemoveQuestion(int questionId)
-        {
-            
-            if (questionId < 0 || questionId >= questions.Count)
-            {
-                Console.WriteLine("Invalid question ID.");
-                return;
-            }
-            questions.RemoveAt(questionId);
-            Console.WriteLine("Question removed");
-        }
-
+    
     }
 }

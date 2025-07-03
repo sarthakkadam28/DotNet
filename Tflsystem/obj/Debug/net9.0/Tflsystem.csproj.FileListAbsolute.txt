@@ -1,0 +1,15 @@
+F:\c# codes\DotNet\Tflsystem\bin\Debug\net9.0\Tflsystem.exe
+F:\c# codes\DotNet\Tflsystem\bin\Debug\net9.0\Tflsystem.deps.json
+F:\c# codes\DotNet\Tflsystem\bin\Debug\net9.0\Tflsystem.runtimeconfig.json
+F:\c# codes\DotNet\Tflsystem\bin\Debug\net9.0\Tflsystem.dll
+F:\c# codes\DotNet\Tflsystem\bin\Debug\net9.0\Tflsystem.pdb
+F:\c# codes\DotNet\Tflsystem\obj\Debug\net9.0\Tflsystem.GeneratedMSBuildEditorConfig.editorconfig
+F:\c# codes\DotNet\Tflsystem\obj\Debug\net9.0\Tflsystem.AssemblyInfoInputs.cache
+F:\c# codes\DotNet\Tflsystem\obj\Debug\net9.0\Tflsystem.AssemblyInfo.cs
+F:\c# codes\DotNet\Tflsystem\obj\Debug\net9.0\Tflsystem.csproj.CoreCompileInputs.cache
+F:\c# codes\DotNet\Tflsystem\obj\Debug\net9.0\Tflsystem.sourcelink.json
+F:\c# codes\DotNet\Tflsystem\obj\Debug\net9.0\Tflsystem.dll
+F:\c# codes\DotNet\Tflsystem\obj\Debug\net9.0\refint\Tflsystem.dll
+F:\c# codes\DotNet\Tflsystem\obj\Debug\net9.0\Tflsystem.pdb
+F:\c# codes\DotNet\Tflsystem\obj\Debug\net9.0\Tflsystem.genruntimeconfig.cache
+F:\c# codes\DotNet\Tflsystem\obj\Debug\net9.0\ref\Tflsystem.dll
