@@ -92,7 +92,7 @@ do
 
                 Console.WriteLine("Enter question title to remove");
                 string questionTitle = Console.ReadLine();
-
+                Console.WriteLine("Name " + questionTitle);
                 questionbank.RemoveQuestion(questionTitle);
             }
             break;

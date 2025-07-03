@@ -55,20 +55,27 @@ namespace app
             }
 
         }
-       public void RemoveQuestion(string questionTitle)
+        public void RemoveQuestion(string questionTitle)
         {
-            List<Question> AllRemoveQuestions = new List<Question>();
-            foreach (var q in questions)
+            // foreach (Question q in questions)
+            // {
+            //     if (q.Title == questionTitle)
+            //     {
+            //         questions.Remove(q);
+            //         Console.WriteLine("Question removed");
+            //         return;
+            //     }
+            // }
+
+            for (int i = questions.Count - 1; i >= 0; i--) // count -1 ; i>=0 ;
             {
-                if (q.Title == questionTitle)
+                if (questions[i].Title.Equals(questionTitle))
                 {
-                    questions.Remove(q);
-                    Console.WriteLine("Question removed");
-                    return;
+                    // questions.Remove(questions[i]);
+                    questions.RemoveAt(i);
                 }
             }
-            // questions.Remove(questionTitle);
-            // Console.WriteLine("Question removed");
+
         }
     
     }
