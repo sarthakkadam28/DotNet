@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "F:\\c# codes\\DotNet\\Tflsystem\\Tflsystem.csproj": {}
+    "D:\\c# codes\\DotNet\\Tflsystem\\Tflsystem.csproj": {}
   },
   "projects": {
-    "F:\\c# codes\\DotNet\\Tflsystem\\Tflsystem.csproj": {
+    "D:\\c# codes\\DotNet\\Tflsystem\\Tflsystem.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\c# codes\\DotNet\\Tflsystem\\Tflsystem.csproj",
+        "projectUniqueName": "D:\\c# codes\\DotNet\\Tflsystem\\Tflsystem.csproj",
         "projectName": "Tflsystem",
-        "projectPath": "F:\\c# codes\\DotNet\\Tflsystem\\Tflsystem.csproj",
+        "projectPath": "D:\\c# codes\\DotNet\\Tflsystem\\Tflsystem.csproj",
         "packagesPath": "C:\\Users\\SARTHAK\\.nuget\\packages\\",
-        "outputPath": "F:\\c# codes\\DotNet\\Tflsystem\\obj\\",
+        "outputPath": "D:\\c# codes\\DotNet\\Tflsystem\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
