@@ -1,5 +1,5 @@
 using System;
-namespace testerapp
+namespace Catlog
 {
     public class Product
     {

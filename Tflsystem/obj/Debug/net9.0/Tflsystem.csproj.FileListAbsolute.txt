@@ -13,6 +13,7 @@ F:\c# codes\DotNet\Tflsystem\obj\Debug\net9.0\refint\Tflsystem.dll
 F:\c# codes\DotNet\Tflsystem\obj\Debug\net9.0\Tflsystem.pdb
 F:\c# codes\DotNet\Tflsystem\obj\Debug\net9.0\Tflsystem.genruntimeconfig.cache
 F:\c# codes\DotNet\Tflsystem\obj\Debug\net9.0\ref\Tflsystem.dll
+<<<<<<< HEAD
 D:\c# codes\DotNet\Tflsystem\obj\Debug\net9.0\Tflsystem.GeneratedMSBuildEditorConfig.editorconfig
 D:\c# codes\DotNet\Tflsystem\obj\Debug\net9.0\Tflsystem.AssemblyInfoInputs.cache
 D:\c# codes\DotNet\Tflsystem\obj\Debug\net9.0\Tflsystem.AssemblyInfo.cs
@@ -28,3 +29,5 @@ D:\c# codes\DotNet\Tflsystem\bin\Debug\net9.0\Tflsystem.dll
 D:\c# codes\DotNet\Tflsystem\bin\Debug\net9.0\Tflsystem.pdb
 D:\c# codes\DotNet\Tflsystem\obj\Debug\net9.0\Tflsystem.genruntimeconfig.cache
 D:\c# codes\DotNet\Tflsystem\obj\Debug\net9.0\ref\Tflsystem.dll
+=======
+>>>>>>> 45903c04245ad4650b61d6919157ca0e45bf7d5f
