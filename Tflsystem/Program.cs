@@ -110,4 +110,52 @@ do
 
 } while (true);
 
+    List<Question> questions = new List<Question>();
+
+        Console.WriteLine("How many questions do you want to enter? ");
+        int count = int.Parse(Console.ReadLine());
+
+        for (int i=0; i < count; i++)
+        {
+            Console.WriteLine($" Enter details for Question {i + 1} ---");
+
+            Question q = new Question();
+
+            Console.Write("Title: ");
+            q.Title = Console.ReadLine();
+
+            Console.Write("Option A: ");
+            q.Optiona = Console.ReadLine();
+
+            Console.Write("Option B: ");
+            q.Optionb = Console.ReadLine();
+
+            Console.Write("Option C: ");
+            q.Optionc = Console.ReadLine();
+
+            Console.Write("Option D: ");
+            q.Optiond = Console.ReadLine();
+
+            Console.Write("Correct Answer: ");
+            q.Answer = Console.ReadLine();
+
+            Console.Write("Evaluation Criteria: ");
+            q.EvaluationCriteria = Console.ReadLine();
+
+            questions.Add(q);
+        }
+
+        Console.WriteLine("\nEnter filename to save: ");
+        string fileName = Console.ReadLine();
+
+        DbManger db = new DbManger(fileName, questions);
+        db.SaveData();
+    
+    
+
+
+
+
+
+
 

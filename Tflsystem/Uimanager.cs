@@ -1,4 +1,4 @@
-/*
+
 using System;
 namespace app
 {
@@ -65,7 +65,7 @@ namespace app
 
                     case 3:
                         {
-                            questionbank.ShowQuestion(questionTitle)
+                            questionbank.ShowQuestion(questionTitle);
 
 
                         }
@@ -73,13 +73,13 @@ namespace app
 
                     case 4:
                         {
-                            RemoveQuestion
+                            RemoveQuestion();
                         }
                         break;
 
                     case 5:
                         {
-                             Exit
+                            Exit();
                         }
                         break;
 
@@ -94,4 +94,3 @@ namespace app
         }
     }
 }
-*/
