@@ -1,22 +1,27 @@
 
 using System.Collections.Generic;
+using System.Threading.Tasks.Dataflow;
+using Assesment.Entities;
 namespace app
 {
     public class QuestionBank
     {
-       private List<Question> questions;  //
+       public  List<Question> questions;  //same type of datatype stored in the questions
 
         public QuestionBank()
         {
             questions = new List<Question>(); //to store the list of the questions 
         }
-        
 
+        //  Apan main madhe jevha Question queation1=New Question();object banvto tevha jo data asel to 
+        // to theQuestion madhe yeto 
        public void InsertQuestion(Question theQuestion)
         {
-
+            //nanter to object gheun apan pudhe use karto
             if (theQuestion != null)
             {
+                // jo kahi data asel for exam-title,option,answer,evalutioncriteria to thequestion madhe yeil
+                // to aplyla list of questions madhe add karychaa ahe
                 questions.Add(theQuestion);
                 Console.WriteLine("Question added");
             }

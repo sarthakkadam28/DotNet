@@ -1,4 +1,4 @@
-
+using Assesment.Entities;
 using System;
 namespace app
 {
@@ -26,13 +26,13 @@ namespace app
                         {
                             Question thequestion = new Question();
 
-                            Console.WriteLine("Enter question Title: ");
+
                             // take input question to end user
                             Console.WriteLine("enter title");
                             thequestion.Title = Console.ReadLine();
                             // Console.WriteLine(thequestion.Title);
                             Console.WriteLine("Enter Option A: ");
-                            thequestion.Option = Console.ReadLine();
+                            thequestion.Optiona = Console.ReadLine();
                             Console.WriteLine("Enter Answer A: ");
                             thequestion.Answer = Console.ReadLine();
                             Console.WriteLine("Enter evalutioncriteria : ");
@@ -40,6 +40,7 @@ namespace app
                             // 
                             // call insert question menthod and pass new question
                             questionbank.InsertQuestion(thequestion);
+                            
                         }
                         break;
 
@@ -53,7 +54,7 @@ namespace app
                             Console.WriteLine("Enter new question Title: ");
                             thequestion.Title = Console.ReadLine();
                             Console.WriteLine("Enter new Option A: ");
-                            thequestion.Option = Console.ReadLine();
+                            thequestion.Optiona = Console.ReadLine();
                             Console.WriteLine("Enter new Answer A: ");
                             thequestion.Answer = Console.ReadLine();
                             Console.WriteLine("Enter new evalutioncriteria : ");
@@ -65,7 +66,7 @@ namespace app
 
                     case 3:
                         {
-                            questionbank.ShowQuestion(questionTitle);
+                            questionbank.ShowQuestion();
 
 
                         }
@@ -73,16 +74,12 @@ namespace app
 
                     case 4:
                         {
-                            RemoveQuestion();
+                            Console.WriteLine("Enter question of title");
+                            string questionTitle = Console.ReadLine();
+                            questionbank.RemoveQuestion( questionTitle);
                         }
-                        break;
 
-                    case 5:
-                        {
-                            Exit();
-                        }
                         break;
-
                     default:
                         {
                             Console.WriteLine("Invalid choice, please try again.");
