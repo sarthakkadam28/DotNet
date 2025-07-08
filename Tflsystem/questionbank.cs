@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks.Dataflow;
 using Assesment.Entities;
-namespace app
+namespace Persistance
 {
     public class QuestionBank
     {
@@ -53,31 +53,14 @@ namespace app
              }
 
          }
-        public void ShowQuestion()
+        public List<Question> GetAllQuestions()
         {
-            foreach (Question q in questions)
-            {
-                    q.Display();
-            }
-
+            return questions; //returning the list of questions
         }
         public void RemoveQuestion(string questionTitle)
         {
             List<Question> AllRemoveQuestions = new List<Question>();
-            // foreach (var q in questions)
-            // {
-            //     if (q.Title == questionTitle)
-            //     {
-            //         questions.Remove(q);
-            //         Console.WriteLine("Question removed");
-            //         return;
-            //     }
-            // }
-            //Unhandled exception. System.ArgumentOutOfRangeException: Index was out of range.
-            //Must be non-negative and less than the size of the collection. (Parameter 'index')
-            //jr i++ kela tr index match hota nahi tymula error yete 
-
-            for (int i = questions.Count - 1; i >= 0; i--)
+             for (int i = questions.Count - 1; i >= 0; i--)
             {
                 if (questions[i].Title == questionTitle)//list madhaly prateyk question cha title check karycha ahe tysathi 
                 // array of i title sathi karun te enduser ttle la match hota ka nahi pahat ahe  
@@ -89,6 +72,19 @@ namespace app
 
             }
 
+            
+               // foreach (var q in questions)
+            // {
+            //     if (q.Title == questionTitle)
+            //     {
+            //         questions.Remove(q);
+            //         Console.WriteLine("Question removed");
+            //         return;
+            //     }
+            // }
+            //Unhandled exception. System.ArgumentOutOfRangeException: Index was out of range.
+            //Must be non-negative and less than the size of the collection. (Parameter 'index')
+            //jr i++ kela tr index match hota nahi tymula error yete 
 
             // questions.Remove(questionTitle);
             // Console.WriteLine("Question removed");

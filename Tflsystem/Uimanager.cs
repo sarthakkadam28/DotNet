@@ -1,93 +1,62 @@
 using Assesment.Entities;
 using System;
-namespace app
+namespace Persistance
 {
     public class Uimanger
     {
 
         public void showMenu()
         {
+
+            Console.WriteLine(" ____Main Menu____");
+            Console.WriteLine("1. Add Question");
+            Console.WriteLine("2. Edit Question");
+            Console.WriteLine("3. Show Question");
+            Console.WriteLine("4. Remove Question");
+            Console.WriteLine("5. Exit");
+        }
+        public int GetChoice()
+        {
             int choice;
-            do
+            Console.WriteLine("Enter your choice: ");
+            choice = int.Parse(Console.ReadLine());
+            return choice;
+        }
+
+        public Question GetQuestion()
+        {
+            Question thequestion = new Question();
+
+            Console.WriteLine("Enter title: ");
+            thequestion.Title = Console.ReadLine();
+            Console.WriteLine("Enter Option A: ");
+            thequestion.Optiona = Console.ReadLine();
+            Console.WriteLine("Enter Option B: ");
+            thequestion.Optionb = Console.ReadLine();
+            Console.WriteLine("Enter Option C: ");
+            thequestion.Optionc = Console.ReadLine();
+            Console.WriteLine("Enter Option D: ");
+            thequestion.Optiond = Console.ReadLine();
+            Console.WriteLine("Enter Answer: ");
+            thequestion.Answer = Console.ReadLine();
+            Console.WriteLine("Enter Evaluation Criteria: ");
+            thequestion.EvaluationCriteria = Console.ReadLine();
+            return thequestion;
+
+        }
+
+        public void ShowQuestions(List<Question> questions)
+        {
+            if (questions.Count == 0)
             {
-                Console.WriteLine(" ____Main Menu____");
-                Console.WriteLine("1. Add Question");
-                Console.WriteLine("2. Edit Question");
-                Console.WriteLine("3. Show Question");
-                Console.WriteLine("4. Remove Question");
-                Console.WriteLine("5. Exit");
+                Console.WriteLine("No questions available.");
+                return;
+            }
 
-                Console.WriteLine("Enter your choice: ");
-                choice = int.Parse(Console.ReadLine());
-                QuestionBank questionbank = new QuestionBank();
-                switch (choice)
-                {
-                    case 1:
-                        {
-                            Question thequestion = new Question();
-
-
-                            // take input question to end user
-                            Console.WriteLine("enter title");
-                            thequestion.Title = Console.ReadLine();
-                            // Console.WriteLine(thequestion.Title);
-                            Console.WriteLine("Enter Option A: ");
-                            thequestion.Optiona = Console.ReadLine();
-                            Console.WriteLine("Enter Answer A: ");
-                            thequestion.Answer = Console.ReadLine();
-                            Console.WriteLine("Enter evalutioncriteria : ");
-                            thequestion.EvaluationCriteria = Console.ReadLine();
-                            // 
-                            // call insert question menthod and pass new question
-                            questionbank.InsertQuestion(thequestion);
-                            
-                        }
-                        break;
-
-                    case 2:
-                        {
-
-                            Console.WriteLine("Enter question title to update");
-                            string title = Console.ReadLine();
-                            Question thequestion = new Question();
-
-                            Console.WriteLine("Enter new question Title: ");
-                            thequestion.Title = Console.ReadLine();
-                            Console.WriteLine("Enter new Option A: ");
-                            thequestion.Optiona = Console.ReadLine();
-                            Console.WriteLine("Enter new Answer A: ");
-                            thequestion.Answer = Console.ReadLine();
-                            Console.WriteLine("Enter new evalutioncriteria : ");
-                            thequestion.EvaluationCriteria = Console.ReadLine();
-
-                            questionbank.UpdateQuestion(title, thequestion);
-                        }
-                        break;
-
-                    case 3:
-                        {
-                            questionbank.ShowQuestion();
-
-
-                        }
-                        break;
-
-                    case 4:
-                        {
-                            Console.WriteLine("Enter question of title");
-                            string questionTitle = Console.ReadLine();
-                            questionbank.RemoveQuestion( questionTitle);
-                        }
-
-                        break;
-                    default:
-                        {
-                            Console.WriteLine("Invalid choice, please try again.");
-                        }
-                        break;
-                }
-            } while (choice != 5);  
-        
+            foreach (Question q in questions)
+            {
+                q.Display();
+            }
         }
     }
 }

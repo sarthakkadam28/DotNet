@@ -11,15 +11,7 @@ namespace Persistance
 
     public class DbManger
     {
-        private readonly string fileName;
-        private readonly List<Question> questions;
-
-        public DbManger(string fileName, List<Question> questions)
-        {
-            this.fileName = fileName;
-            this.questions = questions;
-        }
-
+       
         
     }
 
