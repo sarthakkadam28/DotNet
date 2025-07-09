@@ -17,7 +17,7 @@ namespace SchoolApp
         {
             Student s = new Student();
             Console.WriteLine("Enter student ID");
-            s.Id =  int.Parse(Console.ReadLine());
+            s.Id = int.Parse(Console.ReadLine());
             Console.WriteLine("enter student name:");
             s.Name = Console.ReadLine();
             Console.WriteLine("Enter the age ");
@@ -27,27 +27,52 @@ namespace SchoolApp
 
         }
 
-        
-        /*
-        
+
+
+
         public void EditStudent()
-        
         {
-        foreach (Student student in students)
-        {
+            Console.WriteLine("Enter the student ID to edit:");
+            int id = int.Parse(Console.ReadLine());
+            foreach (Student student in students)
+            {
                 if (student.Id == id)
                 {
-                    student.Name = stud.Title;
-                    student.Age = stud.Age;
-                    student.Department = stud.Department;
+                    Console.WriteLine("Enter new name:");
+                    student.Name = Console.ReadLine();
+                    Console.WriteLine("Enter new age:");
+                    student.Age = int.Parse(Console.ReadLine());
+                    Console.WriteLine("Enter new department:");
+                    student.Department = Console.ReadLine();
+                    Console.WriteLine("Student details updated.");
+                    return;
+                }
             }
         }
-        }*/
         public void DeleteStudent()
         {
+            Console.WriteLine("Enter the student ID to delete:");
+            int id = int.Parse(Console.ReadLine());
+            foreach (Student student in students)
+            {
+                if (student.Id == id)
+                {
+                    students.Remove(student);
+                    Console.WriteLine("Student ID deleted");
+                    return;
+                }
+            }
+            Console.WriteLine("Student ID not found.");
         }
+
+
+
         public void ViewStudent()
         {
+            foreach (Student student in students)
+            {
+                student.Display();
+            }
         }
     }
 

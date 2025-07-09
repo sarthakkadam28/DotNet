@@ -12,16 +12,13 @@ namespace SchoolApp
         public string Department { get; set; }
 
         public Student() {
-            Id = 0;
-            Name = "";
-            Age = 0;
-            Department = "";
+           
         }
-        public Student(int id, string name, int age, string Department){
+        public Student(int id, string name, int age, string department){
             Id = id;
             Name = name;
             Age = age;
-            Department = Department;
+            Department = department;
         }
         public void Display()
         {
@@ -29,7 +26,6 @@ namespace SchoolApp
             Console.WriteLine("Name:" + Name);
             Console.WriteLine("Age:" + Age);
             Console.WriteLine("Department:" + Department);
-
         }
     }
     
