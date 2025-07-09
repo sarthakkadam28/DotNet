@@ -1,3 +1,4 @@
+
 using System;
 namespace SchoolApp
 {
@@ -37,7 +38,18 @@ namespace SchoolApp
         }
         public void ShowStudent(Student student)
         {
-            
+         if (student != null)
+            {
+                Console.WriteLine("Student Details:");
+                Console.WriteLine("Id: " + student.Id);
+                Console.WriteLine("Name: " + student.Name);
+                Console.WriteLine("Age: " + student.Age);
+                Console.WriteLine("Department: " + student.Department);
+            }
+            else
+            {
+                Console.WriteLine("No student found.");
+            }
         }
 
     }
