@@ -1,13 +1,8 @@
 
 using System;
 using System.Text.Json;
-
-
 using Assesment.Entities;
-
-
 namespace Persistance;
-
 public class JsonFileManager
 {
 

@@ -13,15 +13,13 @@ namespace Persistance
             questions = new List<Question>(); //to store the list of the questions 
         }
 
-        //  Apan main madhe jevha Question queation1=New Question();object banvto tevha jo data asel to 
-        // to theQuestion madhe yeto 
+        
        public void InsertQuestion(Question theQuestion)
         {
-            //nanter to object gheun apan pudhe use karto
+           
             if (theQuestion != null)
             {
-                // jo kahi data asel for exam-title,option,answer,evalutioncriteria to thequestion madhe yeil
-                // to aplyla list of questions madhe add karychaa ahe
+               
                 questions.Add(theQuestion);
                 Console.WriteLine("Question added");
             }
@@ -33,8 +31,7 @@ namespace Persistance
         
         public void UpdateQuestion(string  title, Question thequestion)
          {
-             //This line starts a foreach loop that goes through each item (qt) in the list called questions.
-             // Each qt represents a Question object.
+             
              foreach (Question qt in questions)
              {
                  if (qt.Title == title)
@@ -62,8 +59,7 @@ namespace Persistance
             List<Question> AllRemoveQuestions = new List<Question>();
              for (int i = questions.Count - 1; i >= 0; i--)
             {
-                if (questions[i].Title == questionTitle)//list madhaly prateyk question cha title check karycha ahe tysathi 
-                // array of i title sathi karun te enduser ttle la match hota ka nahi pahat ahe  
+                if (questions[i].Title == questionTitle)  
                 {
                     questions.Remove(questions[i]);
                     Console.WriteLine("question removed");
