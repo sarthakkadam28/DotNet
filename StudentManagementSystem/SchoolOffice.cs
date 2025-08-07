@@ -26,7 +26,18 @@ namespace SchoolApp
             s.Department = Console.ReadLine();
 
         }
-
+        public Student SearchStudent(int id)
+        {
+            foreach (Student student in students)
+            {
+                if (student.Id == id)
+                {
+                    return student;
+                }
+            }
+            Console.WriteLine("Student not found.");
+            return null;
+        }
 
 
 
@@ -64,9 +75,6 @@ namespace SchoolApp
             }
             Console.WriteLine("Student ID not found.");
         }
-
-
-
         public void ViewStudent()
         {
             foreach (Student student in students)

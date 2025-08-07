@@ -21,36 +21,33 @@ namespace SchoolApp
             choice = int.Parse(Console.ReadLine());
             return choice;
         }
-        public Student GetStudent()
+        public Student AddStudent(Student student)
         {
-            Student thestudent = new Student();
-            Console.WriteLine("Enter student Id:");
-            // error-Cannot implicitly convert type 'string' to 'int'
-            // if you want to convert a string to an int, use int.Parse() or int.TryParse()
-            thestudent.Id = int.Parse(Console.ReadLine());
-            Console.WriteLine(" Enter  Name:");
-            thestudent.Name = Console.ReadLine();
-            Console.WriteLine("Enter Age");
-            thestudent.Age = int.Parse(Console.ReadLine());
-            Console.WriteLine("Enter Department :");
-            thestudent.Department = Console.ReadLine();
-            return thestudent;
-        }
-        public void ShowStudent(Student student)
-        {
-         if (student != null)
-            {
-                Console.WriteLine("Student Details:");
-                Console.WriteLine("Id: " + student.Id);
-                Console.WriteLine("Name: " + student.Name);
-                Console.WriteLine("Age: " + student.Age);
-                Console.WriteLine("Department: " + student.Department);
-            }
-            else
-            {
-                Console.WriteLine("No student found.");
-            }
-        }
 
+            SchoolOffice office = new SchoolOffice();
+            office.AddStudent(student);
+            return student;
+        }
+        public void SearchStudent(int id)
+        {
+            SchoolOffice office = new SchoolOffice();
+            Student student = office.SearchStudent(id);
+
+        }
+        public void EditStudent()
+        {
+            SchoolOffice office = new SchoolOffice();
+            office.EditStudent();
+        }
+        public void DeleteStudent(int id)
+        {
+            SchoolOffice office = new SchoolOffice();
+            office.DeleteStudent();
+        }
+        public void ViewStudent()
+        {
+            SchoolOffice office = new SchoolOffice();
+            office.ViewStudent();
+        }
     }
 }
