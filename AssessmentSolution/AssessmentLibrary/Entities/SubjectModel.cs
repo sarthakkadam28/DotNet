@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AssessmentLibrary.Entities
 {
-    internal class Question
+    internal class SubjectModel
     {
     }
 }
