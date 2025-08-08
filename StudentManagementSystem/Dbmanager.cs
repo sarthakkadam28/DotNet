@@ -1,44 +1,133 @@
 using MySql.Data.MySqlClient;
 using System;
 using System.Data;
-
-
-class directconnectivity {
-    
-    static void Main()
-    {   
-        string connectionString = "Server=localhost;Port=3306;Database=sample;User=root;Password=password;";
-        MySqlConnection connection = new MySqlConnection(connectionString);
-        try
+using Mysql.data;
+namespace SchoolApp
+{
+    public class Dbmanager
+    {
+        private string connectionString = "Server=localhost;Port=3306;Database=school;User=root;Password=password;";
+        using (MySqlConnection connection = new MySqlConnection(connectionString));
+        public void AddStudent(Student student)
         {
-            connection.Open();
-            Console.WriteLine("Connected to MySQL!");
-            string createTableSql = "CREATE TABLE IF NOT EXISTS users(" +
-                                    "id INT AUTO_INCREMENT PRIMARY KEY," +
-                                     "name VARCHAR(255) NOT NULL," +
-                                     "email VARCHAR(255) NOT NULL)";
-
-            using (MySqlCommand createTableCmd = new MySqlCommand(createTableSql, connection))
+                {
+                    connection.Open();
+                    string query = "INSERT INTO students (Id, Name, Age, Department) VALUES (@Id, @Name, @Age, @Department)";
+                    using (MySqlCommand command = new MySqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@Id", student.Id);
+                        command.Parameters.AddWithValue("@Name", student.Name);
+                        command.Parameters.AddWithValue("@Age", student.Age);
+                        command.Parameters.AddWithValue("@Department", student.Department);
+                        command.ExecuteNonQuery();
+                    }
+                }
+            
+            catch (Exception ex)
             {
-                createTableCmd.ExecuteNonQuery();
+                Console.WriteLine($"Error: {ex.Message}");
             }
-            string insertSql = "INSERT INTO users (name, email) VALUES (@name, @email)";
-            using (MySqlCommand insertCommand = new MySqlCommand(insertSql, connection))
-            {
-                insertCommand.Parameters.AddWithValue("@name", "Shital Patil");
-                insertCommand.Parameters.AddWithValue("@email", "shital@tfl.com");
-
-                int rowsAffected = insertCommand.ExecuteNonQuery();
-                Console.WriteLine($"Inserted {rowsAffected} row(s) into the users table.");
+            finally{
+                connection.Close();
             }
         }
-        catch (Exception ex)
+
+        public Student GetStudent(int id)
         {
-            Console.WriteLine($"Error: {ex.Message}");
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                connection.Open();
+                string query = "SELECT * FROM students WHERE Id = @Id";
+                using (MySqlCommand command = new MySqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@Id", id);
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            return new Student
+                            {
+                                Id = reader.GetInt32("Id"),
+                                Name = reader.GetString("Name"),
+                                Age = reader.GetInt32("Age"),
+                                Department = reader.GetString("Department")
+                            };
+                        }
+                    }
+                }
+            }
+            return null;
         }
-        finally
+
+        public void DeleteStudent(int id)
         {
-            connection.Close();
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                connection.Open();
+                string query = "DELETE FROM students WHERE Id = @Id";
+                using (MySqlCommand command = new MySqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@Id", id);
+                    command.ExecuteNonQuery();
+                }
+            }
+        }
+
+        public void UpdateStudent(Student student)
+        {
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                connection.Open();
+                string query = "UPDATE students SET Name = @Name, Age = @Age, Department = @Department WHERE Id = @Id";
+                using (MySqlCommand command = new MySqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@Id", student.Id);
+                    command.Parameters.AddWithValue("@Name", student.Name);
+                    command.Parameters.AddWithValue("@Age", student.Age);
+                    command.Parameters.AddWithValue("@Department", student.Department);
+                    command.ExecuteNonQuery();
+                }
+            }
         }
     }
-} 
+
+}
+// class directconnectivity {
+
+//             static void Main()
+//             {
+//                 string connectionString = "Server=localhost;Port=3306;Database=sample;User=root;Password=password;";
+//                 MySqlConnection connection = new MySqlConnection(connectionString);
+//                 try
+//                 {
+//                     connection.Open();
+//                     Console.WriteLine("Connected to MySQL!");
+//                     string createTableSql = "CREATE TABLE IF NOT EXISTS users(" +
+//                                             "id INT AUTO_INCREMENT PRIMARY KEY," +
+//                                              "name VARCHAR(255) NOT NULL," +
+//                                              "email VARCHAR(255) NOT NULL)";
+
+//                     using (MySqlCommand createTableCmd = new MySqlCommand(createTableSql, connection))
+//                     {
+//                         createTableCmd.ExecuteNonQuery();
+//                     }
+//                     string insertSql = "INSERT INTO users (name, email) VALUES (@name, @email)";
+//                     using (MySqlCommand insertCommand = new MySqlCommand(insertSql, connection))
+//                     {
+//                         insertCommand.Parameters.AddWithValue("@name", "Shital Patil");
+//                         insertCommand.Parameters.AddWithValue("@email", "shital@tfl.com");
+
+//                         int rowsAffected = insertCommand.ExecuteNonQuery();
+//                         Console.WriteLine($"Inserted {rowsAffected} row(s) into the users table.");
+//                     }
+//                 }
+//                 catch (Exception ex)
+//                 {
+//                     Console.WriteLine($"Error: {ex.Message}");
+//                 }
+//                 finally
+//                 {
+//                     connection.Close();
+//                 }
+//             }
+//         } 
