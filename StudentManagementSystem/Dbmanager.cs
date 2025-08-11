@@ -1,15 +1,16 @@
 using MySql.Data.MySqlClient;
 using System;
 using System.Data;
-using Mysql.data;
 namespace SchoolApp
 {
     public class Dbmanager
     {
-        private string connectionString = "Server=localhost;Port=3306;Database=school;User=root;Password=password;";
-        using (MySqlConnection connection = new MySqlConnection(connectionString));
+        string connectionString = "Server=localhost;Port=3306;Database=school;User=root;Password=password";
         public void AddStudent(Student student)
         {
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                try
                 {
                     connection.Open();
                     string query = "INSERT INTO students (Id, Name, Age, Department) VALUES (@Id, @Name, @Age, @Department)";
@@ -22,20 +23,18 @@ namespace SchoolApp
                         command.ExecuteNonQuery();
                     }
                 }
-            
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Error: {ex.Message}");
-            }
-            finally{
-                connection.Close();
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Error: {ex.Message}");
+                }
             }
         }
 
-        public Student GetStudent(int id)
+        public Student SearchStudent(int id)
         {
             using (MySqlConnection connection = new MySqlConnection(connectionString))
             {
+
                 connection.Open();
                 string query = "SELECT * FROM students WHERE Id = @Id";
                 using (MySqlCommand command = new MySqlCommand(query, connection))
@@ -89,8 +88,26 @@ namespace SchoolApp
                 }
             }
         }
-    }
+         public void ViewStudents()
+        {
+             using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+            connection.Open();
+            string query = "SELECT * FROM students";
+                using (MySqlCommand command = new MySqlCommand(query, connection))
+                {
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                        Console.WriteLine($"Id: {reader.GetInt32("Id")}, Name: {reader.GetString("Name")}, Age: {reader.GetInt32("Age")}, Department: {reader.GetString("Department")}");
+                        }
+                    }
+                }
 
+            }
+        }
+    }
 }
 // class directconnectivity {
 
