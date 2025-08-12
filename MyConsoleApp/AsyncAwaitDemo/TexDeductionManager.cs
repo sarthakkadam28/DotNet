@@ -19,6 +19,18 @@ namespace MYCONSOLEAPP
                 {
                      Id = 2, Name = "Smartphone", Price = 30000
                 }
+                ,
+                {
+                     Id = 3, Name = "Tablet", Price = 20000
+                }
+                ,
+                {
+                     Id = 4, Name = "Smartwatch", Price = 15000
+                }
+                ,
+                {
+                     Id = 5, Name = "Headphones", Price = 5000
+                }
             };
            return products;
         }

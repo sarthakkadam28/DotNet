@@ -16,3 +16,10 @@ foreach (var product in products)
 {
     console.WriteLine($"Id: {product.Id}, Name: {product.Name}, Price: {product.Price}");
 }
+decimal salesTax = TaxDeductionManager.CalculateSalesTax(10000);
+console.WriteLine($"Sales Tax: {salesTax}");
+decimal propertyTax = TaxDeductionManager.CalculatePropertyTax(500000);
+console.WriteLine($"Property Tax: {propertyTax}");
+Console.WriteLine("Press any key to exit");
+Console.ReadKey();
+
