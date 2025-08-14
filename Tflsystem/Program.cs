@@ -25,6 +25,7 @@ do
                 mg.Serialize(questionbank.questions, fileName);
             }
             break;
+
         case 2:
             {
                 string fileName = "questions.json";
@@ -35,7 +36,7 @@ do
                 Console.WriteLine("Enter question to update based on Title");
                 Question thequestion = u.GetQuestion();
                 questionbank.UpdateQuestion(thequestion.Title, thequestion);
-                mg.Serialize(questionbank.questions, fileName);
+                mg.Serialize(questionbank.questions, fileName); 
                 Console.WriteLine("Question updated successfully.");
             }
             break;
@@ -74,8 +75,21 @@ do
             }
             break;
     }
-} while (choice != 5);  
+} while (choice != 5);
 
+public class JsonFileManager
+{
+    public JsonFileManager()
+    {
+    }
 
+    public List<Question> DeSerialize(string fileName)
+    {
+        throw new NotImplementedException();
+    }
 
- 
+    public void Serialize(List<Question> questions, string fileName)
+    {
+        throw new NotImplementedException();
+    }
+}
