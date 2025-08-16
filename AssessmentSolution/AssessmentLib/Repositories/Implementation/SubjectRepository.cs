@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
 using System.Runtime.InteropServices;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -23,11 +24,11 @@ namespace AssessmentLib.Repositories.Implementation
             SqlMapper.AddTypeHandler(new SqlTimeOnlyTypeHandler());
         }
 
-        public async Task<List<SubjectModel>> GetAllSubject()
+        public Task<List<SubjectModel>> GetAllSubject()
         {
             List<SubjectModel> subjects = new List<SubjectModel>();
             string query = @"SELECT * FROM Subjects";
-           
+
             MySqlConnection conection = new MySqlConnection(ConnectionString);
             MySqlCommand commmand = new MySqlCommand(query, Connection);
 
@@ -44,9 +45,9 @@ namespace AssessmentLib.Repositories.Implementation
                     subject.Id = id;
                     subject.Title = title;
                     subjects.Add(subject);
-            
+
                 }
-                await reader.CloseAsync();
+                reader.CloseAsync();
 
 
             }
@@ -56,47 +57,84 @@ namespace AssessmentLib.Repositories.Implementation
             }
             finally
             {
-              await conection.closeAsync();
+                conection.close();
             }
-            return 
+            return Subjects;
 
         }
 
         public async Task<int> AddSubject(SubjectModel subject)
         {
-         
-            
+            string query = "INSERT INTO subjects(title)VALUES(@Title)";
+            MySqlConnection connection = new MySqlConnection(connectionString);
+            MySqlCommand command = new MySqlCommand(query, connection);
+
+            {
+                command.Parameters.AddWithValue("@Title", subject.Title);
+                try
+                {
+                    connection.Open();
+                    return await command.ExecuteNonQueryAsync();
+
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+                finally
+                {
+                    connection.Close();
+                }
+            }
         }
         public async Task<int> DeleteSubject(int subjectId)
         {
-              
-            
+            string query = @"DELETE FROM subjects(id) VALUES(@Title)";
+            MySqlConnection connection = new MySqlConnection(connectionString);
+            MySqlCommand command = new MySqlCommand(query, connection);
+            {
+                command.parameters.AddWithValue("@title", subject.Title);
+                {
+                    try
+                    {
+                        connection.Open();
+                        return await commans.ExecuteNonQueryAsync();
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex.Message);
+                    }
+                    finally
+                    {
+                        connection.Close();
+                    }
+                }
+
+            }
         }
-        //public async Task<int> AddSubject(SubjectModel subject)
-        //{
-        //    string query = @"INSERT INTO subjects (title) VALUES (@Title)";
-
-        //    using (MySqlConnection connection = new MySqlConnection(_connectionString))
-        //    using (MySqlCommand command = new MySqlCommand(query, connection))
-        //    {
-        //        command.Parameters.AddWithValue("@Title", subject.Title);
-
-        //        try
-        //        {
-        //            await connection.OpenAsync();
-        //            return await command.ExecuteNonQueryAsync();
-        //        }
-        //        catch (Exception e)
-        //        {
-        //            Console.WriteLine(e.Message);
-        //            return -1;
-        //        }
-        //        finally
-        //        {
-        //            await connection.CloseAsync();
-        //        }
-        //    }
-        //}
-
-    }
+        Public int  DeleteSubject(int subjectId)
+        {
+            string query = @"DELETE FROM subjects WHERE id =@Id";
+            MySqlConnection connection = new MySqlConection(conectionString);
+            MySqlCommand command = new MySqlCommand(query, connection);
+                {
+                    command.Parameters.AddWithValue("@Id", subjectId);
+                    try
+                    {
+                        connetion.Open();
+                        return command.ExecuteNonQuery();
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex.Message);
+                        return -1;
+                    }
+                    finally
+                    {
+                        connection.Close();
+                    }
+                    
+                }
+        }
+     }
 }
