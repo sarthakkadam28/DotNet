@@ -70,3 +70,6 @@ global.json
 
 # Azure Functions local settings
 local.settings.json
+
+#visual studio code workspace settings
+.vscode/

@@ -1,5 +1,7 @@
-﻿using System;
-using SchoolApp;
+﻿// See https://aka.ms/new-console-template for more information
+// See https://aka.ms/new-console-template for more information
+// See https://aka.ms/new-console-template for more information
+using System;
 
 class Program
 {
@@ -26,7 +28,7 @@ class Program
                         string department = Console.ReadLine();
 
                         Student student = new Student(id, name, age, department);
-                        ui.AddStudent(student);
+
                         break;
                     }
                 case 2:
@@ -38,9 +40,10 @@ class Program
                     }
                 case 3:
                     {
-                        Console.WriteLine("Enter Student Id to delete:");
+
                         int id = Convert.ToInt32(Console.ReadLine());
                         ui.DeleteStudent(id);
+                        Console.WriteLine("Enter Student Id to delete:");
                         break;
                     }
                 case 4:
@@ -68,3 +71,6 @@ class Program
         } while (choice != 6);
     }
 }
+
+
+

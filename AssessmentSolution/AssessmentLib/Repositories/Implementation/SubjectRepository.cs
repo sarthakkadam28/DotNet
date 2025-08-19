@@ -66,7 +66,7 @@ namespace AssessmentLib.Repositories.Implementation
         public async Task<int> AddSubject(SubjectModel subject)
         {
             string query = "INSERT INTO subjects(title)VALUES(@Title)";
-            MySqlConnection connection = new MySqlConnection(connectionString);
+            MySqlConnection connection = new MySqlConnection(ConnectionString);
             MySqlCommand command = new MySqlCommand(query, connection);
 
             {
@@ -90,15 +90,15 @@ namespace AssessmentLib.Repositories.Implementation
         public async Task<int> DeleteSubject(int subjectId)
         {
             string query = @"DELETE FROM subjects(id) VALUES(@Title)";
-            MySqlConnection connection = new MySqlConnection(connectionString);
+            MySqlConnection connection = new MySqlConnection(ConnectionString);
             MySqlCommand command = new MySqlCommand(query, connection);
             {
-                command.parameters.AddWithValue("@title", subject.Title);
+                command.Parameters.AddWithValue("@Title", Subject.Title);
                 {
                     try
                     {
                         connection.Open();
-                        return await commans.ExecuteNonQueryAsync();
+                        return await command.ExecuteNonQueryAsync();
                     }
                     catch (Exception ex)
                     {
@@ -112,29 +112,6 @@ namespace AssessmentLib.Repositories.Implementation
 
             }
         }
-        Public int  DeleteSubject(int subjectId)
-        {
-            string query = @"DELETE FROM subjects WHERE id =@Id";
-            MySqlConnection connection = new MySqlConection(conectionString);
-            MySqlCommand command = new MySqlCommand(query, connection);
-                {
-                    command.Parameters.AddWithValue("@Id", subjectId);
-                    try
-                    {
-                        connetion.Open();
-                        return command.ExecuteNonQuery();
-                    }
-                    catch (Exception ex)
-                    {
-                        Console.WriteLine(ex.Message);
-                        return -1;
-                    }
-                    finally
-                    {
-                        connection.Close();
-                    }
-                    
-                }
-        }
+        
      }
 }
