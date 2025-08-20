@@ -1,4 +1,4 @@
-﻿using AssessmentLib.Services.Interface;
+﻿ using AssessmentLib.Services.Interface;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,10 +17,11 @@ namespace AssessmentLib.Services.Implementation
         {
 
         }
-        public class UpdateSubject()
+    public class UpdateSubject()
         {
 
         }
+    
 
     }
 }
