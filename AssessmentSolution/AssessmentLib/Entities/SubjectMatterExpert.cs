@@ -6,7 +6,15 @@ using System.Threading.Tasks;
 
 namespace AssessmentLib.Entities
 {
-    internal class SubjectMatterExpert
+    public class SubjectMatterExpert
     {
+        public int Id { get; set; }
+        public string EmployeeId { get; set; }
+        public string SubjectId {  get; set; }
+        
+        public Subject Subject { get; set; }
+        public Employee Employee { get; set; }
+
+
     }
 }

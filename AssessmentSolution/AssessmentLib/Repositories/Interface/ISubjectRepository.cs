@@ -9,7 +9,7 @@ namespace AssessmentLib.Repositories.Interface
     public interface ISubjectRepository
     {
         Task<List<SubjectModel>> GetAllSubject();
-        Task<int> AddSubject(SubjectModel subject);
-        Task<int> DeleteSubject(int subjectId);
+        Task<Boolean> AddSubject(SubjectModel subject);
+        Task<Boolean> DeleteSubject(int subjectId);
     }
 }

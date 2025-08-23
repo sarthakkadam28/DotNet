@@ -65,7 +65,7 @@ namespace AssessmentLib.Repositories.Implementation
 
         }
 
-        public async Task<int> AddSubject(SubjectModel subject)
+        public async Task<Boolean> AddSubject(SubjectModel subject)
         {
             string query = "INSERT INTO subjects(title)VALUES(@Title)";
             MySqlConnection connection = new MySqlConnection(_connectionString);
@@ -76,40 +76,44 @@ namespace AssessmentLib.Repositories.Implementation
                 try
                 {
                     await connection.OpenAsync();
-                    return await command.ExecuteNonQueryAsync();
+                    await command.ExecuteNonQueryAsync();
 
                 }
                 catch (Exception ex)
                 {
                     Console.WriteLine(ex.Message);
+                    return false;
                 }
                 finally
                 {
                     await connection.CloseAsync();
                 }
+                return true;
             }
         }
-        public async Task<int> DeleteSubject(int subjectId)
+        public async Task<Boolean> DeleteSubject(int subjectId)
         {
-            string query = @"DELETE FROM subjects(id) VALUES(@Title)";
+            string query = @"DELETE FROM Subjects WHERE id=@id";
             MySqlConnection connection = new MySqlConnection(_connectionString);
             MySqlCommand command = new MySqlCommand(query, connection);
             {
-                command.Parameters.AddWithValue("@Title", Subject.Title);
+                command.Parameters.AddWithValue("@id", subjectId);
                 {
                     try
                     {
                         await connection.OpenAsync();
-                        return await command.ExecuteNonQueryAsync();
+                        await command.ExecuteNonQueryAsync();
                     }
                     catch (Exception ex)
                     {
                         Console.WriteLine(ex.Message);
+                        return false;
                     }
                     finally
                     {
                        await connection.CloseAsync();
                     }
+                    return true;
                 }
 
             }

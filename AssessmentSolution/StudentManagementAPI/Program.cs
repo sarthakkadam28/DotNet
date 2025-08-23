@@ -12,12 +12,18 @@ builder.Host.ConfigureLogging(logging =>
 {
     logging.ClearProviders();
     logging.AddConsole();
-    // logging.AddFile("logs/catalog-{Date}.json", isJson: true);
+   
 });
+builder.Services.AddControllers();
 builder.Services.AddAuthorization();
 
-builder.Services.AddScoped<ISubjectRepository, SubjectRepository>();  
+builder.Services.AddScoped<ISubjectRepository, SubjectRepository>();
 builder.Services.AddScoped<ISubjectService, SubjectService>();
+var app = builder.Build();
+app.UseRouting();
+app.UseAuthorization();
+app.MapControllers();
+
 
 app.UseAuthorization();
 app.Run();

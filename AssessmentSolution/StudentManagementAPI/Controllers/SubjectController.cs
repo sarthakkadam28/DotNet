@@ -16,7 +16,7 @@ namespace StudentManagementAPI.Controllers
         [HttpGet("Subjects")]
         public async Task <IActionResult>GetAllSubjects()
         {
-            List<SubjectModel>subjects = await _svc.GetAllSubjects();
+            List<SubjectModel>subjects = await _svc.GetAllSubject();
             if (subjects ==null || subjects.Count == 0)
             {
                 return NotFound("not subjects found. ");  
@@ -31,12 +31,12 @@ namespace StudentManagementAPI.Controllers
             {
                 return BadRequest("Invalid subject data ");
             }
-            int result =await _svc.AddSubject(subject);
-            if (result > 0)
+            Boolean result =await _svc.AddSubject(subject);
+            if (result)
                 {
                 return Ok("Subject addded sucessfully");
                 }
-            return StatusCode(500, "An error occurred while adding the subject."); .
+            return StatusCode(500, "An error occurred while adding the subject."); 
             
         }
         [HttpDelete("delete/{id}")]
@@ -46,12 +46,12 @@ namespace StudentManagementAPI.Controllers
             {
                 return BadRequest("invalid subject id ");
             }
-            int result =await _svc.DeleteSubject(id);
-            if (result > 0)
+            Boolean result =await _svc.DeleteSubject(id);
+            if (result )
             {
                 return Ok("subject deleted sucessfully");
             }
-            if (result == 0)
+            if (result == false)
             {
                 return BadRequest("Invalid subjectid please enter valid id");
             }

@@ -21,15 +21,16 @@ namespace AssessmentLib.Services.Implementation
         {
             return await _repository.GetAllSubject();
         }
-    public async Task<int > AddSubject(SubjectModel subject )
+    public async Task<Boolean > AddSubject(SubjectModel subject )
         {
-            return await _repository.AddSubject(subject);
+         return  await _repository.AddSubject(subject);
+
         }
-    public async Task <int >DeleteSubject(int SubjectId)
+        public async Task<Boolean> DeleteSubject(int SubjectId)
         {
             return await _repository.DeleteSubject(SubjectId);
+          
         }
-    
 
     }
 }
