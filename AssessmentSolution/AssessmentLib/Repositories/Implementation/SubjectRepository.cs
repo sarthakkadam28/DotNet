@@ -1,4 +1,5 @@
 ﻿using AssessmentLib.Repositories.Interface;
+using Microsoft.Extensions.Configuration;
 using Microsoft.VisualBasic;
 using MySql.Data.MySqlClient;
 using System;
@@ -9,6 +10,7 @@ using System.Runtime.InteropServices;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
+using AssessmentLib.Entities;
 
 namespace AssessmentLib.Repositories.Implementation
 {
@@ -21,25 +23,25 @@ namespace AssessmentLib.Repositories.Implementation
         {
             _configuration = configuration;
             _connectionString = _configuration.GetConnectionString("DefaultConnection") ?? throw new ArgumentNullException("connectionString");
-            SqlMapper.AddTypeHandler(new SqlTimeOnlyTypeHandler());
+            
         }
 
-        public Task<List<SubjectModel>> GetAllSubject()
+        public async Task<List<SubjectModel>> GetAllSubject()
         {
             List<SubjectModel> subjects = new List<SubjectModel>();
             string query = @"SELECT * FROM Subjects";
 
-            MySqlConnection conection = new MySqlConnection(ConnectionString);
-            MySqlCommand commmand = new MySqlCommand(query, Connection);
+            MySqlConnection connection = new MySqlConnection(_connectionString);
+            MySqlCommand commmand = new MySqlCommand(query, connection);
 
             try
             {
-                conection.open();
+                await connection.OpenAsync();
                 MySqlDataReader reader = commmand.ExecuteReader();
                 while (reader.Read())
                 {
-                    int id = int.Parse | (reader["id"].Tostring());
-                    string title = reader["title"].Tostring();
+                    int id = int.Parse (reader["id"].ToString());
+                    string title = reader["title"].ToString();
                     SubjectModel subject = new SubjectModel();
 
                     subject.Id = id;
@@ -47,7 +49,7 @@ namespace AssessmentLib.Repositories.Implementation
                     subjects.Add(subject);
 
                 }
-                reader.CloseAsync();
+                await reader.CloseAsync();
 
 
             }
@@ -57,23 +59,23 @@ namespace AssessmentLib.Repositories.Implementation
             }
             finally
             {
-                conection.close();
+                connection.Close();
             }
-            return Subjects;
+            return subjects;
 
         }
 
         public async Task<int> AddSubject(SubjectModel subject)
         {
             string query = "INSERT INTO subjects(title)VALUES(@Title)";
-            MySqlConnection connection = new MySqlConnection(ConnectionString);
+            MySqlConnection connection = new MySqlConnection(_connectionString);
             MySqlCommand command = new MySqlCommand(query, connection);
 
             {
                 command.Parameters.AddWithValue("@Title", subject.Title);
                 try
                 {
-                    connection.Open();
+                    await connection.OpenAsync();
                     return await command.ExecuteNonQueryAsync();
 
                 }
@@ -83,21 +85,21 @@ namespace AssessmentLib.Repositories.Implementation
                 }
                 finally
                 {
-                    connection.Close();
+                    await connection.CloseAsync();
                 }
             }
         }
         public async Task<int> DeleteSubject(int subjectId)
         {
             string query = @"DELETE FROM subjects(id) VALUES(@Title)";
-            MySqlConnection connection = new MySqlConnection(ConnectionString);
+            MySqlConnection connection = new MySqlConnection(_connectionString);
             MySqlCommand command = new MySqlCommand(query, connection);
             {
                 command.Parameters.AddWithValue("@Title", Subject.Title);
                 {
                     try
                     {
-                        connection.Open();
+                        await connection.OpenAsync();
                         return await command.ExecuteNonQueryAsync();
                     }
                     catch (Exception ex)
@@ -106,7 +108,7 @@ namespace AssessmentLib.Repositories.Implementation
                     }
                     finally
                     {
-                        connection.Close();
+                       await connection.CloseAsync();
                     }
                 }
 

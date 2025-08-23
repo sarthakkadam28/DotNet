@@ -1,4 +1,6 @@
-﻿ using AssessmentLib.Services.Interface;
+﻿using AssessmentLib.Repositories.Interface;
+using AssessmentLib.Services.Interface;
+using AssessmentLib.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,17 +11,23 @@ namespace AssessmentLib.Services.Implementation
 {
     public class SubjectService:ISubjectService
     {
-    public class GetAllSubject(SubjectModel model)
-        {
+        private readonly ISubjectRepository _repository;
 
+    public SubjectService(ISubjectRepository repository)
+        {
+            _repository= repository;
         }
-    public class AddSubject()
+    public async Task<List<SubjectModel>> GetAllSubject()
         {
-
+            return await _repository.GetAllSubject();
         }
-    public class UpdateSubject()
+    public async Task<int > AddSubject(SubjectModel subject )
         {
-
+            return await _repository.AddSubject(subject);
+        }
+    public async Task <int >DeleteSubject(int SubjectId)
+        {
+            return await _repository.DeleteSubject(SubjectId);
         }
     
 

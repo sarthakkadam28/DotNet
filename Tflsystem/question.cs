@@ -57,7 +57,7 @@ namespace Assesment.Entities
 
         public Question()
         {
-
+        
         }
         //to initialize object instances with specific values provided during object creation
         public Question(string title, string optiona, string optionb, string optionc, string optiond, string answer, string evalutioncriteria)

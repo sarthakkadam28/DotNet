@@ -11,10 +11,6 @@
       "RelativeMoniker": "D:0:0:{D07463C9-A084-4597-9FDC-BC50C6ED476C}|StudentMangementLIb\\StudentMangementLIb.csproj|solutionrelative:studentmangementlib\\studentrepo\\implementation\\studentmangementrepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3E89DABB-FEFE-4864-8E9C-73A6CA12F05D}|StudentManagementSolution\\StudentManagementSolution.csproj|d:\\c# codes\\dotnet\\studentmanagementsolution\\studentmanagementsolution\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3E89DABB-FEFE-4864-8E9C-73A6CA12F05D}|StudentManagementSolution\\StudentManagementSolution.csproj|solutionrelative:studentmanagementsolution\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{D07463C9-A084-4597-9FDC-BC50C6ED476C}|StudentMangementLIb\\StudentMangementLIb.csproj|d:\\c# codes\\dotnet\\studentmanagementsolution\\studentmangementlib\\studentmangementlib.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
       "RelativeMoniker": "D:0:0:{D07463C9-A084-4597-9FDC-BC50C6ED476C}|StudentMangementLIb\\StudentMangementLIb.csproj|solutionrelative:studentmangementlib\\studentmangementlib.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     },
@@ -25,6 +21,10 @@
     {
       "AbsoluteMoniker": "D:0:0:{3E89DABB-FEFE-4864-8E9C-73A6CA12F05D}|StudentManagementSolution\\StudentManagementapp.csproj|d:\\c# codes\\dotnet\\studentmanagementsolution\\studentmanagementsolution\\studentmanagementapp.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
       "RelativeMoniker": "D:0:0:{3E89DABB-FEFE-4864-8E9C-73A6CA12F05D}|StudentManagementSolution\\StudentManagementapp.csproj|solutionrelative:studentmanagementsolution\\studentmanagementapp.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3E89DABB-FEFE-4864-8E9C-73A6CA12F05D}|StudentManagementSolution\\StudentManagementapp.csproj|d:\\c# codes\\dotnet\\studentmanagementsolution\\studentmanagementsolution\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3E89DABB-FEFE-4864-8E9C-73A6CA12F05D}|StudentManagementSolution\\StudentManagementapp.csproj|solutionrelative:studentmanagementsolution\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,16 +38,15 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "StudentMangementLIb",
+              "DocumentIndex": 2,
+              "Title": "StudentMangementLIb.csproj",
               "DocumentMoniker": "D:\\c# codes\\DotNet\\StudentManagementSolution\\StudentMangementLIb\\StudentMangementLIb.csproj",
               "RelativeDocumentMoniker": "StudentMangementLIb\\StudentMangementLIb.csproj",
               "ToolTip": "D:\\c# codes\\DotNet\\StudentManagementSolution\\StudentMangementLIb\\StudentMangementLIb.csproj",
               "RelativeToolTip": "StudentMangementLIb\\StudentMangementLIb.csproj",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-08-13T04:39:47.113Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-13T04:39:47.113Z"
             },
             {
               "$type": "Document",
@@ -57,7 +56,7 @@
               "RelativeDocumentMoniker": "StudentMangementLIb\\StudentRepo\\Interface\\IStudentMangementRepo.cs",
               "ToolTip": "D:\\c# codes\\DotNet\\StudentManagementSolution\\StudentMangementLIb\\StudentRepo\\Interface\\IStudentMangementRepo.cs",
               "RelativeToolTip": "StudentMangementLIb\\StudentRepo\\Interface\\IStudentMangementRepo.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-13T04:36:33.725Z",
               "EditorCaption": ""
@@ -72,12 +71,11 @@
               "RelativeToolTip": "StudentMangementLIb\\StudentRepo\\Implementation\\StudentMangementRepo.cs",
               "ViewState": "AgIAAHUAAAAAAAAAAAAowJAAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-13T04:35:49.605Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-13T04:35:49.605Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 3,
               "Title": "School.cs",
               "DocumentMoniker": "D:\\c# codes\\DotNet\\StudentManagementSolution\\StudentMangementLIb\\StudentEntity\\School.cs",
               "RelativeDocumentMoniker": "StudentMangementLIb\\StudentEntity\\School.cs",
@@ -85,12 +83,11 @@
               "RelativeToolTip": "StudentMangementLIb\\StudentEntity\\School.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-13T04:25:06.748Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-13T04:25:06.748Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 4,
               "Title": "StudentManagementapp.csproj",
               "DocumentMoniker": "D:\\c# codes\\DotNet\\StudentManagementSolution\\StudentManagementSolution\\StudentManagementapp.csproj",
               "RelativeDocumentMoniker": "StudentManagementSolution\\StudentManagementapp.csproj",
@@ -98,12 +95,11 @@
               "RelativeToolTip": "StudentManagementSolution\\StudentManagementapp.csproj",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-08-13T04:15:46.296Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-13T04:15:46.296Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\c# codes\\DotNet\\StudentManagementSolution\\StudentManagementSolution\\Program.cs",
               "RelativeDocumentMoniker": "StudentManagementSolution\\Program.cs",
@@ -111,8 +107,7 @@
               "RelativeToolTip": "StudentManagementSolution\\Program.cs",
               "ViewState": "AgIAAEMAAAAAAAAAAAAQwAMAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-13T04:15:10.611Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-13T04:15:10.611Z"
             }
           ]
         }
