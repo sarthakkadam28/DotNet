@@ -20,10 +20,9 @@ builder.Services.AddAuthorization();
 builder.Services.AddScoped<ISubjectRepository, SubjectRepository>();
 builder.Services.AddScoped<ISubjectService, SubjectService>();
 var app = builder.Build();
+
 app.UseRouting();
 app.UseAuthorization();
 app.MapControllers();
 
-
-app.UseAuthorization();
 app.Run();

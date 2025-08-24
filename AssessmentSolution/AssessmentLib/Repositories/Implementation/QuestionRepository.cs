@@ -4,11 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AssessmentLib.Entities
+namespace AssessmentLib.Repositories.Implementation
 {
-    public class QuestionBank
+    internal class QuestionRepository
     {
-       public int QuestionBankId { get; set; }
-
     }
 }
