@@ -5,6 +5,9 @@ using MySql.Data.MySqlClient;
 using Org.BouncyCastle.Asn1.Sec;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data;
+using System.Data.Common;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,18 +19,52 @@ namespace AssessmentLib.Repositories.Implementation
         private readonly IConfiguration _configuration;
         private readonly string _connectionString;
         public class QustionBankRepository(IConfiguration configuration)
-         {
-             _configuration = configuration;
-            _connectionString = _configuration.GetConnectionString("DefaultConnection") ?? throw new ArgumentNullException("connectionString");
-         }
+           {
+             _configuration = Configuration;
+             _connectionString = _configuration.GetConnectionString("DefaultConnection") ?? throw new ArgumentNullException("connectionString");
+           }
 
-        public Task<List<QuestionTitle>> GetAllQuestion()
+        public async Task<List<QuestionTitle>> GetAllQuestion()
         {
+            await Task.Delay(2000);
+            List<QuestionBank>questions = new List<QuestionBank>();
+            string query = "SELECT * From QuestinBank";
+            MySqlConnection connection = new MySqlConnection(_connectionString);
+            MySqlCommand command = connection.CreateCommand();
+            try
+            {
+                DataSet ds = new DataSet();
+                MySqlDataAdapter da = new MySqlDataAdapter(command);
+                da.Fill(ds);
 
+                DataTable dtQuestionBank = ds.Tables[0];
+                DataRowCollection rows =dtQuestionBank.Rows;
+                foreach(DataRow row in rows)
+                {
+                    int id =int.Parse(row["id"].ToString());
+                    string title =row ["title"].ToString();
+
+                    QuestionTitle question = new QuestionTitle();
+                    question.Title = title;
+                    question.Id = id;
+
+                    questions.Add(question);
+                }
+
+            }
+            catch(Exception ex)
+            {
+            Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return questions;
         }
         public Task<List<SubjetQuestion>> GetQuestionsBySubject(int Id)
         {
-
+        
         }
         public Task<List<QuestionDetails>> GetQuestionsBySubjectAndCriteria(int SubjectId, int CriteriaId)
         {
