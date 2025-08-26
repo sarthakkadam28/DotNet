@@ -20,11 +20,11 @@ namespace AssessmentLib.Repositories.Implementation
         private readonly string _connectionString;
         public class QustionBankRepository(IConfiguration configuration)
            {
-             _configuration = Configuration;
+            _configuration = configuration
              _connectionString = _configuration.GetConnectionString("DefaultConnection") ?? throw new ArgumentNullException("connectionString");
            }
 
-        public async Task<List<QuestionTitle>> GetAllQuestion()
+        public async Task<List<QuestionTitle>> GetAllQuestion(QuestionTitle question)
         {
             await Task.Delay(2000);
             List<QuestionBank>questions = new List<QuestionBank>();
@@ -62,9 +62,43 @@ namespace AssessmentLib.Repositories.Implementation
             }
             return questions;
         }
-        public Task<List<SubjetQuestion>> GetQuestionsBySubject(int Id)
+        public async Task<List<SubjetQuestion>> GetQuestionsBySubject(int Id)
         {
-        
+            List<SubjectQuestion> questions = new List<SubjectQuestion>();
+            string query = @"select questionbank.id as questionid, questionbank.title as question, subjects.title as Subject, subjects.id as subjectid from questionbank,subjects where questionbank.subjectid=subjects.id and subjects.id=@SubjectId";
+            MySqlConnection connection = new MySqlConnection(_connectionString);
+            MySqlCommand command = new MySqlCommand(query, connection);
+            command.Parameters.AddWithValue("@SubjectId", Id);
+            try
+            {
+                await connection.OpenAsync();
+                MySqlDataReader reader = command.ExecuteReader();
+                while (await reader.ReadAsync())
+                {
+                    int questionId = int.Parse(reader["questionid"].ToString());
+                    string strQuestion = reader["question"].ToString();
+                    int subjectId = int.Parse(reader["subjectid"].ToString());
+                    string subject = reader["subject"].ToString();
+
+                    SubjectQuestion question = new SubjectQuestion();
+                    question.QuestionId = questionId;
+                    question.Question = strQuestion;
+                    question.SubjectId = subjectId;
+                    question.Subject = subject;
+                    questions.Add(question);
+
+                }
+                await reader.CloseAsync();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            finally
+            {
+               await connection.CloseAsync();
+            }
+            return questions;
         }
         public Task<List<QuestionDetails>> GetQuestionsBySubjectAndCriteria(int SubjectId, int CriteriaId)
         {
