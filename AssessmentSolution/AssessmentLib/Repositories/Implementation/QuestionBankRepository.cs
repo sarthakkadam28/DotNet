@@ -3,6 +3,7 @@ using AssessmentLib.Repositories.Interface;
 using Microsoft.Extensions.Configuration;
 using MySql.Data.MySqlClient;
 using Org.BouncyCastle.Asn1.Sec;
+using Org.BouncyCastle.Tls;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -27,7 +28,7 @@ namespace AssessmentLib.Repositories.Implementation
         public async Task<List<QuestionTitle>> GetAllQuestion(QuestionTitle question)
         {
             await Task.Delay(2000);
-            List<QuestionBank>questions = new List<QuestionBank>();
+            List<QuestionBank> questions = new List<QuestionBank>();
             string query = "SELECT * From QuestinBank";
             MySqlConnection connection = new MySqlConnection(_connectionString);
             MySqlCommand command = connection.CreateCommand();
@@ -62,7 +63,7 @@ namespace AssessmentLib.Repositories.Implementation
             }
             return questions;
         }
-        public async Task<List<SubjetQuestion>> GetQuestionsBySubject(int Id)
+        public async Task<List<SubjectQuestion>> GetQuestionsBySubject(int Id)
         {
             List<SubjectQuestion> questions = new List<SubjectQuestion>();
             string query = @"select questionbank.id as questionid, questionbank.title as question, subjects.title as Subject, subjects.id as subjectid from questionbank,subjects where questionbank.subjectid=subjects.id and subjects.id=@SubjectId";
@@ -100,15 +101,97 @@ namespace AssessmentLib.Repositories.Implementation
             }
             return questions;
         }
-        public Task<List<QuestionDetails>> GetQuestionsBySubjectAndCriteria(int SubjectId, int CriteriaId)
+        public async Task<List<QuestionDetails>> GetQuestionsBySubjectAndCriteria(int SubjectId, int CriteriaId)
         {
+        List<QuestionDetails>questions = new List<QuestionDetails>();
+        String query = @"SELECT questionbank.id,questionbank.title,subject.title as subject,
+        evaluationcriterias.title as criteria from questionbank,subjects,evalutioncriterias
+        where questionbank.subjectid=subjects.id and questionbank.evalutioncriteriaid =evaluationcriterias.id 
+        and subjects.id=SubjectId and evalutioncriterias.id= @CriteriaId";
 
+        MySqlConnection connection = new MySqlConnection(_connectionString);
+        MySqlCommand command = new MySqlCommand(query, connection);
+            command.Parameters.AddWithValue("@SubjectId", SubjectId);
+            command.Parameters.AddWithValue("@CriteriaId", CriteriaId);
 
+            try
+            {
+                await connection.OpenAsync();
+                MySqlDataReader reader = command.ExecuteReader();
+
+                while(await reader.ReadAsync())
+                {
+                    int id = int.Parse(reader["id"].ToString());
+                    string strQuestion = reader["title"].ToString();
+                    string subject = reader["subject"].ToString();
+                    string criteria = reader["criteria"].ToString();
+
+                    QuestionDetails question = new QuestionDetails();
+
+                    question.Id = id;
+                    question.Question = strQuestion;
+                    question.Subject = subject;
+                    question.Criteria = criteria;
+
+                    questions.Add(question);
+                }
+                await reader.CloseAsync();
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+
+            }
+            finally
+            {
+                await connection.CloseAsync();
+            }
+            return questions;
         }
-        public Task<List<QuestionDetails>> GetQusstionWithSubjectAndCriteria()
+        public Task<List<QuestionDetails>> GetQuestionsWithSubjectAndCriteria()
         {
+            List<QuestionDetails> questions = new List<QuestionDetails>();
+            string query = @"select questionbank.id,questionbank.title,subjects.title as subject ,evalutioncriterias.title as criteria
+                           from questionbank,subjects,evalutioncriterias
+                            where questionbank.subjectid=subjects.id and questionbank.evaluationcriteriaid=evalutioncritrias.id";
+            MySqlConnection connection = new MySqlConnection();
+            MySqlCommand command = new MySqlCommand(query, connection);
 
+            try
+            {
+                await connection.OpenAsync();
+                MySqlDataReader reader = command.ExecuteReader();
+                while (await reader.ReadAsync())
+                {
+                    int id = int.Parse(reader["id"].ToString());
+                    string strQuestion = reader["title"].ToString();
+                    string subject = reader["subject"].ToString();
+                    string criteria = reader["criteria"].ToString();
+
+                    QuestionDetails question = new QuestionDetails();
+
+                    question.Id = id;
+                    question.Question = strQuestion;
+                    question.Subject = subject;
+                    question.Criteria = criteria;
+
+                    questions.Add(question);
+                }
+                await reader.CloseAsync();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            finally
+            {
+                await connection.CloseAsync();
+            }
+            return questions;
         }
+
+        
+        
         public Task<List<Question>> GetQuestions(int TestId)
         {
 

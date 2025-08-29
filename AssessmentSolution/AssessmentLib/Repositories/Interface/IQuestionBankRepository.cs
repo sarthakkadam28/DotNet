@@ -12,7 +12,7 @@ namespace AssessmentLib.Repositories.Interface
         public Task<List<QuestionTitle>> GetAllQuestions();
         public Task<List<SubjectQuestion>> GetQuestionsBySubject(int id);
         public Task<List<QuestionDetails>> GetQuestionsBySubjectAndCriteria(int SubjectId, int CriteriaId);
-        public Task<List<QuestionDetails>> GetQuestionWithSubjectAndCriteria();
+        public Task<List<QuestionDetails>> GetQuestionsWithSubjectAndCriteria();
         public Task<List<Question>> GetQuestions(int TestId);
         public Task<bool> UpdateAnswer(int id, char AnswerKey);
         public Task<bool> GetQuestion(int QuestionId);
