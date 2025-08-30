@@ -10,8 +10,10 @@ using System.Configuration;
 using System.Data;
 using System.Data.Common;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
+using ZstdSharp.Unsafe;
 
 namespace AssessmentLib.Repositories.Implementation
 {
@@ -148,7 +150,7 @@ namespace AssessmentLib.Repositories.Implementation
             }
             return questions;
         }
-        public Task<List<QuestionDetails>> GetQuestionsWithSubjectAndCriteria()
+        public async Task<List<QuestionDetails>> GetQuestionsWithSubjectAndCriteria()
         {
             List<QuestionDetails> questions = new List<QuestionDetails>();
             string query = @"select questionbank.id,questionbank.title,subjects.title as subject ,evalutioncriterias.title as criteria
@@ -189,33 +191,169 @@ namespace AssessmentLib.Repositories.Implementation
             }
             return questions;
         }
+        public async Task<bool> UpdateAnswer(int Id, char AnswerKey)
+        {
+            bool status = false;
+            string query = "Update questionbank set answerKey =@answerkey where id =@id";
+            MySqlConnection connection = new MySqlConnection(_connectionString);
+            MySqlCommand command = new MySqlCommand(query,connection);
+            try
+            {
+                await connection.OpenAsync();
+                command.Parameters.AddWithValue("@Id", Id);
+                command.Parameters.AddWithValue("@answerkey", AnswerKey);
+                int rowaffected=await command.ExecuteNonQueryAsync();
+                if (rowaffected > 0)
+                {
+                    status = true;
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("invalild id ");
+            }
+            finally
+            {
+                await connection.CloseAsync();
+            }
+            return status;
+        }
+        public async Task<Question> GetQuestion(int QuestionId)
+        {
+            Question question = null;
+            string query = @"select * from questionbank where id= @QuestionId";
+            MySqlConnection connection= new MySqlConnection(_connectionString);
+            MySqlCommand command = new MySqlCommand(query, connection);
+            command.Parameters.AddWithValue("QuestionId", QuestionId);
+            try
+            {
+                await connection.OpenAsync();
+                MySqlDataReader reader =  command.ExecuteReader();
+                if (await reader.ReadAsync())
+                {
+                    int SubjectId = int.Parse(reader["SubjectId"].ToString());
+                    string strQuestion = reader["title"].ToString();
+                    string optionA = reader["A"].ToString();
+                    string optionB = reader["B"].ToString();
+                    string optionC = reader["C"].ToString();
+                    string optionD = reader["D"].ToString();
+                    string correctAnswer = reader["AnswerKey"].ToString();
+                    int evalutionCriteriaId = int. Parse(reader["EvalutionCriteria"].ToString());
 
+
+
+                    question = new Question();
+                    question.Id = QuestionId;
+                    question.SubjectId = SubjectId;
+                    question.Title = strQuestion;
+                    question.A = optionA;
+                    question.B = optionB;
+                    question.C = optionC;
+                    question.D = optionD;
+                    question.AnswerKey = correctAnswer;
+                    question.EvalutionCriteriaId = evalutionCriteriaId;
+
+
+                }
+                await reader.CloseAsync();
+
+            } 
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                await connection.CloseAsync();
+            }
+            return question;
         
-        
-        public Task<List<Question>> GetQuestions(int TestId)
-        {
-
-
         }
-        public Task<bool> UpdateAnswer(int Id, char AnswerrKey)
+        public async Task<bool> UpdateQuestionOption(int Id, Question options)
         {
+            bool status = false;
+            string query = @"update questionbank set title=@Title,a=@A,b=@B,c=@C,d=@D,answerkey=@AnswerKey,evalutioncriteria=@EvalutionCriteria where id=@Id";
+            MySqlConnection connection = new MySqlConnection(_connectionString);
+            MySqlCommand command = new MySqlCommand(query, connection);
+            try
+            {
+                await connection.OpenAsync();
+                command.Parameters.AddWithValue("Title",options.Title);
+                command.Parameters.AddWithValue("@A", options.A);
+                command .Parameters.AddWithValue("@B",options.B);
+                command.Parameters.AddWithValue("@C",options.C);
+                command.Parameters.AddWithValue("@D",options.D);
+                command.Parameters.AddWithValue("Answerkey", options.AnswerKey);
+                command.Parameters.AddWithValue("Id",options.Id);
 
+                int rowAffected = await command.ExecuteNonQueryAsync();
+                if (rowAffected > 0)
+                {
+                    status = true;
+                }
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                await connection.CloseAsync();
+            }
+            return status;
         }
-        public Task<Question> GetQuestion(int QuestionId)
+        public async Task<bool> UpdateSubjectCriteria(int questionId,Question question)
         {
+            bool status = false;
+            string query = "update questionbank set evaluationcriteriaid=@EvaluationCriteriaId ,subjectid=@SubjectId where id =@Id";
+            MySqlConnection connection = new MySqlConnection(_connectionString);
+            try
+            {
+                await connection.OpenAsync();
+                MySqlCommand command = new MySqlCommand(query, connection);
+                command.Parameters.AddWithValue("@EvaluationCriteriaId", question.EvalutionCriteriaId);
+                command.Parameters.AddWithValue("@SubjectId", question.SubjectId);
+                command.Parameters.AddWithValue("@Id", questionId);
+                int rowsAffected = await command.ExecuteNonQueryAsync();
+                if (rowsAffected > 0)
+                {
+                    status = true;
+                }
 
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            finally
+            {
+                await connection.CloseAsync();
+            }
+            return status;
         }
-        public Task<bool> UpdateQuestionOption(int Id, Question options)
+        public async Task<bool>InsertQuestion(NewQuestion question)
         {
+            Task.Delay(2000);
+            bool status = false;
+            MySqlConnection connection = new MySqlConnection(_connectionString);
+            try
+            {
+                await connection.OpenAsync();
+                string query=
+                MySqlCommand command = new MySqlCommand(query, connection);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            finally
+            {
+               await connection.CloseAsync();
+            }
+            return status;
 
-        }
-        public Task<bool> UpdateSubjectCriteria(int questionId,Question question)
-        {
 
-        }
-        public Task<bool>InsertQuestion(NewQuestion question)
-        {
-
+            string query="select * from questionbank "
         }
         public Task<bool> GetCriteria(string subject, int QuestiionId)
         {
