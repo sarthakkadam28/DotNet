@@ -5,7 +5,9 @@ using MySql.Data.MySqlClient;
 using Org.BouncyCastle.Asn1.Sec;
 using Org.BouncyCastle.Tls;
 using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Configuration;
 using System.Data;
 using System.Data.Common;
@@ -17,15 +19,15 @@ using ZstdSharp.Unsafe;
 
 namespace AssessmentLib.Repositories.Implementation
 {
-    public class QuestionBankRepository:IQuestionBankRepository
-    { 
+    public class QuestionBankRepository : IQuestionBankRepository
+    {
         private readonly IConfiguration _configuration;
         private readonly string _connectionString;
         public class QustionBankRepository(IConfiguration configuration)
-           {
+        {
             _configuration = configuration
              _connectionString = _configuration.GetConnectionString("DefaultConnection") ?? throw new ArgumentNullException("connectionString");
-           }
+        }
 
         public async Task<List<QuestionTitle>> GetAllQuestion(QuestionTitle question)
         {
@@ -41,11 +43,11 @@ namespace AssessmentLib.Repositories.Implementation
                 da.Fill(ds);
 
                 DataTable dtQuestionBank = ds.Tables[0];
-                DataRowCollection rows =dtQuestionBank.Rows;
-                foreach(DataRow row in rows)
+                DataRowCollection rows = dtQuestionBank.Rows;
+                foreach (DataRow row in rows)
                 {
-                    int id =int.Parse(row["id"].ToString());
-                    string title =row ["title"].ToString();
+                    int id = int.Parse(row["id"].ToString());
+                    string title = row["title"].ToString();
 
                     QuestionTitle question = new QuestionTitle();
                     question.Title = title;
@@ -55,9 +57,9 @@ namespace AssessmentLib.Repositories.Implementation
                 }
 
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-            Console.WriteLine(ex.Message);
+                Console.WriteLine(ex.Message);
             }
             finally
             {
@@ -99,20 +101,20 @@ namespace AssessmentLib.Repositories.Implementation
             }
             finally
             {
-               await connection.CloseAsync();
+                await connection.CloseAsync();
             }
             return questions;
         }
         public async Task<List<QuestionDetails>> GetQuestionsBySubjectAndCriteria(int SubjectId, int CriteriaId)
         {
-        List<QuestionDetails>questions = new List<QuestionDetails>();
-        String query = @"SELECT questionbank.id,questionbank.title,subject.title as subject,
+            List<QuestionDetails> questions = new List<QuestionDetails>();
+            String query = @"SELECT questionbank.id,questionbank.title,subject.title as subject,
         evaluationcriterias.title as criteria from questionbank,subjects,evalutioncriterias
         where questionbank.subjectid=subjects.id and questionbank.evalutioncriteriaid =evaluationcriterias.id 
         and subjects.id=SubjectId and evalutioncriterias.id= @CriteriaId";
 
-        MySqlConnection connection = new MySqlConnection(_connectionString);
-        MySqlCommand command = new MySqlCommand(query, connection);
+            MySqlConnection connection = new MySqlConnection(_connectionString);
+            MySqlCommand command = new MySqlCommand(query, connection);
             command.Parameters.AddWithValue("@SubjectId", SubjectId);
             command.Parameters.AddWithValue("@CriteriaId", CriteriaId);
 
@@ -121,7 +123,7 @@ namespace AssessmentLib.Repositories.Implementation
                 await connection.OpenAsync();
                 MySqlDataReader reader = command.ExecuteReader();
 
-                while(await reader.ReadAsync())
+                while (await reader.ReadAsync())
                 {
                     int id = int.Parse(reader["id"].ToString());
                     string strQuestion = reader["title"].ToString();
@@ -139,7 +141,7 @@ namespace AssessmentLib.Repositories.Implementation
                 }
                 await reader.CloseAsync();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
 
@@ -196,13 +198,13 @@ namespace AssessmentLib.Repositories.Implementation
             bool status = false;
             string query = "Update questionbank set answerKey =@answerkey where id =@id";
             MySqlConnection connection = new MySqlConnection(_connectionString);
-            MySqlCommand command = new MySqlCommand(query,connection);
+            MySqlCommand command = new MySqlCommand(query, connection);
             try
             {
                 await connection.OpenAsync();
                 command.Parameters.AddWithValue("@Id", Id);
                 command.Parameters.AddWithValue("@answerkey", AnswerKey);
-                int rowaffected=await command.ExecuteNonQueryAsync();
+                int rowaffected = await command.ExecuteNonQueryAsync();
                 if (rowaffected > 0)
                 {
                     status = true;
@@ -222,13 +224,13 @@ namespace AssessmentLib.Repositories.Implementation
         {
             Question question = null;
             string query = @"select * from questionbank where id= @QuestionId";
-            MySqlConnection connection= new MySqlConnection(_connectionString);
+            MySqlConnection connection = new MySqlConnection(_connectionString);
             MySqlCommand command = new MySqlCommand(query, connection);
             command.Parameters.AddWithValue("QuestionId", QuestionId);
             try
             {
                 await connection.OpenAsync();
-                MySqlDataReader reader =  command.ExecuteReader();
+                MySqlDataReader reader = command.ExecuteReader();
                 if (await reader.ReadAsync())
                 {
                     int SubjectId = int.Parse(reader["SubjectId"].ToString());
@@ -238,7 +240,7 @@ namespace AssessmentLib.Repositories.Implementation
                     string optionC = reader["C"].ToString();
                     string optionD = reader["D"].ToString();
                     string correctAnswer = reader["AnswerKey"].ToString();
-                    int evalutionCriteriaId = int. Parse(reader["EvalutionCriteria"].ToString());
+                    int evalutionCriteriaId = int.Parse(reader["EvalutionCriteria"].ToString());
 
 
 
@@ -257,8 +259,8 @@ namespace AssessmentLib.Repositories.Implementation
                 }
                 await reader.CloseAsync();
 
-            } 
-            catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
             }
@@ -267,7 +269,7 @@ namespace AssessmentLib.Repositories.Implementation
                 await connection.CloseAsync();
             }
             return question;
-        
+
         }
         public async Task<bool> UpdateQuestionOption(int Id, Question options)
         {
@@ -278,13 +280,13 @@ namespace AssessmentLib.Repositories.Implementation
             try
             {
                 await connection.OpenAsync();
-                command.Parameters.AddWithValue("Title",options.Title);
+                command.Parameters.AddWithValue("Title", options.Title);
                 command.Parameters.AddWithValue("@A", options.A);
-                command .Parameters.AddWithValue("@B",options.B);
-                command.Parameters.AddWithValue("@C",options.C);
-                command.Parameters.AddWithValue("@D",options.D);
+                command.Parameters.AddWithValue("@B", options.B);
+                command.Parameters.AddWithValue("@C", options.C);
+                command.Parameters.AddWithValue("@D", options.D);
                 command.Parameters.AddWithValue("Answerkey", options.AnswerKey);
-                command.Parameters.AddWithValue("Id",options.Id);
+                command.Parameters.AddWithValue("Id", options.Id);
 
                 int rowAffected = await command.ExecuteNonQueryAsync();
                 if (rowAffected > 0)
@@ -292,7 +294,7 @@ namespace AssessmentLib.Repositories.Implementation
                     status = true;
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
             }
@@ -302,7 +304,7 @@ namespace AssessmentLib.Repositories.Implementation
             }
             return status;
         }
-        public async Task<bool> UpdateSubjectCriteria(int questionId,Question question)
+        public async Task<bool> UpdateSubjectCriteria(int questionId, Question question)
         {
             bool status = false;
             string query = "update questionbank set evaluationcriteriaid=@EvaluationCriteriaId ,subjectid=@SubjectId where id =@Id";
@@ -331,16 +333,36 @@ namespace AssessmentLib.Repositories.Implementation
             }
             return status;
         }
-        public async Task<bool>InsertQuestion(NewQuestion question)
+        public async Task<bool> InsertQuestion(NewQuestion question)
         {
-            Task.Delay(2000);
+            await Task.Delay(2000);
             bool status = false;
             MySqlConnection connection = new MySqlConnection(_connectionString);
             try
             {
                 await connection.OpenAsync();
-                string query=
+                string query = "select * from questionbank ";
                 MySqlCommand command = new MySqlCommand(query, connection);
+                MySqlDataAdapter dataAdapter = new MySqlDataAdapter(command);
+                DataSet dataSet = new DataSet();
+                MySqlCommandBuilder commandBuilder = new MySqlCommandBuilder(dataAdapter);
+                dataAdapter.Fill(dataSet);
+                DataTable dataTable = dataSet.Tables[0];
+
+                DataRow Row = dataTable.NewRow();
+                Row["SubjectId"] = question.SubjectId;
+                Row["title"] = question.Title;
+                Row["a"] = question.A;
+                Row["b"] = question.B;
+                Row["C"] = question.C;
+                Row["D"] = question.D;
+                Row["answerKey"] = question.AnswerKey;
+                Row["evalutionCriteriaId"] = question.EvalutionCriteriaId;
+
+                dataTable.Rows.Add(Row);
+                dataAdapter.Update(dataSet);
+                status = true;
+
             }
             catch (Exception e)
             {
@@ -348,17 +370,91 @@ namespace AssessmentLib.Repositories.Implementation
             }
             finally
             {
-               await connection.CloseAsync();
+                await connection.CloseAsync();
             }
             return status;
 
-
-            string query="select * from questionbank "
         }
-        public Task<bool> GetCriteria(string subject, int QuestiionId)
+        public async Task<string> GetCriteria(string subject, int QuestionId)
         {
+            string criteria = "";
+            string query = @"select evalutioncriterias.title from evaluationcriterias inner join questionbank on questionbank.evalutioncriteriaid=evalutioncriterias.id
+                            inner join subjects on questionbank.subjectid= evalutioncriterias.subjectid where subjects.title=@subject and questionbank.id=@QuestionId";
+            MySqlConnection connection = new MySqlConnection(_connectionString);
+            try
+            {
+                MySqlCommand command = new MySqlCommand(query, connection);
+                command.Parameters.AddWithValue("@Subject", subject);
+                command.Parameters.AddWithValue("QuestionId", QuestionId);
+                await connection.OpenAsync();
+                MySqlDataReader reader = command.ExecuteReader();
+                if (await reader.ReadAsync())
+                {
+                    string title = reader["title"].ToString();
+                    criteria = title;
+                }
+                await reader.CloseAsync();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            finally
+            {
+                await connection.CloseAsync();
+            }
 
         }
+        public Task<List<Question>> GetQuestions(int TestId);
+        {
+         List<Question> questions = new List<Question>();
+         string query =
+                     @"SELECT testquestions.id AS testquestionid, 
+                    questionbank.id AS questionbankid,
+                    questionbank.subjectid,
+                    questionbank.title,
+                    questionbank.a,
+                    questionbank.b,
+                    questionbank.c,
+                    questionbank.d,
+                    questionbank.evaluationcriteriaid
+                    FROM questionbank 
+                    INNER JOIN testquestions 
+                    ON testquestions.questionbankid = questionbank.id 
+                    WHERE testquestions.testid = @TestId";
+
+        using (MySqlConnection connection = new MySqlConnection(_connectionString))
+        using (MySqlCommand command = new MySqlCommand(query, connection))
+        {
+         command.Parameters.AddWithValue("@TestId", testId);
+            try
+            {
+                await connection.OpenAsync();
+                MySqlDataReader reader = command.ExecuteReader();
+                // MySqlDataReader reader = await command.ExecuteReader();
+                while (await reader.ReadAsync())
+                {
+                    Question question = new Question
+                    {
+                        Id = Convert.ToInt32(reader["testquestionid"]), 
+                        SubjectId = Convert.ToInt32(reader["subjectid"]),
+                        Title = reader["title"].ToString(),
+                        A = reader["a"].ToString(),
+                        B = reader["b"].ToString(),
+                        C = reader["c"].ToString(),
+                        D = reader["d"].ToString(),
+                        EvaluationCriteriaId = Convert.ToInt32(reader["evaluationcriteriaid"])
+                    };
+                    questions.Add(question);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
+        }
+        return questions;
 
     }
 }
