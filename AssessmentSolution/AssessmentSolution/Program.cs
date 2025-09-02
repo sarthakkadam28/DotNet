@@ -19,5 +19,8 @@ builder.Services.AddAuthorization();
 builder.Services.AddScoped<ISubjectRepository, SubjectRepository>();  
 builder.Services.AddScoped<ISubjectService, SubjectService>();
 
+builder.Services.AddScoped<IQuestionBankRepository, QuestionBankRepository>();
+builder.Services.AddScoped<IQuestionBankService, QuestionBankService>();
+
 app.UseAuthorization();
 app.Run();
