@@ -9,6 +9,6 @@ namespace AssessmentLib.Services.Interface
 {
     public interface IQuestionBankService : IQuestionBankRepository
     {
-       
+        Task<string> GetCriteria(string subjectId, int questionId);
     }
 }

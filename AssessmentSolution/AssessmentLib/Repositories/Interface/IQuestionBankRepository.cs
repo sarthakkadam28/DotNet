@@ -15,7 +15,7 @@ namespace AssessmentLib.Repositories.Interface
         public Task<List<QuestionDetails>> GetQuestionsWithSubjectAndCriteria();
         public Task<List<Question>> GetQuestions(int TestId);
         public Task<bool> UpdateAnswer(int Id, char AnswerKey);
-        public Task<bool> GetQuestion(int QuestionId);
+        public Task<Question> GetQuestion(int QuestionId);
         public Task<bool> UpdateSubjectCriteria(int QuestionId, Question question);
         public Task<bool> UpdateQuestionOptions(int Id, Question options);
         public Task<bool> InsertQuestion(Question question);

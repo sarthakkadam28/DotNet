@@ -40,7 +40,7 @@ namespace AssessmentLib.Services.Implementation
         {
             return await _repository.UpdateAnswer(Id, Answerkey);
         }
-        public async Task<bool> GetQuestion(int QuestionId)
+        public async Task<Question> GetQuestion(int QuestionId)
         {
             return await _repository.GetQuestion(QuestionId);
         }
