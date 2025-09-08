@@ -7,10 +7,10 @@ namespace StudentManagementAPI.Controllers
     [Route("[controller]")]
     public class SubjectController : ControllerBase
     {
-        private readonly ISubjectService  _svc;
-        public SubjectController (ISubjectService service)
+        private readonly ISubjectService _svc;
+        public SubjectController(ISubjectService service)
         {
-           _svc = service;
+            _svc = service;
         }
 
         [HttpGet("Subjects")]

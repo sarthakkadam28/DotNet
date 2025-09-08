@@ -3,7 +3,6 @@ using AssessmentLib.Repositories.Implementation;
 using AssessmentLib.Repositories.Interface;
 using AssessmentLib.Services.Implementation;
 using AssessmentLib.Services.Interface;
-using Google.Protobuf.WellKnownTypes;
 
 
 var builder = WebApplication.CreateBuilder(args);
