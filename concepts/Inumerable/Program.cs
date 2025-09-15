@@ -26,7 +26,7 @@ public class Team : IEnumerable
     {
         return players.GetEnumerator();
     }
-}
+ }
 
 class Num {
 
