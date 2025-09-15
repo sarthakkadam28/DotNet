@@ -1,18 +1,30 @@
 ﻿using System;
+using System.Collections;
+public class Player
+{
+   public string Name { get; set; }
+    public int Runs { get; set; }
+
+    public Player(string name, int runs)
+    {
+        Name = name;
+        Runs = runs;
+    }
+}
 public class Team : IEnumerable
 {
-    private player[] players;
+    private Player[] players;
     public Team()
     {
-        Players = new Player[3];
-        Players[0] = new Player("Sachin", 40000);
-        Players[1] = new Player("Rahul", 35000);
-        Players[2] = new Player("Mahindra", 34000);
+        players = new Player[3];
+        players[0] = new Player("Sachin", 40000);
+        players[1] = new Player("Rahul", 35000);
+        players[2] = new Player("Mahindra", 34000);
     }
 
-    public IEnumertor GetEnumerator()
+    public IEnumerator GetEnumerator()
     {
-        Return players.GetEnumerator();
+        return players.GetEnumerator();
     }
 }
 
@@ -23,7 +35,7 @@ class Num {
         Team India = new Team();
         foreach (Player c in India)
         {
-            Console.WriteLine(c.Name, c.Runs);
+            Console.WriteLine($"{c.Name},{c.Runs}");
         }
     }
 }
