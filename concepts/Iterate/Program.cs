@@ -1,0 +1,44 @@
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+public class Player
+{
+    public string Name { get; set; }
+    public int Salary { get; set; }
+
+    public Player(string name, int salary)
+    {
+        Name = name;
+        Salary = salary;
+    }
+}
+public  class Team 
+{ 
+ private  Player [] players; 
+ public  Team () 
+ { 
+  players= new Player [3]; 
+  players[0] = new Player("Sachin", 40000); 
+  players[1] = new Player("Rahul", 35000); 
+  players[2] = new Player("Mahindra", 34000); 
+ } 
+ 
+ public IEnumerator GetEnumerator() 
+ {
+        foreach (Player p in players)
+        {
+            yield return p;
+        } 
+
+ } 
+}
+class Program
+{
+    public static void Main()
+    { Team India = new Team();
+        foreach (Player c in India)
+        {
+            Console.WriteLine(c.Name, c.Salary);
+        }
+    }
+}
