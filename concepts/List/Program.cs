@@ -10,12 +10,12 @@
     }
 } 
 class EmpComparer:IComparer<Employee> 
-{ 
-  public int Compare(Employee? e1, Employee? e2) 
-  {
+{
+    public int Compare(Employee? e1, Employee? e2)
+    {
         int ret = e1.Name.Length.CompareTo(e2.Name.Length);
-        return ret; 
-  } 
+        return ret;
+    }
 }
 
 public class Bank
