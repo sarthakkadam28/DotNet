@@ -1,5 +1,5 @@
 ﻿using AssessmentLib.Entities;
-using AssessmentLib.Services.Interface;
+using AssessmentLib.Services.Interfaces;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 using AssessmentLib.Services.Implementation;

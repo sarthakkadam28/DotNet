@@ -1,6 +1,6 @@
 ﻿using AssessmentLib.Repositories.Interface;
 using Microsoft.AspNetCore.Mvc;
-using AssessmentLib.Services.Interface;
+using AssessmentLib.Services.Interfaces;
 using System.Runtime.InteropServices;
 using Mysqlx.Crud;
 using AssessmentLib.Entities;

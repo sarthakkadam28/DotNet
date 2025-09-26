@@ -1,5 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
-using AssessmentLib.Services.Interface;
+using AssessmentLib.Services.Interfaces;
 using AssessmentLib.Entities;
 namespace StudentManagementAPI.Controllers
 {

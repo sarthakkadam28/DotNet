@@ -1,5 +1,5 @@
 ﻿using AssessmentLib.Repositories.Interface;
-using AssessmentLib.Services.Interface;
+using AssessmentLib.Services.Interfaces;
 using AssessmentLib.Entities;
 using System;
 using System.Collections.Generic;

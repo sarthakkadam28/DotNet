@@ -1,5 +1,5 @@
 ﻿using AssessmentLib.Entities;
-using AssessmentLib.Services.Interface;
+using AssessmentLib.Services.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;

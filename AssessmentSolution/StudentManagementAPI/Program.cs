@@ -2,7 +2,7 @@
 using AssessmentLib.Repositories.Implementation;
 using AssessmentLib.Repositories.Interface;
 using AssessmentLib.Services.Implementation;
-using AssessmentLib.Services.Interface;
+using AssessmentLib.Services.Interfaces;
 
 
 var builder = WebApplication.CreateBuilder(args);

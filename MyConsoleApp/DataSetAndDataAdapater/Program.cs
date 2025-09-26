@@ -4,12 +4,13 @@ using System;
 using Microsoft.Data.SqlClient;
 
 
+
 class program
 {
-    static void main(string[] args)
+    static void Main(string[] args)
     {
         string connectionString = "Data Source=localhost;Initial Catalog=sample;Integrated Security=True";
-        
+
         using (SqlConnection connection = new SqlConnection(connectionString))
         {
             try
@@ -17,9 +18,9 @@ class program
                 connection.Open();
                 Console.WriteLine("Connection Opened Successfully");
 
-                SqlCommand cmd = new SqlCommand("SELECT * FROM sample.customers", connectionString);
+                SqlCommand cmd = new SqlCommand("SELECT * FROM [customers]", connection);
                 SqlDataAdapter dataAdapter = new SqlDataAdapter(cmd);
-                
+
                 DataSet dataset = new DataSet();
                 dataAdapter.fill(dataset, "customers");
 
@@ -37,6 +38,7 @@ class program
                 connection.Close();
                 Console.WriteLine("Connection Closed Successfully");
             }
-        }  
-    }
+        }
+    } 
+
 }
