@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using AssessmentLib.Entities;
 using AssessmentLib.Services.Interfaces;
+using AssessmentLib.Repositories.Interface;
 
 namespace StudentManagementAPI.Controllers
 {
@@ -12,20 +13,25 @@ namespace StudentManagementAPI.Controllers
         // GET: AssessmentController
         private readonly IAssessmentService _svc;
         private readonly ILogger<AssessmentController> _logger;
-        public ActionResult Index()
+        public AssessmentController(IAssessmentService service,ILogger<AssessmentController> logger )
         {
-            return View();
+            _svc = service;
+            _logger = logger;
         }
 
-        // GET: AssessmentController/Details/5
-        public ActionResult Details(int id)
+        [HttpGet("{id}")]
+        public async Task <IActionResult> GetDetails(int id)
         {
-            return View();
+            Assessment theAssessment = await _svc.GetDetails(id);
+            _logger.LogInformation("Get details method invoked at {DT}", DateTime.UtcNow.ToLongTimeString());
+            return Ok(theAssessment);
         }
-
+        [HttpGet("creationdate/fromDate/{fromDate}/toDate/{toDate}")]
         // GET: AssessmentController/Create
-        public ActionResult Create()
+        public async Task<IActionResult> GetAll(DateTime fromDate,DateTime toDate)
         {
+            List<Assessment> assessments = await _svc.GetAll(fromDate, toDate);
+            _logger.LogInformation()
             return View();
         }
 
