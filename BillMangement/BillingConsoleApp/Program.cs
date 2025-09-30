@@ -81,57 +81,81 @@ class Program
 {
     static string connectionString = "server=localhost;port=3306;user=root;password=password;database=billMethod";
 
-    static async void Main(string[] args)
+    static async Task Main(string[] args)
     {
         Console.WriteLine("1. Add Bill");
         Console.WriteLine("2. GetAll Bills");
         Console.WriteLine("3. GetBill by ID");
+        Console.WriteLine("4. Update Bill");
+        Console.WriteLine("5. Delete Bill");
         Console.Write("Choose an option: ");
         string choice = Console.ReadLine();
 
         switch (choice)
         {
-            case 1:
+            case "1":
                 await AddBillAsync();
                 break;
-            case 2:
+            case "2":
                 await GetAllBillsAsync();
                 break;
-            case 3:
+            case "3":
                 Console.Write("Enter Bill ID: ");
                 int id = int.Parse(Console.ReadLine());
                 await GetBillByIdAsync(id);
                 break;
-            case 4:
-               await UpdateBillAsync();
+            case "4":
+                Console.Write("Enter Bill ID to update: ");
+                int updateId = int.Parse(Console.ReadLine());
+                await UpdateBillAsync(updateId);
                 break;
-            case 5:
-                await DeleteBillAsync();
+            case "5":
+                Console.Write("Enter Bill ID to delete: ");
+                int deleteId = int.Parse(Console.ReadLine());
+                await DeleteBillAsync(deleteId);
                 break;
+
             default:
                 Console.WriteLine("Invalid option.");
                 break;
         }
     }
 
-    static async Task InsertBillAsync()
+
+
+    static async Task AddBillAsync()
     {
+    
+       Console.WriteLine("Enter BillId Details:");
+        int billId = int.Parse(Console.ReadLine());
+
+        Console.WriteLine("Enter Customer Name:");
+        string customerName = Console.ReadLine();
+
+        Console.WriteLine("Enter Bill Date (yyyy-MM-dd):");
+        DateTime billDate = DateTime.Parse(Console.ReadLine());
+
+        Console.WriteLine("Enter Payment Method:");
+        string paymentMethod = Console.ReadLine();
+
+        Console.WriteLine("Enter Total Amount:");
+        decimal totalAmount = decimal.Parse(Console.ReadLine());
+
+        Console.WriteLine("Enter Tax Amount:");
+        decimal taxAmount = decimal.Parse(Console.ReadLine());
+
+        Console.WriteLine("Enter Net Amount:");
+        decimal netAmount = decimal.Parse(Console.ReadLine());
+
         var bill = new Bill
         {
-            Console.WriteLine("Enter BillId Details:"),
-            BillId = int.Parse(Console.ReadLine()),
-            Console.WriteLine("Enter Customer Name"),
-            CustomerName= Console.ReadLine(),
-            Console.WriteLine("Enter Bill Date"),
-            BillDate=DateTime.Parse(Console.ReadLine()),
-            Console.WriteLine("Enter Payment Method"),
-            PaymentMethod=Console.ReadLine(),
-            Console.WriteLine("Enter Total Amount"),
-            TotalAmount=decimal.Parse(Console.ReadLine()),
-            Console.WriteLine("Enter Tax Amount"),
-            TaxAmount=decimal.Parse(Console.ReadLine()),
-            Console.WriteLine("Enter Net Amount"),
-            NetAmount=decimal.Parse(Console.ReadLine()),
+            Id = billId,
+            CustomerName = customerName,
+            Date = billDate,
+            PaymentMethod = paymentMethod,
+            TotalAmount = totalAmount,
+            TaxAmount = taxAmount,
+            NetAmount = netAmount,
 
         };
 
@@ -139,38 +163,39 @@ class Program
                         (BillId, CustomerName, BillDate, PaymentMethod, TotalAmount, TaxAmount, NetAmount )
                         VALUES (@Id, @CustomerName, @Date, @PaymentMethod, @TotalAmount, @TaxAmount, @NetAmount)";
 
-        using (var connection = new MySqlConnection(connectionString)) ;
-        using (var command = new MySqlCommand(query, connection)) ;
-
-        command.Parameters.AddWithValue("@Id", bill.Id);
-        command.Parameters.AddWithValue("@CustomerName", bill.CustomerName);
-        command.Parameters.AddWithValue("@Date", bill.Date);
-        command.Parameters.AddWithValue("@PaymentMethod", bill.PaymentMethod);
-        command.Parameters.AddWithValue("@TotalAmount", bill.TotalAmount);
-        command.Parameters.AddWithValue("@TaxAmount", bill.TaxAmount);
-        command.Parameters.AddWithValue("@NetAmount", bill.NetAmount);
-
-
-        try
+        using (var connection = new MySqlConnection(connectionString))
+        using (var command = new MySqlCommand(query, connection))
         {
-            await connection.OpenAsync();
-            int result = await command.ExecuteNonQueryAsync();
-            if (result > 0)
+            command.Parameters.AddWithValue("@Id", bill.Id);
+            command.Parameters.AddWithValue("@CustomerName", bill.CustomerName);
+            command.Parameters.AddWithValue("@Date", bill.Date);
+            command.Parameters.AddWithValue("@PaymentMethod", bill.PaymentMethod);
+            command.Parameters.AddWithValue("@TotalAmount", bill.TotalAmount);
+            command.Parameters.AddWithValue("@TaxAmount", bill.TaxAmount);
+            command.Parameters.AddWithValue("@NetAmount", bill.NetAmount);
+
+
+            try
             {
-                Console.WriteLine("Bill inserted successfully.");
+                await connection.OpenAsync();
+                int result = await command.ExecuteNonQueryAsync();
+                if (result > 0)
+                {
+                    Console.WriteLine("Bill inserted successfully.");
+                }
+                else
+                {
+                    Console.WriteLine("Insert failed.");
+                }
             }
-            else
+            catch (Exception ex)
             {
-                Console.WriteLine("Insert failed.");
+                Console.WriteLine("Insert failed: " + ex.Message);
             }
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine("Insert failed: " + ex.Message);
-        }
-        finally
-        {
-            await connection.CloseAsync();
+            finally
+            {
+                await connection.CloseAsync();
+            }
         }
     }
 
@@ -178,23 +203,25 @@ class Program
     {
         string query = "SELECT * FROM bill";
 
-        using var connection = new MySqlConnection(connectionString);
-        using var command = new MySqlCommand(query, connection);
-
-        try
+        using (var connection = new MySqlConnection(connectionString))
+        using (var command = new MySqlCommand(query, connection))
         {
-            await connection.OpenAsync();
-            using var reader = await command.ExecuteReaderAsync();
+            try
+            {
+                await connection.OpenAsync();
+                using var reader = await command.ExecuteReaderAsync();
 
             Console.WriteLine("\nAll Bills:");
             while (await reader.ReadAsync())
             {
-                Console.WriteLine($"{reader["BillId"]} - {reader["CustomerName"]} - {reader["TotalAmount"]}");
+                Console.WriteLine($"{reader["BillId"]} {reader["CustomerName"]} {reader["TotalAmount"]} {reader["BillDate"]}{reader["PaymentMethod"]} {reader["TaxAmount"]} {reader["NetAmount"]}");
+
             }
         }
         catch (Exception ex)
         {
             Console.WriteLine("Error: " + ex.Message);
+        }
         }
     }
 
@@ -213,20 +240,126 @@ class Program
 
             if (await reader.ReadAsync())
             {
-                Console.WriteLine($"\nBill Found:\n" +
+                Console.WriteLine($"Bill Found" +
                                   $"ID: {reader["BillId"]}\n" +
                                   $"Customer: {reader["CustomerName"]}\n" +
                                   $"Amount: {reader["TotalAmount"]}\n" +
-                                  $"Date: {reader["BillDate"]}");
+                                  $"Date: {reader["BillDate"]}\n"+
+                                  $"Payment Method: {reader["PaymentMethod"]}\n" +
+                                  $"Tax Amount: {reader["TaxAmount"]}\n");
             }
             else
             {
-                Console.WriteLine("Bill not found.");
+                Console.WriteLine("Bill not found");
             }
         }
         catch (Exception ex)
         {
             Console.WriteLine("Error: " + ex.Message);
+        }
+    }
+    static async Task UpdateBillAsync(int id)
+    {
+        Console.WriteLine("Enter BillId Details:");
+            int billId = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("Enter Customer Name:");
+            string customerName = Console.ReadLine();
+
+            Console.WriteLine("Enter Bill Date:");
+            DateTime billDate = DateTime.Parse(Console.ReadLine());
+
+            Console.WriteLine("Enter Payment Method:");
+            string paymentMethod = Console.ReadLine();
+
+            Console.WriteLine("Enter Total Amount:");
+            decimal totalAmount = decimal.Parse(Console.ReadLine());
+
+            Console.WriteLine("Enter Tax Amount:");
+            decimal taxAmount = decimal.Parse(Console.ReadLine());
+
+            Console.WriteLine("Enter Net Amount:");
+            decimal netAmount = decimal.Parse(Console.ReadLine());
+
+            var bill = new Bill
+        {
+            Id = billId,
+            CustomerName = customerName,
+            Date = billDate,
+            PaymentMethod = paymentMethod,
+            TotalAmount = totalAmount,
+            TaxAmount = taxAmount,
+            NetAmount = netAmount,
+        };
+        string query = @"UPDATE bill SET 
+                        CustomerName = @CustomerName, 
+                        BillDate = @Date, 
+                        PaymentMethod = @PaymentMethod, 
+                        TotalAmount = @TotalAmount, 
+                        TaxAmount = @TaxAmount, 
+                        NetAmount = @NetAmount 
+                        WHERE BillId = @Id";
+        using var connection = new MySqlConnection(connectionString);
+        using var command = new MySqlCommand(query, connection);
+
+        command.Parameters.AddWithValue("@Id", bill.Id);
+        command.Parameters.AddWithValue("@CustomerName", bill.CustomerName);
+        command.Parameters.AddWithValue(@"Date", bill.Date);
+        command.Parameters.AddWithValue("@PaymentMethod", bill.PaymentMethod);
+        command.Parameters.AddWithValue("@TotalAmount", bill.TotalAmount);
+        command.Parameters.AddWithValue("@TaxAmount", bill.TaxAmount);
+        command.Parameters.AddWithValue("@NetAmount", bill.NetAmount);
+        try
+        {
+            await connection.OpenAsync();
+            int result = await command.ExecuteNonQueryAsync();
+            if (result > 0)
+            {
+                Console.WriteLine("Bill updated successfully.");
+            }
+            else
+            {
+                Console.WriteLine("Update failed ");
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("Update failed: " + ex.Message);
+        }
+        finally
+        {
+            await connection.CloseAsync();
+
+        }
+    }
+    static async Task DeleteBillAsync(int id)
+    {
+        string query = "DELETE FROM bill WHERE BillId = @Id";
+
+        using var connection = new MySqlConnection(connectionString);
+        using var command = new MySqlCommand(query, connection);
+        command.Parameters.AddWithValue("@Id", id);
+
+        try
+        {
+            await connection.OpenAsync();
+            int result = await command.ExecuteNonQueryAsync();
+            if (result > 0)
+            {
+                Console.WriteLine("Bill deleted successfully.");
+            }
+            else
+            {
+                Console.WriteLine("Delete failed.");
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("Delete failed: " + ex.Message);
+        }
+        finally
+        {
+            await connection.CloseAsync();
         }
     }
 }
