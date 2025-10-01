@@ -17,12 +17,13 @@
 //    }
 //    public class Program
 //    {
-//        string connection = "server=localhost;port=3306;user=root;password=password;database=assessmentdb";
+//        string connectionString = "server=localhost;port=3306;user=root;password=password;database=billmethod";
 //        public async Task<List<Bill>> GetAllBill()
 //        {
 //            List<Bill> Bills = new List<Bill>();
 //            string query = @"select * from bill";
 //            MySqlConnection connection = new MySqlConnection();
+//            connection .ConnectionString = connectionString;
 //            MySqlCommand command = new MySqlCommand(query, connection);
 //            try
 //            {
@@ -31,14 +32,25 @@
 //                while (reader.Read())
 //                {
 //                    Bill bill = new Bill();
-//                    int Id = reader.GetInt32("id");
-//                    string CustomerName = reader.GetString("name");
-//                    DateTime Date = reader.GetDateTime("date");
-//                    decimal TotalAmount = reader.GetDecimal("totalamount");
+//                    int Id = reader.GetInt32("BillId");
+//                    string CustomerName = reader.GetString("CustomerName");
+//                    DateTime Date = reader.GetDateTime("BillDate");
+//                    decimal TotalAmount = reader.GetDecimal("TotalAmount");
 //                    decimal TaxAmount = reader.GetDecimal("TaxAmount");
 //                    decimal NetAmount = reader.GetDecimal("NetAmount");
-//                    string PaymentMethod = reader.GetString("method");
-//                    bool Ispad = reader.GetBoolean("IsPad");
+//                    string PaymentMethod = reader.GetString("PaymentMethod");
+
+
+//                    bill.BillId = Id;
+//                    bill.CustomerName = CustomerName;
+//                    bill.BillDate = Date;
+//                    bill.TotalAmount = TotalAmount;
+//                    bill.TaxAmount = TaxAmount;
+//                    bill.NetAmount = NetAmount;
+//                    bill.PaymentMethod = PaymentMethod;
+
+
+
 //                    Bills.Add(bill);
 //                }
 
@@ -53,12 +65,102 @@
 //            }
 //            return Bills;
 //        }
-//        public static void main(string[] args)
+//        public async Task<Boolean> AddBillAsync()
 //        {
-//            Program get = new Program();
-//            get.GetAllBill();
+//            Bill bills = new Bill();
+//            Boolean status = false;
+//            Console.WriteLine(" Enter BillId");
+//            int BillId = int.Parse(Console.ReadLine());
+//            Console.WriteLine("Enter a CustomerName");
+//            string  CustomerName=(Console.ReadLine());
+//            Console.WriteLine("Enter a date ");
+//            DateTime BillDate=DateTime.Parse(Console.ReadLine());
+//            Console.WriteLine("Enter a PaymentMethod");
+//            string PaymentMethod=Console.ReadLine();
+//            Console.WriteLine("Enter a TotalAmount");
+//            decimal TotalAmount = decimal.Parse(Console.ReadLine());
+//            Console.WriteLine("Enter a TaxAmount");
+//            decimal TaxAmount=decimal.Parse(Console.ReadLine());
+//            Console.WriteLine("Enter a NetAmoun");
+//            decimal NetAmount = decimal.Parse(Console.ReadLine());
+
+//            string query = @"INSERT INTO bill(BillId, CustomerName, BillDate, PaymentMethod, TotalAmount, TaxAmount, NetAmount)
+//                            VALUES(@Id, @CustomerName, @Date, @PaymentMethod, @TotalAmount, @TaxAmount, @NetAmount)";
+//            using (MySqlConnection connection = new MySqlConnection())
+//            {
+//                 connection.ConnectionString = connectionString;
+
+//                using (MySqlCommand command = new MySqlCommand(query, connection))
+//                {
+//                    command.Parameters.AddWithValue("@Id", BillId);
+//                    command.Parameters.AddWithValue("@CustomerName", CustomerName);
+//                    command.Parameters.AddWithValue("@Date", BillDate);
+//                    command.Parameters.AddWithValue("@PaymentMethod", PaymentMethod);
+//                    command.Parameters.AddWithValue("@TotalAmount", TotalAmount);
+//                    command.Parameters.AddWithValue("@TaxAmount", TaxAmount);
+//                    command.Parameters.AddWithValue("@NetAmount", NetAmount);
+
+//                    try
+//                    {
+//                        await connection.OpenAsync();
+
+//                        int result = await command.ExecuteNonQueryAsync();
+//                        if (result >= 0)
+//                        {
+//                            Console.WriteLine("Add Bill Sucessfull");
+//                            status = true;
+//                        }
+//                        else
+//                        {
+//                            Console.WriteLine(" not add bill");
+//                        }
+
+//                    }
+//                    catch (Exception ex)
+//                    {
+//                        Console.WriteLine(ex.Message);
+//                    }
+//                    finally
+//                    {
+//                        await connection.CloseAsync();
+//                    }
+//                    return status;
+//                }
+
+//            }     
+
+//       }
+//        public static async Task Main(string[] args)
+//        {
+//            Program pro = new Program();
+//            List<Bill> bills = await pro.GetAllBill();
+//            foreach (Bill bill in bills)
+//            {
+//                Console.WriteLine(bill.BillId);
+//                Console.WriteLine(bill.CustomerName);
+//                Console.WriteLine(bill.DiscountAmount);
+//                Console.WriteLine(bill.BillDate);
+//                Console.WriteLine(bill.TotalAmount);
+//                Console.WriteLine(bill.NetAmount);
+//                Console.WriteLine(bill.TaxAmount);
+
+//            }
+
+//            Boolean status=await pro.AddBillAsync();
+//            if (status)
+//            {
+//                Console.WriteLine("bill added sucessfully");
+//            }
+//            else
+//            {
+//                Console.WriteLine("bill not added");
+//            }
+
+
 //        }
+
 //    }
+
 //}
 using System;
 using System.Collections.Generic;
@@ -125,8 +227,8 @@ class Program
 
     static async Task AddBillAsync()
     {
-    
-       Console.WriteLine("Enter BillId Details:");
+
+        Console.WriteLine("Enter BillId Details:");
         int billId = int.Parse(Console.ReadLine());
 
         Console.WriteLine("Enter Customer Name:");
@@ -160,8 +262,8 @@ class Program
         };
 
         string query = @"INSERT INTO bill 
-                        (BillId, CustomerName, BillDate, PaymentMethod, TotalAmount, TaxAmount, NetAmount )
-                        VALUES (@Id, @CustomerName, @Date, @PaymentMethod, @TotalAmount, @TaxAmount, @NetAmount)";
+                         (BillId, CustomerName, BillDate, PaymentMethod, TotalAmount, TaxAmount, NetAmount )
+                         VALUES (@Id, @CustomerName, @Date, @PaymentMethod, @TotalAmount, @TaxAmount, @NetAmount)";
 
         using (var connection = new MySqlConnection(connectionString))
         using (var command = new MySqlCommand(query, connection))
@@ -211,17 +313,17 @@ class Program
                 await connection.OpenAsync();
                 using var reader = await command.ExecuteReaderAsync();
 
-            Console.WriteLine("\nAll Bills:");
-            while (await reader.ReadAsync())
-            {
-                Console.WriteLine($"{reader["BillId"]} {reader["CustomerName"]} {reader["TotalAmount"]} {reader["BillDate"]}{reader["PaymentMethod"]} {reader["TaxAmount"]} {reader["NetAmount"]}");
+                Console.WriteLine("\nAll Bills:");
+                while (await reader.ReadAsync())
+                {
+                    Console.WriteLine($"{reader["BillId"]} {reader["CustomerName"]} {reader["TotalAmount"]} {reader["BillDate"]}{reader["PaymentMethod"]} {reader["TaxAmount"]} {reader["NetAmount"]}");
 
+                }
             }
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine("Error: " + ex.Message);
-        }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+            }
         }
     }
 
@@ -244,7 +346,7 @@ class Program
                                   $"ID: {reader["BillId"]}\n" +
                                   $"Customer: {reader["CustomerName"]}\n" +
                                   $"Amount: {reader["TotalAmount"]}\n" +
-                                  $"Date: {reader["BillDate"]}\n"+
+                                  $"Date: {reader["BillDate"]}\n" +
                                   $"Payment Method: {reader["PaymentMethod"]}\n" +
                                   $"Tax Amount: {reader["TaxAmount"]}\n");
             }
@@ -261,27 +363,27 @@ class Program
     static async Task UpdateBillAsync(int id)
     {
         Console.WriteLine("Enter BillId Details:");
-            int billId = int.Parse(Console.ReadLine());
+        int billId = int.Parse(Console.ReadLine());
 
-            Console.WriteLine("Enter Customer Name:");
-            string customerName = Console.ReadLine();
+        Console.WriteLine("Enter Customer Name:");
+        string customerName = Console.ReadLine();
 
-            Console.WriteLine("Enter Bill Date:");
-            DateTime billDate = DateTime.Parse(Console.ReadLine());
+        Console.WriteLine("Enter Bill Date:");
+        DateTime billDate = DateTime.Parse(Console.ReadLine());
 
-            Console.WriteLine("Enter Payment Method:");
-            string paymentMethod = Console.ReadLine();
+        Console.WriteLine("Enter Payment Method:");
+        string paymentMethod = Console.ReadLine();
 
-            Console.WriteLine("Enter Total Amount:");
-            decimal totalAmount = decimal.Parse(Console.ReadLine());
+        Console.WriteLine("Enter Total Amount:");
+        decimal totalAmount = decimal.Parse(Console.ReadLine());
 
-            Console.WriteLine("Enter Tax Amount:");
-            decimal taxAmount = decimal.Parse(Console.ReadLine());
+        Console.WriteLine("Enter Tax Amount:");
+        decimal taxAmount = decimal.Parse(Console.ReadLine());
 
-            Console.WriteLine("Enter Net Amount:");
-            decimal netAmount = decimal.Parse(Console.ReadLine());
+        Console.WriteLine("Enter Net Amount:");
+        decimal netAmount = decimal.Parse(Console.ReadLine());
 
-            var bill = new Bill
+        var bill = new Bill
         {
             Id = billId,
             CustomerName = customerName,
@@ -292,13 +394,13 @@ class Program
             NetAmount = netAmount,
         };
         string query = @"UPDATE bill SET 
-                        CustomerName = @CustomerName, 
-                        BillDate = @Date, 
-                        PaymentMethod = @PaymentMethod, 
-                        TotalAmount = @TotalAmount, 
-                        TaxAmount = @TaxAmount, 
-                        NetAmount = @NetAmount 
-                        WHERE BillId = @Id";
+                         CustomerName = @CustomerName, 
+                         BillDate = @Date, 
+                         PaymentMethod = @PaymentMethod, 
+                         TotalAmount = @TotalAmount, 
+                         TaxAmount = @TaxAmount, 
+                         NetAmount = @NetAmount 
+                         WHERE BillId = @Id";
         using var connection = new MySqlConnection(connectionString);
         using var command = new MySqlCommand(query, connection);
 
@@ -363,3 +465,4 @@ class Program
         }
     }
 }
+
