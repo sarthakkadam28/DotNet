@@ -6,7 +6,7 @@ using BillMangement.Services;
 namespace BillMangement.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class BillController : ControllerBase
     {
         private readonly IBillService _billService;
@@ -14,16 +14,27 @@ namespace BillMangement.Controllers
         {
             _billService = billService;
         }
-        //http://localhost:5264/api/bill/bills
-        [HttpGet("Bills")]
+        //http://localhost:5264/api/Bill/bills
+        [HttpGet("bills")]
         public async Task<IActionResult> GetAllBill()
         {
-            List<Bill>bills = await _billService.GetAllBill();
-            if(bills==null || bills.Count == 0)
-            { 
-                return NotFound ("no bill found");
+            List<Bill> bills = await _billService.GetAllBill();
+            if (bills == null || bills.Count == 0)
+            {
+                return NotFound("no bill found");
             }
             return Ok(bills);
         }
+        // [HttpPost("bill")]
+        // public async Task<IActionResult> AddBill([FromBody]Bill bill)
+        // {
+        //     var result = await _billService.AddBill(bill);
+        //     if (result ==null)
+        //     {
+        //        return StatusCode(500,"not added successfully");
+        //     }
+        //     return Ok(result);
+            
+        // }
     }
 }
