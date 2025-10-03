@@ -25,16 +25,17 @@ namespace BillMangement.Controllers
             }
             return Ok(bills);
         }
-        // [HttpPost("bill")]
-        // public async Task<IActionResult> AddBill([FromBody]Bill bill)
-        // {
-        //     var result = await _billService.AddBill(bill);
-        //     if (result ==null)
-        //     {
-        //        return StatusCode(500,"not added successfully");
-        //     }
-        //     return Ok(result);
+        //http://localhost:5234/api/Bill/result
+        [HttpPost("bill")]
+        public async Task<IActionResult> AddBill([FromBody]Bill bill)
+        {
+            var result = await _billService.AddBill(bill);
+            if (result ==null)
+            {
+               return StatusCode(500,"not added successfully");
+            }
+            return Ok(result);
             
-        // }
+        }
     }
 }

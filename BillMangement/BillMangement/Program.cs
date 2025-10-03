@@ -1,3 +1,4 @@
+using System.Configuration;
 using BillMangement.Repository;
 using BillMangement.Services;
 
@@ -8,8 +9,10 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 
+
 builder.Services.AddScoped<IBillService, BillService>();
 builder.Services.AddScoped<IBillRepository, BillRepository>();
+
 
 
 builder.Services.AddEndpointsApiExplorer();

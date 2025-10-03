@@ -7,7 +7,7 @@ namespace BillMangement.Repository
        
 
         Task<List<Bill>> GetAllBill();
-        // Task<Bill> AddBill(Bill bill);
+         Task<Bill> AddBill(Bill bill);
 
     }
 }
