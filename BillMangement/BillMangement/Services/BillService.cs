@@ -16,10 +16,17 @@ namespace BillMangement.Services
         {
             return await _billRepository.GetAllBill();
         }
-        public async Task<Bill> AddBill(Bill bill)
+        public async Task<bool> AddBill(BillModel billModel)
         {
-            return await _billRepository.AddBill(bill);
+            return await _billRepository.AddBill(billModel);
         }
- 
+        public async Task<List<BillDetail>> GetBillDetail()
+        {
+            return await _billRepository.GetBillDetail();
+        }
+        public async Task<List<Bill>> DeleteById(int BillId)
+        {
+            return await _billRepository.DeleteById(BillId);
+        }
     }
 }

@@ -4,10 +4,12 @@ namespace BillMangement.Repository
 {
     public interface IBillRepository
     {
-       
+
 
         Task<List<Bill>> GetAllBill();
-         Task<Bill> AddBill(Bill bill);
+        Task<bool> AddBill(BillModel billModel);
+        Task<List<BillDetail>> GetBillDetail();
+        Task<List<Bill>> DeleteById(int BillId );
 
     }
 }
