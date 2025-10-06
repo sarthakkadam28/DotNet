@@ -65,6 +65,7 @@
 //            }
 //            return Bills;
 //        }
+
 //        public async Task<Boolean> AddBillAsync()
 //        {
 //            Bill bills = new Bill();
@@ -127,7 +128,12 @@
 //                    return status;
 //                }
 
-//            }     
+//            }
+//            public async Task<boolean> UpdateBill(int id)
+            //{
+                
+
+            //}
 
 //       }
 //        public static async Task Main(string[] args)
@@ -181,7 +187,7 @@ class Bill
 
 class Program
 {
-    static string connectionString = "server=localhost;port=3306;user=root;password=password;database=billMethod";
+    static string connectionString = "server=localhost;port=3306;user=root;password=password;database=billmethod";
 
     static async Task Main(string[] args)
     {
@@ -261,6 +267,10 @@ class Program
 
         };
 
+
+        //Sql injection   ???????
+
+
         string query = @"INSERT INTO bill 
                          (BillId, CustomerName, BillDate, PaymentMethod, TotalAmount, TaxAmount, NetAmount )
                          VALUES (@Id, @CustomerName, @Date, @PaymentMethod, @TotalAmount, @TaxAmount, @NetAmount)";
@@ -280,6 +290,7 @@ class Program
             try
             {
                 await connection.OpenAsync();
+                //when to use sca
                 int result = await command.ExecuteNonQueryAsync();
                 if (result > 0)
                 {

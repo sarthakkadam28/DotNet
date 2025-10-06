@@ -49,6 +49,7 @@ namespace BillMangement.Controllers
 
 
         }
+        //http://localhost:5234/api/Bill/DeleteId
         [HttpDelete("DeleteId")]
         public async Task<IActionResult> DeleteById(int BillId)
         {
@@ -56,7 +57,7 @@ namespace BillMangement.Controllers
             {
                 return BadRequest("Invalid subject Id .");
             }
-            int result = await _billService.DeleteById(BillId);
+             int result = await _billService.DeleteById(BillId);
             if (result > 0)
             {
                 return Ok("deleted sucessfully.");
