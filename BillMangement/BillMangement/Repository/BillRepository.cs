@@ -128,9 +128,8 @@ namespace BillMangement.Repository
             }
             return details;
         }
-        public async Task<List<Bill>> DeleteById(int BillId)
+        public async Task<bool> DeleteById(int BillId)
         {
-            List<Bill> bill = new List<Bill>();
             string query = @"DELETE FROM bill WHERE BillId=@BillId";
             MySqlConnection connection = new MySqlConnection(_connectionString);
             MySqlCommand command = new MySqlCommand(query, connection);
@@ -139,33 +138,54 @@ namespace BillMangement.Repository
                 try
                 {
                     await connection.OpenAsync();
-                    // MySqlDataReader reader = command.ExecuteReader();
-                    // while (reader.Read())
-                    // {
-                    //     Bill bills = new Bill();
-                    //     bills.BillId = Convert.ToInt32(reader["BillId"]);
-                    //     bills.CustomerName = reader["CustomerName"].ToString();
-                    //     bills.BillDate = Convert.ToDateTime(reader["BillDate"]);
-                    //     bills.TotalAmount = Convert.ToDecimal(reader["TotalAmount"]);
-                    //     bills.TaxAmount = Convert.ToDecimal(reader["TaxAmount"]);
-                    //     bills.NetAmount = Convert.ToDecimal(reader["NetAmount"]);
-                    //     bills.PaymentMethod = reader["PaymentMethod"].ToString();
-                    //     bill.Add(bills);
-                    // }
-                    return await command.ExecuteNonQueryAsync();
-
+                    int rowsAffected = await command.ExecuteNonQueryAsync();
+                    return rowsAffected > 0;
                 }
                 catch (Exception ex)
                 {
-                    // Console.WriteLine(ex.ToString());
                     Console.WriteLine(ex.Message);
+                    return false;
                 }
                 finally
                 {
                     await connection.CloseAsync();
                 }
+
             }
-            return bill;
+        }
+        public async Task<bool> UpdateBill(int BillId, Bill billModel)
+        {
+            string query = @"UPDATE bill SET CustomerName=@CustomerName,TotalAmount=@TotalAmount,TaxAmount=@TaxAmount,NetAmount=@NetAmount,PaymentMethod=@PaymentMethod,BillDate=@BillDate WHERE BillId=@BillId";
+            MySqlConnection connection = new MySqlConnection(_connectionString);
+            MySqlCommand command = new MySqlCommand(query, connection);
+            {
+                command.Parameters.AddWithValue("@BillId", BillId);
+                command.Parameters.AddWithValue("@CustomerName", billModel.CustomerName);
+                command.Parameters.AddWithValue("@TotalAmount", billModel.TotalAmount);
+                command.Parameters.AddWithValue("@BillDate", billModel.BillDate);
+                command.Parameters.AddWithValue("@TaxAmount", billModel.TaxAmount);
+                command.Parameters.AddWithValue("@PaymentMethod", billModel.PaymentMethod);
+                command.Parameters.AddWithValue("@NetAmount", billModel.NetAmount);
+            }
+            try
+            {
+                await connection.OpenAsync();
+                int result = command.ExecuteNonQueryAsync().Result;
+                if (result > 0)
+                {
+                    return true;
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return false;
+            }
+            finally
+            {
+                connection.CloseAsync();
+            }
+            return true;
         }
     }
 }

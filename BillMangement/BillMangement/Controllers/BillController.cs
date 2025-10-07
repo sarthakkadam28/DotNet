@@ -53,21 +53,50 @@ namespace BillMangement.Controllers
         [HttpDelete("DeleteId")]
         public async Task<IActionResult> DeleteById(int BillId)
         {
-            if (BillId <= 0)
-            {
-                return BadRequest("Invalid subject Id .");
-            }
-             int result = await _billService.DeleteById(BillId);
-            if (result > 0)
+            // if (BillId <= 0)
+
+            // {
+            //     return BadRequest("Invalid bill Id .");
+            // }
+            //  bool result = await _billService.DeleteById(BillId);
+            // if (result)
+            // {
+            //     return Ok("deleted sucessfully.");
+            // }
+            // else
+            // {
+            //     return BadRequest("Invalid Billid");
+            // }
+            bool result = await _billService.DeleteById(BillId);
+            if (result)
             {
                 return Ok("deleted sucessfully.");
             }
-            if (result == 0)
+            else
             {
                 return BadRequest("Invalid Billid");
             }
-            return StatusCode(500, "error occurred while deleting the deatils");
 
+
+        }
+        //http://localhost:5234/api/Bill/UpdateBill
+        [HttpPut("UpdateBill")]
+        public async Task<IActionResult> UpdateBill(int BillId,Bill billModel)
+        {
+            if (BillId <= 0 || billModel == null)
+            {
+                return BadRequest("Invalid input.");
+            }
+
+            bool result = await _billService.UpdateBill(BillId, billModel);
+            if (result)
+            {
+                return Ok("Bill updated successfully.");
+            }
+            else
+            {
+                return NotFound("Bill not found.");
+            }
         }
     
     }

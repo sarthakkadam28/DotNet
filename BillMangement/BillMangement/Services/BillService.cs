@@ -24,9 +24,13 @@ namespace BillMangement.Services
         {
             return await _billRepository.GetBillDetail();
         }
-        public async Task<List<int>> DeleteById(int BillId)
+        public async Task<bool> DeleteById(int BillId)
         {
             return await _billRepository.DeleteById(BillId);
+        }
+        public async Task<bool> UpdateBill(int BillId,Bill billModel)
+        {
+            return await _billRepository.UpdateBill(BillId,billModel);
         }
     }
 }

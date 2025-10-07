@@ -9,7 +9,8 @@ namespace BillMangement.Repository
         Task<List<Bill>> GetAllBill();
         Task<bool> AddBill(BillModel billModel);
         Task<List<BillDetail>> GetBillDetail();
-        Task<List<Bill>> DeleteById(int BillId );
+        Task<bool> DeleteById(int BillId);
+        Task<bool> UpdateBill(int BillId,Bill billModel);
 
     }
 }
