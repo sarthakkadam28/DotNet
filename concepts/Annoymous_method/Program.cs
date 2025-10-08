@@ -1,18 +1,23 @@
 ﻿//simple code method
 using System;
 
-class Program
-{
-    static void SayHello()
-    {
-        Console.WriteLine("Hello!");
-    }
+// class Program
+// {
+//     static void SayHello()
+//     {
+//         Console.WriteLine("Hello!");
+//     }
+//     static void  SayBye()
+//     {
+//         Console.WriteLine("Bye");
+//     }
 
-    static void Main()
-    {
-        SayHello(); // Call the named method
-    }
-}
+//     static void Main()
+//     {
+//         SayHello();
+//         SayBye(); // Call the named method
+//     }
+// }
 // using anonymous method
 
 class Program
@@ -26,7 +31,12 @@ class Program
         {
             Console.WriteLine("Hello!");
         };
+        MyDelegate Bye = delegate ()
+        {
+            Console.WriteLine("bye");
+        };
 
         hello(); // Call the anonymous method
     }
 }
+ 
