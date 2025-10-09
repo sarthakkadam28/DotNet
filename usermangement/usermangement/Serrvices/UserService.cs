@@ -10,9 +10,9 @@ public class UserService : IUserService
         _userRepository = userRepository;
     }
 
-    public async Task<UserWithRole> GetUserWithRoleAsync(int AadharId)
+    public async Task<bool> AddUserWithRole(AddUser user)
     {
-        return await _userRepository.GetUserWithRoleAsync(AadharId);
+        return await _userRepository.AddUserWithRole(user);
     }
 
    
