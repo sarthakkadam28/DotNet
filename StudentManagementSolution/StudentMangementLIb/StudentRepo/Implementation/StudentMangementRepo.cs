@@ -1,9 +1,7 @@
 ﻿using StudentMangementLIb.StudentEntity;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using MySql.Data.MySqlClient;
+
 
 namespace StudentMangementLIb.StudentRepo.Implementation
 {
@@ -183,5 +181,4 @@ namespace StudentMangementLIb.StudentRepo.Implementation
     //                 }
     //             }
     //         } 
-}
-}
+
