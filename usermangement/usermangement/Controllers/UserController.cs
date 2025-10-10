@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using Org.BouncyCastle.Pqc.Crypto.Ntru;
 using usermangement.Entities;
 using usermangement.Service;
 namespace usermangement.controller
@@ -31,7 +32,7 @@ namespace usermangement.controller
 
             if (!status)
             {
-                return NotFound(new { message = "User not added." });
+              return BadRequest("User not added due to database error.");
             }
 
             return Ok(user);

@@ -35,12 +35,8 @@ namespace usermangement.Repository
             try
             {
                 await connection.OpenAsync();
-                int rowsAffected = await command.ExecuteNonQueryAsync();
-                bool status = rowsAffected > 0;
-                if (status)
-                {
-                    return true;
-                }
+                int result = await command.ExecuteNonQueryAsync();
+                return result > 0;
             }
             catch (Exception ex)
             {
@@ -51,7 +47,6 @@ namespace usermangement.Repository
             {
                 await connection.CloseAsync();
             }
-            return true;
             
         }
         
