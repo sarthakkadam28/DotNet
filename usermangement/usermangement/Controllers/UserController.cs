@@ -5,7 +5,7 @@ using usermangement.Service;
 namespace usermangement.controller
 {
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("[controller]")]
     public class UserController : ControllerBase
     {
         private readonly IUserService _userService;
@@ -32,11 +32,20 @@ namespace usermangement.controller
 
             if (!status)
             {
-              return BadRequest("User not added due to database error.");
+                return BadRequest("User not added due to database error.");
             }
 
             return Ok(user);
         }
+        // [HttpPost("Addemployee")]
+        // public async Task<IActionResult> AddUserWithEmployee([FromBody] AddUser user)
+        // {
+        //     bool status = await _userService.AddUserWithEmployee(user);
+        //     if (!status)
+        //     {
+        //         return BadRequest(" User not added due to database error .");
+        //     }
+        //     return Ok(user);
+        // }
     }
-
 }

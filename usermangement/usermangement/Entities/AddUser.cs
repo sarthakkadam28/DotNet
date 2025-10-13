@@ -2,7 +2,7 @@ namespace usermangement.Entities
 {
     public class AddUser
     {
-        public int Aadharid{ get; set; }
+        public string Aadharid{ get; set; }
         public string FirstName{ get; set; }
         public string LastName{ get; set; }
         public string Email{ get; set; }

@@ -14,6 +14,10 @@ public class UserService : IUserService
     {
         return await _userRepository.AddUserWithRole(user);
     }
+    // public async Task<bool> AddUserWithEmployee(AddUser user)
+    // {
+    //     return await _userRepository.AddUserWithEmployee(user);
+    // }
 
    
 }
