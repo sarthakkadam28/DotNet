@@ -1,5 +1,7 @@
 using MySql.Data.MySqlClient;
 using usermangement.Entities;
+using usermangement.Entities.UserRoleWithProjectAssignment;
+using System.Collections.Generic;
 namespace usermangement.Repository
 {
     public class UserRepository : IUserRepository
@@ -14,42 +16,42 @@ namespace usermangement.Repository
             ?? throw new InvalidOperationException("Missing connection string DefaultConnection");
         }
         
-        // public async Task<bool> AddUserWithRole1 (AddUser user)
-        // {
+        public async Task<bool> AddUserWithRole1 (AddUser user)
+        {
 
-        //     string query = @"INSERT INTO users(aadharid, firstname, lastname, email, contactnumber, password, createdon, modifiedon,roleid)
-        //                     VALUES (@AadharId,@FirstName,@LastName, @Email , @ContactNumber, @Password, @CreatedOn, @ModifiedOn,@RoleId)";
+            string query = @"INSERT INTO users(aadharid, firstname, lastname, email, contactnumber, password, createdon, modifiedon,roleid)
+                            VALUES (@AadharId,@FirstName,@LastName, @Email , @ContactNumber, @Password, @CreatedOn, @ModifiedOn,@RoleId)";
 
-        //     MySqlConnection connection = new MySqlConnection(_connectionString);
-        //     MySqlCommand command = new MySqlCommand(query, connection);
-        //     {
-        //         command.Parameters.AddWithValue(@"Aadharid", user.Aadharid);
-        //         command.Parameters.AddWithValue(@"FirstName", user.FirstName);
-        //         command.Parameters.AddWithValue(@"Lastname", user.LastName);
-        //         command.Parameters.AddWithValue(@"Email", user.Email);
-        //         command.Parameters.AddWithValue(@"ContactNumber", user.ContactNumber);
-        //         command.Parameters.AddWithValue(@"Password", user.Password);
-        //         command.Parameters.AddWithValue(@"CreatedOn", user.CreatedOn);
-        //         command.Parameters.AddWithValue(@"ModifiedOn", user.ModifiedOn);
-        //         command.Parameters.AddWithValue(@"RoleId", user.RoleId);
-        //     }
-        //     try
-        //     {
-        //         await connection.OpenAsync();
-        //         int result = await command.ExecuteNonQueryAsync();
-        //         return result > 0;
-        //     }
-        //     catch (Exception ex)
-        //     {
-        //         Console.WriteLine(ex.Message);
-        //         return false;
-        //     }
-        //     finally
-        //     {
-        //         await connection.CloseAsync();
-        //     }
+            MySqlConnection connection = new MySqlConnection(_connectionString);
+            MySqlCommand command = new MySqlCommand(query, connection);
+            {
+                command.Parameters.AddWithValue(@"Aadharid", user.Aadharid);
+                command.Parameters.AddWithValue(@"FirstName", user.FirstName);
+                command.Parameters.AddWithValue(@"Lastname", user.LastName);
+                command.Parameters.AddWithValue(@"Email", user.Email);
+                command.Parameters.AddWithValue(@"ContactNumber", user.ContactNumber);
+                command.Parameters.AddWithValue(@"Password", user.Password);
+                command.Parameters.AddWithValue(@"CreatedOn", user.CreatedOn);
+                command.Parameters.AddWithValue(@"ModifiedOn", user.ModifiedOn);
+                command.Parameters.AddWithValue(@"RoleId", user.RoleId);
+            }
+            try
+            {
+                await connection.OpenAsync();
+                int result = await command.ExecuteNonQueryAsync();
+                return result > 0;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return false;
+            }
+            finally
+            {
+                await connection.CloseAsync();
+            }
 
-        // }
+        }
 
         public async Task<bool> AddUserWithRole(AddUser user)
         {
@@ -78,7 +80,7 @@ namespace usermangement.Repository
 
                 // Execute insert and get the new user ID
                 var newUserIdObj = await insertUserCmd.ExecuteScalarAsync();
-                //ExecuteScalarAsync()which is returns a one obj but we dont want object we require id so we convert it into a new id 
+                //ExecuteScalarAsync()which is returns a one obj but we dont want object we require id so we convert it into a new id also type casting  
                 int newUserId = Convert.ToInt32(newUserIdObj);
 
                 // 2. Insert into userroles table
@@ -177,6 +179,40 @@ namespace usermangement.Repository
         //         await connection.CloseAsync();
         //     }
         // }
+
+        public async Task<List<Userdetail>> GetAllUser()
+        {
+            List<Userdetail> user = new List<Userdetail>();
+            string query1 = @"INSERT INTO Users (UserId, Name)
+                VALUES (@UserId,@Name)"
+                ;
+            using MySqlConnection connection = new MySqlConnection(_connectionString);
+            MySqlCommand command = new MySqlCommand(query1, connection);
+            try
+            {
+                MySqlDataReader reader = command.ExecuteReader();
+                Userdetail user1 = new Userdetail();
+                user1.UserId = Convert.ToInt32(reader["UserId"]);
+                user1.Name = reader["Name"].ToString();
+
+               
+
+                string query2 = @"INSERT INTO PROJECTS(ProjectId,ProjectName)VALUES(@Pro)";
+
+                
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                
+            }
+            finally
+            {
+                await connection.CloseAsync();
+            }
+
+
+        }
 
 
     }
