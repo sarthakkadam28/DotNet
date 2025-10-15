@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
-using Org.BouncyCastle.Pqc.Crypto.Ntru;
 using usermangement.Entities;
+using usermangement.Entities.UserRoleWithProjectAssignment;
 using usermangement.Service;
 namespace usermangement.controller
 {
@@ -47,5 +47,15 @@ namespace usermangement.controller
         //     }
         //     return Ok(user);
         // }
+        [HttpGet("get")]
+        public async Task<IActionResult> GetAllUser()
+        {
+            List<Userdetail> details = await _userService.GetAllUser();
+            if (details == null || details.Count == 0)
+            {
+                return NotFound("no bill found");
+            }
+            return Ok(details);
+        }
     }
 }

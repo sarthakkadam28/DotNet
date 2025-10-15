@@ -183,11 +183,13 @@ namespace usermangement.Repository
         public async Task<List<Userdetail>> GetAllUser()
         {
             List<Userdetail> user = new List<Userdetail>();
-            string query1 = @"INSERT INTO Users (UserId, Name)
-                VALUES (@UserId,@Name)"
-                ;
+            string query = @"INSERT INTO Users (UserId, Name)VALUES (@UserId,@Name);
+                            INSERT INTO Projects (ProjectId,ProjectName) VALUES (@ProjectId,@ProjectName);
+                            INSERT INTO ProjectAssignments (AssignmentId, UserId, ProjectId, Role)
+                            VALUES(@AssignmentId,@UserId,@ProjectId,@Role)";
+                
             using MySqlConnection connection = new MySqlConnection(_connectionString);
-            MySqlCommand command = new MySqlCommand(query1, connection);
+            MySqlCommand command = new MySqlCommand(query, connection);
             try
             {
                 MySqlDataReader reader = command.ExecuteReader();
@@ -195,10 +197,15 @@ namespace usermangement.Repository
                 user1.UserId = Convert.ToInt32(reader["UserId"]);
                 user1.Name = reader["Name"].ToString();
 
-               
+                Project pro = new Project();
+               pro.ProjectId = Convert.ToInt32(reader["ProjectId"]);
+                pro.ProjectName = reader["ProjectName"].ToString();
 
-                string query2 = @"INSERT INTO PROJECTS(ProjectId,ProjectName)VALUES(@Pro)";
-
+                ProjectAssignment projectAssi = new ProjectAssignment();
+                projectAssi.AssignmentId = Convert.ToInt32(reader["AssignmentId"]);
+                projectAssi.UserId = Convert.ToInt32(reader["UserId"]);
+                projectAssi.ProjectId = Convert.ToInt32(reader["ProjectId"]);
+                projectAssi.Role = reader["Role"].ToString();
                 
             }
             catch (Exception ex)
@@ -210,12 +217,7 @@ namespace usermangement.Repository
             {
                 await connection.CloseAsync();
             }
-
-
+            return user;
         }
-
-
     }
-
-
 }
