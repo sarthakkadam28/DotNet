@@ -198,7 +198,7 @@ namespace usermangement.Repository
                 user1.Name = reader["Name"].ToString();
 
                 Project pro = new Project();
-               pro.ProjectId = Convert.ToInt32(reader["ProjectId"]);
+                pro.ProjectId = Convert.ToInt32(reader["ProjectId"]);
                 pro.ProjectName = reader["ProjectName"].ToString();
 
                 ProjectAssignment projectAssi = new ProjectAssignment();

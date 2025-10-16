@@ -37,17 +37,17 @@ namespace usermangement.controller
 
             return Ok(user);
         }
-        // [HttpPost("Addemployee")]
-        // public async Task<IActionResult> AddUserWithEmployee([FromBody] AddUser user)
-        // {
-        //     bool status = await _userService.AddUserWithEmployee(user);
-        //     if (!status)
-        //     {
-        //         return BadRequest(" User not added due to database error .");
-        //     }
-        //     return Ok(user);
-        // }
-        [HttpGet("get")]
+        [HttpPost("Addemployee")]
+        public async Task<IActionResult> AddUserWithEmployee([FromBody] AddUser user)
+        {
+            bool status = await _userService.AddUserWithEmployee(user);
+            if (!status)
+            {
+                return BadRequest(" User not added due to database error .");
+            }
+            return Ok(user);
+        }
+        [HttpGet("sarthak")]
         public async Task<IActionResult> GetAllUser()
         {
             List<Userdetail> details = await _userService.GetAllUser();
