@@ -1,6 +1,5 @@
 using usermangement.Entities;
 using usermangement.Repository;
-using usermangement.Entities.UserRoleWithProjectAssignment;
 namespace usermangement.Service;
 
 public class UserService : IUserService
@@ -15,12 +14,9 @@ public class UserService : IUserService
     {
         return await _userRepository.AddUserWithRole(user);
     }
-    // public async Task<bool> AddUserWithEmployee(AddUser user)
-    // {
-    //     return await _userRepository.AddUserWithEmployee(user);
-    // }
-     public async Task<List<Userdetail>> GetAllUser()
+    public async Task<bool> AddUserWithEmployee(AddUser user)
     {
-        return await _userRepository.GetAllUser();
-    } 
+        return await _userRepository.AddUserWithEmployee(user);
+    }
+     
 }

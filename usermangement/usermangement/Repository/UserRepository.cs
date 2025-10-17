@@ -1,6 +1,5 @@
 using MySql.Data.MySqlClient;
 using usermangement.Entities;
-using usermangement.Entities.UserRoleWithProjectAssignment;
 using System.Collections.Generic;
 namespace usermangement.Repository
 {
@@ -120,104 +119,66 @@ namespace usermangement.Repository
                 return false;
             }
         }
-        // public async Task<bool> AddUserWithEmployee(AddUser user)
-        // {
-        //     using var connection = new MySqlConnection(_connectionString);
-        //     await connection.OpenAsync();
-
-        //     using var transaction = await connection.BeginTransactionAsync();
-
-        //     try
-        //     {
-        //         string userQuery = @"
-        //     INSERT INTO users (aadharid, firstname, lastname, email, contactnumber, password)
-        //     VALUES (@aadharid, @firstname, @lastname, @email, @contactnumber, @password);
-        //     SELECT LAST_INSERT_ID();";
-
-        //         using var userCommand = new MySqlCommand(userQuery, connection, transaction);
-        //         userCommand.Parameters.AddWithValue("@aadharid", user.Aadharid);
-        //         userCommand.Parameters.AddWithValue("@firstname", user.FirstName);
-        //         userCommand.Parameters.AddWithValue("@lastname", user.LastName);
-        //         userCommand.Parameters.AddWithValue("@email", user.Email);
-        //         userCommand.Parameters.AddWithValue("@contactnumber", user.ContactNumber);
-        //         userCommand.Parameters.AddWithValue("@password", user.Password);
-
-        //         var result = await userCommand.ExecuteScalarAsync();
-        //         int newUserId = Convert.ToInt32(result);
-
-        //         string roleQuery = @"INSERT INTO userroles (userid, roleid) VALUES (@userId, @roleid);";
-        //         using var roleCommand = new MySqlCommand(roleQuery, connection, transaction);
-
-        //         roleCommand.Parameters.AddWithValue("@userId", newUserId);
-        //         roleCommand.Parameters.AddWithValue("@roleid", user.RoleId);
-
-        //         await roleCommand.ExecuteNonQueryAsync();
-
-        //         string employeeQuery = @"
-        //     INSERT INTO employees (userid, firstname, lastname, email, contact)
-        //     VALUES (@userId, @firstname, @lastname, @email, @contact);";
-
-        //         using var employeeCommand = new MySqlCommand(employeeQuery, connection, transaction);
-        //         employeeCommand.Parameters.AddWithValue("@userId", newUserId);
-        //         employeeCommand.Parameters.AddWithValue("@firstname", user.FirstName);
-        //         employeeCommand.Parameters.AddWithValue("@lastname", user.LastName);
-        //         employeeCommand.Parameters.AddWithValue("@email", user.Email);
-        //         employeeCommand.Parameters.AddWithValue("@contact", user.ContactNumber);
-
-        //         await employeeCommand.ExecuteNonQueryAsync();
-        //         await transaction.CommitAsync();
-        //         return true;
-        //     }
-        //     catch (Exception ex)
-        //     {
-        //         await transaction.RollbackAsync();
-        //         Console.WriteLine("Transaction failed: " + ex.Message);
-        //         return false;
-        //     }
-        //     finally
-        //     {
-        //         await connection.CloseAsync();
-        //     }
-        // }
-
-        public async Task<List<Userdetail>> GetAllUser()
+        public async Task<bool> AddUserWithEmployee(AddUser user)
         {
-            List<Userdetail> user = new List<Userdetail>();
-            string query = @"INSERT INTO Users (UserId, Name)VALUES (@UserId,@Name);
-                            INSERT INTO Projects (ProjectId,ProjectName) VALUES (@ProjectId,@ProjectName);
-                            INSERT INTO ProjectAssignments (AssignmentId, UserId, ProjectId, Role)
-                            VALUES(@AssignmentId,@UserId,@ProjectId,@Role)";
-                
-            using MySqlConnection connection = new MySqlConnection(_connectionString);
-            MySqlCommand command = new MySqlCommand(query, connection);
+            using var connection = new MySqlConnection(_connectionString);
+            await connection.OpenAsync();
+
+            using var transaction = await connection.BeginTransactionAsync();
+
             try
             {
-                MySqlDataReader reader = command.ExecuteReader();
-                Userdetail user1 = new Userdetail();
-                user1.UserId = Convert.ToInt32(reader["UserId"]);
-                user1.Name = reader["Name"].ToString();
+                string userQuery = @"
+            INSERT INTO users (aadharid, firstname, lastname, email, contactnumber, password)
+            VALUES (@aadharid, @firstname, @lastname, @email, @contactnumber, @password);
+            SELECT LAST_INSERT_ID();";
 
-                Project pro = new Project();
-                pro.ProjectId = Convert.ToInt32(reader["ProjectId"]);
-                pro.ProjectName = reader["ProjectName"].ToString();
+                using var userCommand = new MySqlCommand(userQuery, connection, transaction);
+                userCommand.Parameters.AddWithValue("@aadharid", user.Aadharid);
+                userCommand.Parameters.AddWithValue("@firstname", user.FirstName);
+                userCommand.Parameters.AddWithValue("@lastname", user.LastName);
+                userCommand.Parameters.AddWithValue("@email", user.Email);
+                userCommand.Parameters.AddWithValue("@contactnumber", user.ContactNumber);
+                userCommand.Parameters.AddWithValue("@password", user.Password);
 
-                ProjectAssignment projectAssi = new ProjectAssignment();
-                projectAssi.AssignmentId = Convert.ToInt32(reader["AssignmentId"]);
-                projectAssi.UserId = Convert.ToInt32(reader["UserId"]);
-                projectAssi.ProjectId = Convert.ToInt32(reader["ProjectId"]);
-                projectAssi.Role = reader["Role"].ToString();
-                
+                var result = await userCommand.ExecuteScalarAsync();
+                int newUserId = Convert.ToInt32(result);
+
+                string roleQuery = @"INSERT INTO userroles (userid, roleid) VALUES (@userId, @roleid);";
+                using var roleCommand = new MySqlCommand(roleQuery, connection, transaction);
+
+                roleCommand.Parameters.AddWithValue("@userId", newUserId);
+                roleCommand.Parameters.AddWithValue("@roleid", user.RoleId);
+
+                await roleCommand.ExecuteNonQueryAsync();
+
+                string employeeQuery = @"
+            INSERT INTO employees (userid, firstname, lastname, email, contact)
+            VALUES (@userId, @firstname, @lastname, @email, @contact);";
+
+                using var employeeCommand = new MySqlCommand(employeeQuery, connection, transaction);
+                employeeCommand.Parameters.AddWithValue("@userId", newUserId);
+                employeeCommand.Parameters.AddWithValue("@firstname", user.FirstName);
+                employeeCommand.Parameters.AddWithValue("@lastname", user.LastName);
+                employeeCommand.Parameters.AddWithValue("@email", user.Email);
+                employeeCommand.Parameters.AddWithValue("@contact", user.ContactNumber);
+
+                await employeeCommand.ExecuteNonQueryAsync();
+                await transaction.CommitAsync();
+                return true;
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
-                
+                await transaction.RollbackAsync();
+                Console.WriteLine("Transaction failed: " + ex.Message);
+                return false;
             }
             finally
             {
                 await connection.CloseAsync();
             }
-            return user;
         }
+
+        
     }
 }

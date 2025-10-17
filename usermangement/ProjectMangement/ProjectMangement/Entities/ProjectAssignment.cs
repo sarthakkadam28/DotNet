@@ -1,4 +1,4 @@
-namespace usermangement.Entities.UserRoleWithProjectAssignment;
+namespace ProjectMangement.Entities;
 public class ProjectAssignment
 {
     public int AssignmentId { get; set; }

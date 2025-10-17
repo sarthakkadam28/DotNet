@@ -1,6 +1,6 @@
 using Org.BouncyCastle.Bcpg;
 
-namespace usermangement.Entities.UserRoleWithProjectAssignment;
+namespace ProjectMangement.Entities;
 public class Userdetail
 {
   public int UserId { get; set; }
