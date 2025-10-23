@@ -1,23 +1,22 @@
 using Microsoft.AspNetCore.Mvc;
-using usermangement.Entities;
-using usermangement.Entities.UserRoleWithProjectAssignment;
-using usermangement.Service;
-namespace usermangement.controller
+using ProjectMangement.Entities;
+using ProjectMangement.Services;
+namespace ProjectMangement.controller
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class UserController : ControllerBase
+    public class ProjectController : ControllerBase
     {
-        private readonly IUserService _userService;
-        public UserController(IUserService userService)
+        private readonly IProjectService _projectService;
+        public UserController(IProjectService projectService)
         {
-            _userService = userService;
+            _projectService = projectService;
         }
        
         [HttpGet("sarthak")]
         public async Task<IActionResult> GetAllUser()
         {
-            List<Userdetail> details = await _userService.GetAllUser();
+            List<Userdetail> details = await _projectService.GetAllUser();
             if (details == null || details.Count == 0)
             {
                 return NotFound("Users not found ");

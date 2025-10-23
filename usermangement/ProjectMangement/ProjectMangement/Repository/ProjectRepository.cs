@@ -16,10 +16,7 @@ namespace ProjectMangement.Repository
          public async Task<List<Userdetail>> GetAllUser()
         {
             List<Userdetail> user = new List<Userdetail>();
-            string query = @"INSERT INTO Users (UserId, Name)VALUES (@UserId,@Name);
-                            INSERT INTO Projects (ProjectId,ProjectName) VALUES (@ProjectId,@ProjectName);
-                            INSERT INTO ProjectAssignments (AssignmentId, UserId, ProjectId, Role)
-                            VALUES(@AssignmentId,@UserId,@ProjectId,@Role)";
+            string query = @"SELECT * FROM User";
                 
             using MySqlConnection connection = new MySqlConnection(_connectionString);
             MySqlCommand command = new MySqlCommand(query, connection);
