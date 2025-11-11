@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\AssessmentLib",
+    "\\AssessmentLib\\bin\\Debug",
+    "\\AssessmentLib\\bin\\Release",
+    "\\AssessmentLib\\Repositories\\Implementation",
+    "\\AssessmentLib\\Repositories\\Interface",
+    "\\AssessmentLib\\Services\\Implementation",
+    "\\AssessmentLib\\Services\\Interface",
+    "\\StudentManagementAPI",
+    "\\StudentManagementAPI\\Controllers"
+  ],
+  "SelectedNode": "\\AssessmentSolution.sln",
+  "PreviewInSolutionExplorer": false
+}

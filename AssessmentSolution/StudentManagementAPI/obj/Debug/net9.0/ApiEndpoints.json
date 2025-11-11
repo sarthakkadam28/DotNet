@@ -1,0 +1,44 @@
+[
+  {
+    "ContainingType": "StudentManagementAPI.Controllers.SubjectController",
+    "Method": "AddSubject",
+    "RelativePath": "Subject/add",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "subject",
+        "Type": "AssessmentLib.Entities.SubjectModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "StudentManagementAPI.Controllers.SubjectController",
+    "Method": "DeleteSubject",
+    "RelativePath": "Subject/delete/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "StudentManagementAPI.Controllers.SubjectController",
+    "Method": "GetAllSubjects",
+    "RelativePath": "Subject/Subjects",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  }
+]

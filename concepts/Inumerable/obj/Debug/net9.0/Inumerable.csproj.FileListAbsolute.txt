@@ -1,0 +1,15 @@
+D:\c# codes\DotNet\concepts\Inumerable\obj\Debug\net9.0\Inumerable.GeneratedMSBuildEditorConfig.editorconfig
+D:\c# codes\DotNet\concepts\Inumerable\obj\Debug\net9.0\Inumerable.AssemblyInfoInputs.cache
+D:\c# codes\DotNet\concepts\Inumerable\obj\Debug\net9.0\Inumerable.AssemblyInfo.cs
+D:\c# codes\DotNet\concepts\Inumerable\obj\Debug\net9.0\Inumerable.csproj.CoreCompileInputs.cache
+D:\c# codes\DotNet\concepts\Inumerable\obj\Debug\net9.0\Inumerable.sourcelink.json
+D:\c# codes\DotNet\concepts\Inumerable\bin\Debug\net9.0\Inumerable.exe
+D:\c# codes\DotNet\concepts\Inumerable\bin\Debug\net9.0\Inumerable.deps.json
+D:\c# codes\DotNet\concepts\Inumerable\bin\Debug\net9.0\Inumerable.runtimeconfig.json
+D:\c# codes\DotNet\concepts\Inumerable\bin\Debug\net9.0\Inumerable.dll
+D:\c# codes\DotNet\concepts\Inumerable\bin\Debug\net9.0\Inumerable.pdb
+D:\c# codes\DotNet\concepts\Inumerable\obj\Debug\net9.0\Inumerable.dll
+D:\c# codes\DotNet\concepts\Inumerable\obj\Debug\net9.0\refint\Inumerable.dll
+D:\c# codes\DotNet\concepts\Inumerable\obj\Debug\net9.0\Inumerable.pdb
+D:\c# codes\DotNet\concepts\Inumerable\obj\Debug\net9.0\Inumerable.genruntimeconfig.cache
+D:\c# codes\DotNet\concepts\Inumerable\obj\Debug\net9.0\ref\Inumerable.dll

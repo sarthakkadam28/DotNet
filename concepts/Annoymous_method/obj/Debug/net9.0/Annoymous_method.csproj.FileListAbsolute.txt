@@ -1,0 +1,15 @@
+D:\c# codes\DotNet\concepts\Annoymous_method\obj\Debug\net9.0\Annoymous_method.GeneratedMSBuildEditorConfig.editorconfig
+D:\c# codes\DotNet\concepts\Annoymous_method\obj\Debug\net9.0\Annoymous_method.AssemblyInfoInputs.cache
+D:\c# codes\DotNet\concepts\Annoymous_method\obj\Debug\net9.0\Annoymous_method.AssemblyInfo.cs
+D:\c# codes\DotNet\concepts\Annoymous_method\obj\Debug\net9.0\Annoymous_method.csproj.CoreCompileInputs.cache
+D:\c# codes\DotNet\concepts\Annoymous_method\obj\Debug\net9.0\Annoymous_method.sourcelink.json
+D:\c# codes\DotNet\concepts\Annoymous_method\bin\Debug\net9.0\Annoymous_method.exe
+D:\c# codes\DotNet\concepts\Annoymous_method\bin\Debug\net9.0\Annoymous_method.deps.json
+D:\c# codes\DotNet\concepts\Annoymous_method\bin\Debug\net9.0\Annoymous_method.runtimeconfig.json
+D:\c# codes\DotNet\concepts\Annoymous_method\bin\Debug\net9.0\Annoymous_method.dll
+D:\c# codes\DotNet\concepts\Annoymous_method\bin\Debug\net9.0\Annoymous_method.pdb
+D:\c# codes\DotNet\concepts\Annoymous_method\obj\Debug\net9.0\Annoymous_method.dll
+D:\c# codes\DotNet\concepts\Annoymous_method\obj\Debug\net9.0\refint\Annoymous_method.dll
+D:\c# codes\DotNet\concepts\Annoymous_method\obj\Debug\net9.0\Annoymous_method.pdb
+D:\c# codes\DotNet\concepts\Annoymous_method\obj\Debug\net9.0\Annoymous_method.genruntimeconfig.cache
+D:\c# codes\DotNet\concepts\Annoymous_method\obj\Debug\net9.0\ref\Annoymous_method.dll

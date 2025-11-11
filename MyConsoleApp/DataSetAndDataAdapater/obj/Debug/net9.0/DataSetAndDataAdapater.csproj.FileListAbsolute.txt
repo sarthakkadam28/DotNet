@@ -1,0 +1,6 @@
+D:\c# codes\DotNet\MyConsoleApp\DataSetAndDataAdapater\obj\Debug\net9.0\DataSetAndDataAdapater.GeneratedMSBuildEditorConfig.editorconfig
+D:\c# codes\DotNet\MyConsoleApp\DataSetAndDataAdapater\obj\Debug\net9.0\DataSetAndDataAdapater.AssemblyInfoInputs.cache
+D:\c# codes\DotNet\MyConsoleApp\DataSetAndDataAdapater\obj\Debug\net9.0\DataSetAndDataAdapater.AssemblyInfo.cs
+D:\c# codes\DotNet\MyConsoleApp\DataSetAndDataAdapater\obj\Debug\net9.0\DataSetAndDataAdapater.csproj.CoreCompileInputs.cache
+D:\c# codes\DotNet\MyConsoleApp\DataSetAndDataAdapater\obj\Debug\net9.0\DataSetAndDataAdapater.sourcelink.json
+D:\c# codes\DotNet\MyConsoleApp\DataSetAndDataAdapater\obj\Debug\net9.0\DataSetAndDataAdapater.csproj.AssemblyReference.cache

@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "/e7FHPk8P58=",
+  "success": true,
+  "projectFilePath": "D:\\c# codes\\DotNet\\SarthkTryouts\\TFLCatalog\\TFLCatalog.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\SARTHAK\\.nuget\\packages\\microsoft.aspnetcore.openapi\\9.0.9\\microsoft.aspnetcore.openapi.9.0.9.nupkg.sha512",
+    "C:\\Users\\SARTHAK\\.nuget\\packages\\microsoft.openapi\\1.6.17\\microsoft.openapi.1.6.17.nupkg.sha512"
+  ],
+  "logs": []
+}

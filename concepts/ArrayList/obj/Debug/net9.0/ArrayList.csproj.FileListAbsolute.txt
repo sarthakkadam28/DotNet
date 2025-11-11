@@ -1,0 +1,15 @@
+D:\c# codes\DotNet\concepts\ArrayList\bin\Debug\net9.0\ArrayList.exe
+D:\c# codes\DotNet\concepts\ArrayList\bin\Debug\net9.0\ArrayList.deps.json
+D:\c# codes\DotNet\concepts\ArrayList\bin\Debug\net9.0\ArrayList.runtimeconfig.json
+D:\c# codes\DotNet\concepts\ArrayList\bin\Debug\net9.0\ArrayList.dll
+D:\c# codes\DotNet\concepts\ArrayList\bin\Debug\net9.0\ArrayList.pdb
+D:\c# codes\DotNet\concepts\ArrayList\obj\Debug\net9.0\ArrayList.GeneratedMSBuildEditorConfig.editorconfig
+D:\c# codes\DotNet\concepts\ArrayList\obj\Debug\net9.0\ArrayList.AssemblyInfoInputs.cache
+D:\c# codes\DotNet\concepts\ArrayList\obj\Debug\net9.0\ArrayList.AssemblyInfo.cs
+D:\c# codes\DotNet\concepts\ArrayList\obj\Debug\net9.0\ArrayList.csproj.CoreCompileInputs.cache
+D:\c# codes\DotNet\concepts\ArrayList\obj\Debug\net9.0\ArrayList.sourcelink.json
+D:\c# codes\DotNet\concepts\ArrayList\obj\Debug\net9.0\ArrayList.dll
+D:\c# codes\DotNet\concepts\ArrayList\obj\Debug\net9.0\refint\ArrayList.dll
+D:\c# codes\DotNet\concepts\ArrayList\obj\Debug\net9.0\ArrayList.pdb
+D:\c# codes\DotNet\concepts\ArrayList\obj\Debug\net9.0\ArrayList.genruntimeconfig.cache
+D:\c# codes\DotNet\concepts\ArrayList\obj\Debug\net9.0\ref\ArrayList.dll

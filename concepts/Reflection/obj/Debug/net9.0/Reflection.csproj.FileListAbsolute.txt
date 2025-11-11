@@ -1,0 +1,15 @@
+D:\c# codes\DotNet\concepts\Reflection\obj\Debug\net9.0\Reflection.GeneratedMSBuildEditorConfig.editorconfig
+D:\c# codes\DotNet\concepts\Reflection\obj\Debug\net9.0\Reflection.AssemblyInfoInputs.cache
+D:\c# codes\DotNet\concepts\Reflection\obj\Debug\net9.0\Reflection.AssemblyInfo.cs
+D:\c# codes\DotNet\concepts\Reflection\obj\Debug\net9.0\Reflection.csproj.CoreCompileInputs.cache
+D:\c# codes\DotNet\concepts\Reflection\obj\Debug\net9.0\Reflection.sourcelink.json
+D:\c# codes\DotNet\concepts\Reflection\bin\Debug\net9.0\Reflection.exe
+D:\c# codes\DotNet\concepts\Reflection\bin\Debug\net9.0\Reflection.deps.json
+D:\c# codes\DotNet\concepts\Reflection\bin\Debug\net9.0\Reflection.runtimeconfig.json
+D:\c# codes\DotNet\concepts\Reflection\bin\Debug\net9.0\Reflection.dll
+D:\c# codes\DotNet\concepts\Reflection\bin\Debug\net9.0\Reflection.pdb
+D:\c# codes\DotNet\concepts\Reflection\obj\Debug\net9.0\Reflection.dll
+D:\c# codes\DotNet\concepts\Reflection\obj\Debug\net9.0\refint\Reflection.dll
+D:\c# codes\DotNet\concepts\Reflection\obj\Debug\net9.0\Reflection.pdb
+D:\c# codes\DotNet\concepts\Reflection\obj\Debug\net9.0\Reflection.genruntimeconfig.cache
+D:\c# codes\DotNet\concepts\Reflection\obj\Debug\net9.0\ref\Reflection.dll

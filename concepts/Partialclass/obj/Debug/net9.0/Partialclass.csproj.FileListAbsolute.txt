@@ -1,0 +1,15 @@
+D:\c# codes\DotNet\concepts\Partialclass\obj\Debug\net9.0\Partialclass.GeneratedMSBuildEditorConfig.editorconfig
+D:\c# codes\DotNet\concepts\Partialclass\obj\Debug\net9.0\Partialclass.AssemblyInfoInputs.cache
+D:\c# codes\DotNet\concepts\Partialclass\obj\Debug\net9.0\Partialclass.AssemblyInfo.cs
+D:\c# codes\DotNet\concepts\Partialclass\obj\Debug\net9.0\Partialclass.csproj.CoreCompileInputs.cache
+D:\c# codes\DotNet\concepts\Partialclass\obj\Debug\net9.0\Partialclass.sourcelink.json
+D:\c# codes\DotNet\concepts\Partialclass\bin\Debug\net9.0\Partialclass.exe
+D:\c# codes\DotNet\concepts\Partialclass\bin\Debug\net9.0\Partialclass.deps.json
+D:\c# codes\DotNet\concepts\Partialclass\bin\Debug\net9.0\Partialclass.runtimeconfig.json
+D:\c# codes\DotNet\concepts\Partialclass\bin\Debug\net9.0\Partialclass.dll
+D:\c# codes\DotNet\concepts\Partialclass\bin\Debug\net9.0\Partialclass.pdb
+D:\c# codes\DotNet\concepts\Partialclass\obj\Debug\net9.0\Partialclass.dll
+D:\c# codes\DotNet\concepts\Partialclass\obj\Debug\net9.0\refint\Partialclass.dll
+D:\c# codes\DotNet\concepts\Partialclass\obj\Debug\net9.0\Partialclass.pdb
+D:\c# codes\DotNet\concepts\Partialclass\obj\Debug\net9.0\Partialclass.genruntimeconfig.cache
+D:\c# codes\DotNet\concepts\Partialclass\obj\Debug\net9.0\ref\Partialclass.dll

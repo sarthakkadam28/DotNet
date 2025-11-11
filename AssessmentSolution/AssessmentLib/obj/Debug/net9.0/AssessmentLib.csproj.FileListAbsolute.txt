@@ -1,0 +1,13 @@
+D:\c# codes\DotNet\AssessmentSolution\AssessmentLib\obj\Debug\net9.0\AssessmentLib.csproj.AssemblyReference.cache
+D:\c# codes\DotNet\AssessmentSolution\AssessmentLib\obj\Debug\net9.0\AssessmentLib.GeneratedMSBuildEditorConfig.editorconfig
+D:\c# codes\DotNet\AssessmentSolution\AssessmentLib\obj\Debug\net9.0\AssessmentLib.AssemblyInfoInputs.cache
+D:\c# codes\DotNet\AssessmentSolution\AssessmentLib\obj\Debug\net9.0\AssessmentLib.AssemblyInfo.cs
+D:\c# codes\DotNet\AssessmentSolution\AssessmentLib\obj\Debug\net9.0\AssessmentLib.csproj.CoreCompileInputs.cache
+D:\c# codes\DotNet\AssessmentSolution\AssessmentLib\obj\Debug\net9.0\AssessmentLib.sourcelink.json
+D:\c# codes\DotNet\AssessmentSolution\AssessmentLib\bin\Debug\net9.0\AssessmentLib.deps.json
+D:\c# codes\DotNet\AssessmentSolution\AssessmentLib\bin\Debug\net9.0\AssessmentLib.dll
+D:\c# codes\DotNet\AssessmentSolution\AssessmentLib\bin\Debug\net9.0\AssessmentLib.pdb
+D:\c# codes\DotNet\AssessmentSolution\AssessmentLib\obj\Debug\net9.0\AssessmentLib.dll
+D:\c# codes\DotNet\AssessmentSolution\AssessmentLib\obj\Debug\net9.0\refint\AssessmentLib.dll
+D:\c# codes\DotNet\AssessmentSolution\AssessmentLib\obj\Debug\net9.0\AssessmentLib.pdb
+D:\c# codes\DotNet\AssessmentSolution\AssessmentLib\obj\Debug\net9.0\ref\AssessmentLib.dll

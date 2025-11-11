@@ -1,0 +1,15 @@
+D:\c# codes\DotNet\concepts\Indexers\obj\Debug\net9.0\Indexers.GeneratedMSBuildEditorConfig.editorconfig
+D:\c# codes\DotNet\concepts\Indexers\obj\Debug\net9.0\Indexers.AssemblyInfoInputs.cache
+D:\c# codes\DotNet\concepts\Indexers\obj\Debug\net9.0\Indexers.AssemblyInfo.cs
+D:\c# codes\DotNet\concepts\Indexers\obj\Debug\net9.0\Indexers.csproj.CoreCompileInputs.cache
+D:\c# codes\DotNet\concepts\Indexers\obj\Debug\net9.0\Indexers.sourcelink.json
+D:\c# codes\DotNet\concepts\Indexers\bin\Debug\net9.0\Indexers.exe
+D:\c# codes\DotNet\concepts\Indexers\bin\Debug\net9.0\Indexers.deps.json
+D:\c# codes\DotNet\concepts\Indexers\bin\Debug\net9.0\Indexers.runtimeconfig.json
+D:\c# codes\DotNet\concepts\Indexers\bin\Debug\net9.0\Indexers.dll
+D:\c# codes\DotNet\concepts\Indexers\bin\Debug\net9.0\Indexers.pdb
+D:\c# codes\DotNet\concepts\Indexers\obj\Debug\net9.0\Indexers.dll
+D:\c# codes\DotNet\concepts\Indexers\obj\Debug\net9.0\refint\Indexers.dll
+D:\c# codes\DotNet\concepts\Indexers\obj\Debug\net9.0\Indexers.pdb
+D:\c# codes\DotNet\concepts\Indexers\obj\Debug\net9.0\Indexers.genruntimeconfig.cache
+D:\c# codes\DotNet\concepts\Indexers\obj\Debug\net9.0\ref\Indexers.dll

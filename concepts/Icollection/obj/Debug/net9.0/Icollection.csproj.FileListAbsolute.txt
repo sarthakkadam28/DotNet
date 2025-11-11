@@ -1,0 +1,15 @@
+D:\c# codes\DotNet\concepts\Icollection\bin\Debug\net9.0\Icollection.exe
+D:\c# codes\DotNet\concepts\Icollection\bin\Debug\net9.0\Icollection.deps.json
+D:\c# codes\DotNet\concepts\Icollection\bin\Debug\net9.0\Icollection.runtimeconfig.json
+D:\c# codes\DotNet\concepts\Icollection\bin\Debug\net9.0\Icollection.dll
+D:\c# codes\DotNet\concepts\Icollection\bin\Debug\net9.0\Icollection.pdb
+D:\c# codes\DotNet\concepts\Icollection\obj\Debug\net9.0\Icollection.GeneratedMSBuildEditorConfig.editorconfig
+D:\c# codes\DotNet\concepts\Icollection\obj\Debug\net9.0\Icollection.AssemblyInfoInputs.cache
+D:\c# codes\DotNet\concepts\Icollection\obj\Debug\net9.0\Icollection.AssemblyInfo.cs
+D:\c# codes\DotNet\concepts\Icollection\obj\Debug\net9.0\Icollection.csproj.CoreCompileInputs.cache
+D:\c# codes\DotNet\concepts\Icollection\obj\Debug\net9.0\Icollection.sourcelink.json
+D:\c# codes\DotNet\concepts\Icollection\obj\Debug\net9.0\Icollection.dll
+D:\c# codes\DotNet\concepts\Icollection\obj\Debug\net9.0\refint\Icollection.dll
+D:\c# codes\DotNet\concepts\Icollection\obj\Debug\net9.0\Icollection.pdb
+D:\c# codes\DotNet\concepts\Icollection\obj\Debug\net9.0\Icollection.genruntimeconfig.cache
+D:\c# codes\DotNet\concepts\Icollection\obj\Debug\net9.0\ref\Icollection.dll

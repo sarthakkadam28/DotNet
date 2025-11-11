@@ -1,0 +1,15 @@
+D:\c# codes\DotNet\concepts\Singleton\obj\Debug\net9.0\SingletonClass.cs.GeneratedMSBuildEditorConfig.editorconfig
+D:\c# codes\DotNet\concepts\Singleton\obj\Debug\net9.0\SingletonClass.cs.AssemblyInfoInputs.cache
+D:\c# codes\DotNet\concepts\Singleton\obj\Debug\net9.0\SingletonClass.cs.AssemblyInfo.cs
+D:\c# codes\DotNet\concepts\Singleton\obj\Debug\net9.0\SingletonClass.cs.csproj.CoreCompileInputs.cache
+D:\c# codes\DotNet\concepts\Singleton\obj\Debug\net9.0\SingletonClass.cs.sourcelink.json
+D:\c# codes\DotNet\concepts\Singleton\bin\Debug\net9.0\SingletonClass.cs.exe
+D:\c# codes\DotNet\concepts\Singleton\bin\Debug\net9.0\SingletonClass.cs.deps.json
+D:\c# codes\DotNet\concepts\Singleton\bin\Debug\net9.0\SingletonClass.cs.runtimeconfig.json
+D:\c# codes\DotNet\concepts\Singleton\bin\Debug\net9.0\SingletonClass.cs.dll
+D:\c# codes\DotNet\concepts\Singleton\bin\Debug\net9.0\SingletonClass.cs.pdb
+D:\c# codes\DotNet\concepts\Singleton\obj\Debug\net9.0\SingletonClass.cs.dll
+D:\c# codes\DotNet\concepts\Singleton\obj\Debug\net9.0\refint\SingletonClass.cs.dll
+D:\c# codes\DotNet\concepts\Singleton\obj\Debug\net9.0\SingletonClass.cs.pdb
+D:\c# codes\DotNet\concepts\Singleton\obj\Debug\net9.0\SingletonClass.cs.genruntimeconfig.cache
+D:\c# codes\DotNet\concepts\Singleton\obj\Debug\net9.0\ref\SingletonClass.cs.dll
