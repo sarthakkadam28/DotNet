@@ -1,6 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
 using BillMangement.Entities;
-using System.Configuration;
 using BillMangement.Services;
 namespace BillMangement.Repository
 {
@@ -8,7 +7,7 @@ namespace BillMangement.Repository
     {
         private readonly IConfiguration _configuration;
         private readonly string _connectionString;
-
+.
         public BillRepository(IConfiguration configuration)
         {
             _configuration = configuration;
@@ -155,37 +154,40 @@ namespace BillMangement.Repository
         }
         public async Task<bool> UpdateBill(int BillId, Bill billModel)
         {
-            string query = @"UPDATE bill SET CustomerName=@CustomerName,TotalAmount=@TotalAmount,TaxAmount=@TaxAmount,NetAmount=@NetAmount,PaymentMethod=@PaymentMethod,BillDate=@BillDate WHERE BillId=@BillId";
+            bool status = false;
+            string query = @"UPDATE bill SET CustomerName=@CustomerName,TotalAmount=@TotalAmount,TaxAmount=@TaxAmount,NetAmount=@NetAmount,PaymentMethod=@PaymentMethod,BillDate=@BillDate
+                              WHERE BillId=@BillId";
             MySqlConnection connection = new MySqlConnection(_connectionString);
             MySqlCommand command = new MySqlCommand(query, connection);
-            {
-                command.Parameters.AddWithValue("@BillId", BillId);
-                command.Parameters.AddWithValue("@CustomerName", billModel.CustomerName);
-                command.Parameters.AddWithValue("@TotalAmount", billModel.TotalAmount);
-                command.Parameters.AddWithValue("@BillDate", billModel.BillDate);
-                command.Parameters.AddWithValue("@TaxAmount", billModel.TaxAmount);
-                command.Parameters.AddWithValue("@PaymentMethod", billModel.PaymentMethod);
-                command.Parameters.AddWithValue("@NetAmount", billModel.NetAmount);
-            }
+
+            command.Parameters.AddWithValue("@BillId", BillId);
+            command.Parameters.AddWithValue("@CustomerName", billModel.CustomerName);
+            command.Parameters.AddWithValue("@TotalAmount", billModel.TotalAmount);
+            command.Parameters.AddWithValue("@BillDate", billModel.BillDate);
+            command.Parameters.AddWithValue("@TaxAmount", billModel.TaxAmount);
+            command.Parameters.AddWithValue("@PaymentMethod", billModel.PaymentMethod);
+            command.Parameters.AddWithValue("@NetAmount", billModel.NetAmount);
+
             try
             {
                 await connection.OpenAsync();
-                int result = command.ExecuteNonQueryAsync().Result;
-                if (result > 0)
+                int rowsAffected = await command.ExecuteNonQueryAsync();
+                if (rowsAffected > 0)
                 {
-                    return true;
+                    status= true;
                 }
             }
             catch (Exception e)
             {
                 Console.WriteLine(e.Message);
-                return false;
+                status=false;
             }
             finally
             {
-                connection.CloseAsync();
+                await connection.CloseAsync();
             }
-            return true;
+            return status; 
+            
         }
     }
 }

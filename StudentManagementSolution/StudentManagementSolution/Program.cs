@@ -8,7 +8,6 @@ class Program
     {
         int choice;
         StudentManager manager = new StudentManager(); 
-
         do
         {
             manager.ShowMenu();

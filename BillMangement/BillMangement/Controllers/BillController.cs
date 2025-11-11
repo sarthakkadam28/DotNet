@@ -25,7 +25,7 @@ namespace BillMangement.Controllers
             }
             return Ok(bills);
         }
-        //http://localhost:5234/api/Bill/bill
+        //http://localhost:5234/api/Bill/add
         [HttpPost("add")]
         public async Task<IActionResult> AddBill(BillModel billModel)
         {
@@ -50,7 +50,7 @@ namespace BillMangement.Controllers
 
         }
         //http://localhost:5234/api/Bill/DeleteId
-        [HttpDelete("DeleteId")]
+        [HttpDelete("DeleteId/{BillId}")]
         public async Task<IActionResult> DeleteById(int BillId)
         {
             // if (BillId <= 0)
@@ -79,8 +79,8 @@ namespace BillMangement.Controllers
 
 
         }
-        //http://localhost:5234/api/Bill/UpdateBill
-        [HttpPut("UpdateBill")]
+        //http://localhost:5234/api/Bill/UpdateBill/2
+        [HttpPut("UpdateBill/{BillId}")]
         public async Task<IActionResult> UpdateBill(int BillId,Bill billModel)
         {
             if (BillId <= 0 || billModel == null)
