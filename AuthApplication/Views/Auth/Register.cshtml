@@ -1,0 +1,93 @@
+@model RegisterViewModel
+
+@{
+    ViewData["Title"] = "Register Customer";
+    var membershipTypes = new List<string> { "Gold", "Silver", "Platinum" }; // Gold, Silver, Platinum
+    var locations = new List<string> { "Pune", "Mumbai", "Delhi", "Bangalore" };
+    var socialPlatforms = new List<string> { "Facebook", "Twitter", "Instagram", "LinkedIn" };
+}
+
+<h2>Register New Customer</h2>
+
+<form asp-action="Register" asp-controller="Auth" method="post">
+
+    <!-- First Name -->
+    <div class="form-group">
+        <label asp-for="FirstName"></label>
+        <input asp-for="FirstName" class="form-control" />
+        <span asp-validation-for="FirstName" class="text-danger"></span>
+    </div>
+
+    <!-- Last Name -->
+    <div class="form-group">
+        <label asp-for="LastName"></label>
+        <input asp-for="LastName" class="form-control" />
+        <span asp-validation-for="LastName" class="text-danger"></span>
+    </div>
+
+    <!-- Email -->
+    <div class="form-group">
+        <label asp-for="Email"></label>
+        <input asp-for="Email" class="form-control" />
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+
+    <!-- Birth Date -->
+    <div class="form-group">
+        <label asp-for="BirthDate"></label>
+        <input asp-for="BirthDate" type="date" class="form-control" />
+    </div>
+
+    <!-- Phone Number -->
+    <div class="form-group">
+        <label asp-for="PhoneNo"></label>
+        <input asp-for="PhoneNo" class="form-control" />
+    </div>
+
+    <!-- Location - Dropdown -->
+    <div class="form-group">
+        <label asp-for="Location">Location</label>
+        <select asp-for="Location" class="form-control" asp-items="@(new SelectList(locations))">
+            <option value="">-- Select Location --</option>
+        </select>
+    </div>
+
+    <!-- Is Registered - Checkbox -->
+    <div class="form-group form-check">
+        <input asp-for="IsRegistered" class="form-check-input" />
+        <label asp-for="IsRegistered" class="form-check-label"></label>
+    </div>
+
+    <!-- Membership - Radio Buttons -->
+    <div class="form-group">
+        <label>Membership Type</label><br />
+        @foreach (var type in membershipTypes)
+        {
+            <input type="radio" asp-for="MemberShip" value="@type" /> @type
+        }
+        <span asp-validation-for="MemberShip" class="text-danger"></span>
+    </div>
+
+    <!-- Social Media - Checkboxes -->
+    <div class="form-group">
+        <label>Social Platforms (Checkboxes)</label><br />
+        @foreach (var platform in socialPlatforms)
+        {
+            <input type="checkbox" name="Social" value="@platform"
+                @(Model.Social != null && Model.Social.Contains(platform) ? "checked" : "") /> @platform <br />
+        }
+    </div>
+
+    <!-- Social Media - ListBox (Multiple Select) -->
+    <div class="form-group">
+        <label>Select Social Platforms (ListBox)</label>
+        <select asp-for="Social" multiple="multiple" class="form-control" asp-items="@(new SelectList(socialPlatforms))"></select>
+    </div>
+
+    <!-- Submit Button -->
+    <button type="submit" class="btn btn-primary">Register</button>
+</form>
+
+@section Scripts{
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
