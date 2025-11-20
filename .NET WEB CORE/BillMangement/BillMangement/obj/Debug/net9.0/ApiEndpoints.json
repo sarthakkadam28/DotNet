@@ -1,0 +1,12 @@
+[
+  {
+    "ContainingType": "BillMangement.Controllers.BillController",
+    "Method": "GetAllBill",
+    "RelativePath": "Bill/Bills",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  }
+]
