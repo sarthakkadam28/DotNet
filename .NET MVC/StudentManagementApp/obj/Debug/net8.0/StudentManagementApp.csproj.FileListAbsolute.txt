@@ -1,0 +1,10 @@
+D:\c# codes\DotNet\.NET MVC\StudentManagementApp\obj\Debug\net8.0\StudentManagementApp.csproj.AssemblyReference.cache
+D:\c# codes\DotNet\.NET MVC\StudentManagementApp\obj\Debug\net8.0\rpswa.dswa.cache.json
+D:\c# codes\DotNet\.NET MVC\StudentManagementApp\obj\Debug\net8.0\StudentManagementApp.GeneratedMSBuildEditorConfig.editorconfig
+D:\c# codes\DotNet\.NET MVC\StudentManagementApp\obj\Debug\net8.0\StudentManagementApp.AssemblyInfoInputs.cache
+D:\c# codes\DotNet\.NET MVC\StudentManagementApp\obj\Debug\net8.0\StudentManagementApp.AssemblyInfo.cs
+D:\c# codes\DotNet\.NET MVC\StudentManagementApp\obj\Debug\net8.0\StudentManagementApp.csproj.CoreCompileInputs.cache
+D:\c# codes\DotNet\.NET MVC\StudentManagementApp\obj\Debug\net8.0\StudentManagementApp.MvcApplicationPartsAssemblyInfo.cache
+D:\c# codes\DotNet\.NET MVC\StudentManagementApp\obj\Debug\net8.0\StudentManagementApp.RazorAssemblyInfo.cache
+D:\c# codes\DotNet\.NET MVC\StudentManagementApp\obj\Debug\net8.0\StudentManagementApp.RazorAssemblyInfo.cs
+D:\c# codes\DotNet\.NET MVC\StudentManagementApp\obj\Debug\net8.0\StudentManagementApp.sourcelink.json
