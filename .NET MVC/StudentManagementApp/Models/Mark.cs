@@ -1,5 +1,5 @@
 namespace StudentManagementApp.Models;
-public class Marks
+public class Mark
 {
     public int MarkId {get;set;}
     public int StudentId {get;set;}

@@ -1,5 +1,5 @@
-// using Microsoft.EntityFrameworkCore;
-// using StudentManagementApp.Models;
+using Microsoft.EntityFrameworkCore;
+using StudentManagementApp.Models;
 
 namespace StudentManagementApp.Data
 {

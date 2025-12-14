@@ -1,5 +1,5 @@
 namespace StudentManagementApp.Models;
-public class Courses
+public class Course
 {
     public int CourseId { get;set; }
     public string CourseName { get;set; }
