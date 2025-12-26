@@ -1,3 +1,6 @@
+
+ using StudentManagementApp.Models;
+
 public interface IStudentService
 {
     Task<IEnumerable<Student>> GetAllStudentsAsync();

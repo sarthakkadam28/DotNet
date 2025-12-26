@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
-using StudentManagementApp.Services; // adjust namespace
+using System.Diagnostics;
+using StudentManagementApp; // adjust namespace
 using StudentManagementApp.Models;   // adjust namespace
 
 public class StudentsController : Controller
@@ -118,5 +119,12 @@ public class StudentsController : Controller
             ViewBag.ErrorMessage = $"Error deleting student: {ex.Message}";
             return View("Error");
         }
+    }
+
+
+    [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+    public IActionResult Error()
+    {
+        return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
     }
 }

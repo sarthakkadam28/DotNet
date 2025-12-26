@@ -1,17 +1,17 @@
- using System.Collections.Generic;
- using System.Threading.Tasks;
- using Microsoft.EntityFrameworkCore;
- using System.Linq;
- using StudentManagementApp.Models;
- using StudentManagementApp.Data;
- using System;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+using StudentManagementApp.Data;
+using StudentManagementApp.Models;
 
 
 public class StudentRepository : IStudentRepository
 {
-    private readonly AppDbContext _context;
+    private readonly StudentDbContext _context;
 
-    public StudentRepository(AppDbContext context)
+    public StudentRepository(StudentDbContext context)
     {
         _context = context;
     }

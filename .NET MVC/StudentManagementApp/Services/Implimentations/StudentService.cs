@@ -1,3 +1,7 @@
+ using StudentManagementApp.Models;
+ using StudentManagementApp;
+ 
+
 public class StudentService : IStudentService
 {
     private readonly IStudentRepository _repository;
@@ -21,7 +25,7 @@ public class StudentService : IStudentService
     {
         try
         {
-            if (string.IsNullOrEmpty(student.Name))
+            if (string.IsNullOrEmpty(student.FullName))
                 throw new ArgumentException("Student name is required");
 
             await _repository.AddStudentAsync(student);

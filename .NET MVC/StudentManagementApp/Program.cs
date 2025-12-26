@@ -1,8 +1,19 @@
+using Microsoft.EntityFrameworkCore;
+
+using StudentManagementApp.Data;
+using StudentManagementApp.Models;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-builder.Services.AddDbContext<StudentDbContext>(options =>options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+builder.Services.AddDbContext<StudentDbContext>(options =>
+    options.UseMySQL(builder.Configuration.GetConnectionString("DefaultConnection"))
+);
+
+// builder.Services.AddDbContext<StudentDbContext>(options =>options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
 builder.Services.AddScoped<IStudentRepository, StudentRepository>();
 builder.Services.AddScoped<IStudentService, StudentService>();
 var app = builder.Build();
