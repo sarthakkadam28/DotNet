@@ -1,4 +1,24 @@
-bin/
-obj/
+# 1. Build results (Compiled code)
+[Bb]in/
+[Oo]bj/
+[Rr]elease/
+[Dd]ebug/
+
+# 2. IDE settings (Visual Studio / VS Code)
+.vs/
+.vscode/
 *.user
 *.suo
+*.sln.docstates
+
+# 3. NuGet Packages (Restored on build, so no need to track)
+[Pp]ackages/
+*.nupkg
+
+# 4. Operating System files
+.DS_Store
+Thumbs.db
+
+# 5. Environment / Secrets (IMPORTANT)
+.env
+appsettings.Development.json
