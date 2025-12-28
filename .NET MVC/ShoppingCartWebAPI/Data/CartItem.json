@@ -1,0 +1,24 @@
+
+[
+  {
+    "CartItemId": 1,
+    "CartId": 1,
+    "ProductId": 501,
+    "Quantity": 2,
+    "UnitPrice": 25.99
+  },
+  {
+    "CartItemId": 2,
+    "CartId": 1,
+    "ProductId": 502,
+    "Quantity": 1,
+    "UnitPrice": 89.99
+  },
+  {
+    "CartItemId": 3,
+    "CartId": 2,
+    "ProductId": 503,
+    "Quantity": 3,
+    "UnitPrice": 15.50
+  }
+]
