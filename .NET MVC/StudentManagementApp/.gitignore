@@ -22,3 +22,5 @@ Thumbs.db
 # 5. Environment / Secrets (IMPORTANT)
 .env
 appsettings.Development.json
+
+# git rm -r --cached bin obj .vs
