@@ -1,0 +1,28 @@
+[
+  {
+    "Id": 1,
+    "CustomerName": "Pranita",
+    "Amount": 2000,
+    "Status": "Success",
+    "PaymentMethod": "UPI",
+    "PaymentDate": "2025-01-10"
+  },
+
+  {
+    "Id": 2,
+    "CustomerName": "Rahul",
+    "Amount": 3500,
+    "Status": "Success",
+    "PaymentMethod": "Credit Card",
+    "PaymentDate": "2025-01-12"
+  },
+  
+  {
+    "Id": 3,
+    "CustomerName": "Sneha",
+    "Amount": 1500,
+    "Status": "Pending",
+    "PaymentMethod": "Net Banking",
+    "PaymentDate": "2025-01-15"
+  }
+]
