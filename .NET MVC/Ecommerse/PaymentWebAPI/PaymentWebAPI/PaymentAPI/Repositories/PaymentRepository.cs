@@ -4,13 +4,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.IO;
-using ShipmentAPI.Helpers;
 
 namespace PaymentApi.Repositories;
 
 public class PaymentRepository : IPaymentRepository
 {
-  private static readonly string filePath = "Data/Payments.json";
+  private  readonly string filePath = "Data/Payments.json";
   public Payment? GetById(int id)
   {
     //  List<Payment> payments= GetAll();
@@ -27,21 +26,18 @@ public class PaymentRepository : IPaymentRepository
   }
   public List<Payment> GetAll()
   {
-    return JsonHelper.LoadJson<List<Cart>>(filePath);
+    return JsonHelper.LoadJson<List<Payment>>(filePath);
   }
   public Payment Add(Payment payment)
-  {
-    var pay = JsonHelper.LoadJson<List<Payment>>(filePath);
-    for (int i = 0; i < pay.Count; i++)
-    {
-      if (pay[i].Id == payment.Id)
-      {
-        pay[i] = payment;
-        JsonHelper.SaveJson(filePath, pay);
-        break;
-      }
-    }
-  }
+{
+    var payments = JsonHelper.LoadJson<List<Payment>>(filePath);
+
+    payments.Add(payment);
+    JsonHelper.SaveJson(filePath, payments);
+
+    return payment;
+}
+
     public bool Update(Payment payment)
    {
     var payments = JsonHelper.LoadJson<List<Payment>>(filePath);
