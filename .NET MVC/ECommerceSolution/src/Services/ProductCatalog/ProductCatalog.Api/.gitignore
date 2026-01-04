@@ -1,0 +1,90 @@
+############################
+# OS / Editor files
+############################
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+.vscode/
+.idea/
+
+############################
+# Build / Output folders
+############################
+bin/
+obj/
+out/
+dist/
+build/
+Debug/
+net9.0/
+
+############################
+# .NET / C# specific
+############################
+*.user
+*.suo
+*.cache
+*.log
+*.pdb
+*.dll
+*.exe
+
+############################
+# Dependency folders
+############################
+node_modules/
+packages/
+
+############################
+# Environment / Secrets
+############################
+.env
+.env.*
+appsettings.Development.json
+appsettings.Production.json
+secrets.json
+
+############################
+# Logs
+############################
+logs/
+*.log
+
+############################
+# JSON data files (runtime / test data)
+############################
+data/
+mock-data/
+*.sample.json
+*.local.json
+
+# ❗ Keep shared schema/config JSON
+!appsettings.json
+!schema.json
+
+############################
+# Docker
+############################
+.dockerignore
+docker-compose.override.yml
+
+############################
+# Database / migrations
+############################
+*.db
+*.sqlite
+*.sql.bak
+
+############################
+# Test results / coverage
+############################
+TestResults/
+coverage/
+coverage.*
+
+############################
+# Misc
+############################
+*.tmp
+*.bak
