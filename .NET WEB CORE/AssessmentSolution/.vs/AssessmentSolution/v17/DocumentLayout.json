@@ -1,0 +1,122 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\c# codes\\DotNet\\AssessmentSolution\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{73D94F91-1867-4494-BD09-A65E3ABF4E13}|StudentManagementAPI\\StudentManagementAPI.csproj|d:\\c# codes\\dotnet\\assessmentsolution\\studentmanagementapi\\controllers\\assessmentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{73D94F91-1867-4494-BD09-A65E3ABF4E13}|StudentManagementAPI\\StudentManagementAPI.csproj|solutionrelative:studentmanagementapi\\controllers\\assessmentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30FFFD07-4A6E-4E2C-8908-63456114AB93}|AssessmentLib\\AssessmentLib.csproj|d:\\c# codes\\dotnet\\assessmentsolution\\assessmentlib\\repositories\\interface\\iassessmentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30FFFD07-4A6E-4E2C-8908-63456114AB93}|AssessmentLib\\AssessmentLib.csproj|solutionrelative:assessmentlib\\repositories\\interface\\iassessmentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{73D94F91-1867-4494-BD09-A65E3ABF4E13}|StudentManagementAPI\\StudentManagementAPI.csproj|d:\\c# codes\\dotnet\\assessmentsolution\\studentmanagementapi\\controllers\\questionbankcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{73D94F91-1867-4494-BD09-A65E3ABF4E13}|StudentManagementAPI\\StudentManagementAPI.csproj|solutionrelative:studentmanagementapi\\controllers\\questionbankcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30FFFD07-4A6E-4E2C-8908-63456114AB93}|AssessmentLib\\AssessmentLib.csproj|d:\\c# codes\\dotnet\\assessmentsolution\\assessmentlib\\repositories\\implementation\\assessmentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30FFFD07-4A6E-4E2C-8908-63456114AB93}|AssessmentLib\\AssessmentLib.csproj|solutionrelative:assessmentlib\\repositories\\implementation\\assessmentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30FFFD07-4A6E-4E2C-8908-63456114AB93}|AssessmentLib\\AssessmentLib.csproj|d:\\c# codes\\dotnet\\assessmentsolution\\assessmentlib\\repositories\\implementation\\evalutioncriteriarepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30FFFD07-4A6E-4E2C-8908-63456114AB93}|AssessmentLib\\AssessmentLib.csproj|solutionrelative:assessmentlib\\repositories\\implementation\\evalutioncriteriarepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30FFFD07-4A6E-4E2C-8908-63456114AB93}|AssessmentLib\\AssessmentLib.csproj|d:\\c# codes\\dotnet\\assessmentsolution\\assessmentlib\\services\\interface\\iquestionbankservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30FFFD07-4A6E-4E2C-8908-63456114AB93}|AssessmentLib\\AssessmentLib.csproj|solutionrelative:assessmentlib\\services\\interface\\iquestionbankservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "QuestionBankController.cs",
+              "DocumentMoniker": "D:\\c# codes\\DotNet\\AssessmentSolution\\StudentManagementAPI\\Controllers\\QuestionBankController.cs",
+              "RelativeDocumentMoniker": "StudentManagementAPI\\Controllers\\QuestionBankController.cs",
+              "ToolTip": "D:\\c# codes\\DotNet\\AssessmentSolution\\StudentManagementAPI\\Controllers\\QuestionBankController.cs",
+              "RelativeToolTip": "StudentManagementAPI\\Controllers\\QuestionBankController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-26T10:16:16.169Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AssessmentController.cs",
+              "DocumentMoniker": "D:\\c# codes\\DotNet\\AssessmentSolution\\StudentManagementAPI\\Controllers\\AssessmentController.cs",
+              "RelativeDocumentMoniker": "StudentManagementAPI\\Controllers\\AssessmentController.cs",
+              "ToolTip": "D:\\c# codes\\DotNet\\AssessmentSolution\\StudentManagementAPI\\Controllers\\AssessmentController.cs",
+              "RelativeToolTip": "StudentManagementAPI\\Controllers\\AssessmentController.cs",
+              "ViewState": "AgIAAOEAAAAAAAAAAAAwwNYAAABDAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-26T10:06:15.718Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "EvalutionCriteriaRepository.cs",
+              "DocumentMoniker": "D:\\c# codes\\DotNet\\AssessmentSolution\\AssessmentLib\\Repositories\\Implementation\\EvalutionCriteriaRepository.cs",
+              "RelativeDocumentMoniker": "AssessmentLib\\Repositories\\Implementation\\EvalutionCriteriaRepository.cs",
+              "ToolTip": "D:\\c# codes\\DotNet\\AssessmentSolution\\AssessmentLib\\Repositories\\Implementation\\EvalutionCriteriaRepository.cs",
+              "RelativeToolTip": "AssessmentLib\\Repositories\\Implementation\\EvalutionCriteriaRepository.cs",
+              "ViewState": "AgIAABUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-10T17:54:51.799Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "IQuestionBankService.cs",
+              "DocumentMoniker": "D:\\c# codes\\DotNet\\AssessmentSolution\\AssessmentLib\\Services\\Interface\\IQuestionBankService.cs",
+              "RelativeDocumentMoniker": "AssessmentLib\\Services\\Interface\\IQuestionBankService.cs",
+              "ToolTip": "D:\\c# codes\\DotNet\\AssessmentSolution\\AssessmentLib\\Services\\Interface\\IQuestionBankService.cs",
+              "RelativeToolTip": "AssessmentLib\\Services\\Interface\\IQuestionBankService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-10T10:18:06.044Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "IAssessmentRepository.cs",
+              "DocumentMoniker": "D:\\c# codes\\DotNet\\AssessmentSolution\\AssessmentLib\\Repositories\\Interface\\IAssessmentRepository.cs",
+              "RelativeDocumentMoniker": "AssessmentLib\\Repositories\\Interface\\IAssessmentRepository.cs",
+              "ToolTip": "D:\\c# codes\\DotNet\\AssessmentSolution\\AssessmentLib\\Repositories\\Interface\\IAssessmentRepository.cs",
+              "RelativeToolTip": "AssessmentLib\\Repositories\\Interface\\IAssessmentRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAABWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-10T05:04:18.537Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "AssessmentRepository.cs",
+              "DocumentMoniker": "D:\\c# codes\\DotNet\\AssessmentSolution\\AssessmentLib\\Repositories\\Implementation\\AssessmentRepository.cs",
+              "RelativeDocumentMoniker": "AssessmentLib\\Repositories\\Implementation\\AssessmentRepository.cs",
+              "ToolTip": "D:\\c# codes\\DotNet\\AssessmentSolution\\AssessmentLib\\Repositories\\Implementation\\AssessmentRepository.cs",
+              "RelativeToolTip": "AssessmentLib\\Repositories\\Implementation\\AssessmentRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-10T04:58:49.191Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

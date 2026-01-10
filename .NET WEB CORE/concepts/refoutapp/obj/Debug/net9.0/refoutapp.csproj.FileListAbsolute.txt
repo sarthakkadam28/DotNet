@@ -1,0 +1,15 @@
+D:\c# codes\DotNet\refoutapp\bin\Debug\net9.0\refoutapp.exe
+D:\c# codes\DotNet\refoutapp\bin\Debug\net9.0\refoutapp.deps.json
+D:\c# codes\DotNet\refoutapp\bin\Debug\net9.0\refoutapp.runtimeconfig.json
+D:\c# codes\DotNet\refoutapp\bin\Debug\net9.0\refoutapp.dll
+D:\c# codes\DotNet\refoutapp\bin\Debug\net9.0\refoutapp.pdb
+D:\c# codes\DotNet\refoutapp\obj\Debug\net9.0\refoutapp.GeneratedMSBuildEditorConfig.editorconfig
+D:\c# codes\DotNet\refoutapp\obj\Debug\net9.0\refoutapp.AssemblyInfoInputs.cache
+D:\c# codes\DotNet\refoutapp\obj\Debug\net9.0\refoutapp.AssemblyInfo.cs
+D:\c# codes\DotNet\refoutapp\obj\Debug\net9.0\refoutapp.csproj.CoreCompileInputs.cache
+D:\c# codes\DotNet\refoutapp\obj\Debug\net9.0\refoutapp.sourcelink.json
+D:\c# codes\DotNet\refoutapp\obj\Debug\net9.0\refoutapp.dll
+D:\c# codes\DotNet\refoutapp\obj\Debug\net9.0\refint\refoutapp.dll
+D:\c# codes\DotNet\refoutapp\obj\Debug\net9.0\refoutapp.pdb
+D:\c# codes\DotNet\refoutapp\obj\Debug\net9.0\refoutapp.genruntimeconfig.cache
+D:\c# codes\DotNet\refoutapp\obj\Debug\net9.0\ref\refoutapp.dll

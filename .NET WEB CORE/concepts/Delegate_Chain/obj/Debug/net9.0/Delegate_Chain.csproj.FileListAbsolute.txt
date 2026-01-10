@@ -1,0 +1,15 @@
+D:\c# codes\DotNet\concepts\Delegate_Chain\bin\Debug\net9.0\Delegate_Chain.exe
+D:\c# codes\DotNet\concepts\Delegate_Chain\bin\Debug\net9.0\Delegate_Chain.deps.json
+D:\c# codes\DotNet\concepts\Delegate_Chain\bin\Debug\net9.0\Delegate_Chain.runtimeconfig.json
+D:\c# codes\DotNet\concepts\Delegate_Chain\bin\Debug\net9.0\Delegate_Chain.dll
+D:\c# codes\DotNet\concepts\Delegate_Chain\bin\Debug\net9.0\Delegate_Chain.pdb
+D:\c# codes\DotNet\concepts\Delegate_Chain\obj\Debug\net9.0\Delegate_Chain.GeneratedMSBuildEditorConfig.editorconfig
+D:\c# codes\DotNet\concepts\Delegate_Chain\obj\Debug\net9.0\Delegate_Chain.AssemblyInfoInputs.cache
+D:\c# codes\DotNet\concepts\Delegate_Chain\obj\Debug\net9.0\Delegate_Chain.AssemblyInfo.cs
+D:\c# codes\DotNet\concepts\Delegate_Chain\obj\Debug\net9.0\Delegate_Chain.csproj.CoreCompileInputs.cache
+D:\c# codes\DotNet\concepts\Delegate_Chain\obj\Debug\net9.0\Delegate_Chain.sourcelink.json
+D:\c# codes\DotNet\concepts\Delegate_Chain\obj\Debug\net9.0\Delegate_Chain.dll
+D:\c# codes\DotNet\concepts\Delegate_Chain\obj\Debug\net9.0\refint\Delegate_Chain.dll
+D:\c# codes\DotNet\concepts\Delegate_Chain\obj\Debug\net9.0\Delegate_Chain.pdb
+D:\c# codes\DotNet\concepts\Delegate_Chain\obj\Debug\net9.0\Delegate_Chain.genruntimeconfig.cache
+D:\c# codes\DotNet\concepts\Delegate_Chain\obj\Debug\net9.0\ref\Delegate_Chain.dll

@@ -1,0 +1,10 @@
+D:\c# codes\DotNet\concepts\Partial_class\obj\Debug\net9.0\Partial_class.GeneratedMSBuildEditorConfig.editorconfig
+D:\c# codes\DotNet\concepts\Partial_class\obj\Debug\net9.0\Partial_class.AssemblyInfoInputs.cache
+D:\c# codes\DotNet\concepts\Partial_class\obj\Debug\net9.0\Partial_class.AssemblyInfo.cs
+D:\c# codes\DotNet\concepts\Partial_class\obj\Debug\net9.0\Partial_class.csproj.CoreCompileInputs.cache
+D:\c# codes\DotNet\concepts\Partial_class\obj\Debug\net9.0\Partial_class.sourcelink.json
+D:\c# codes\DotNet\concepts\Partialclass\obj\Debug\net9.0\Partial_class.GeneratedMSBuildEditorConfig.editorconfig
+D:\c# codes\DotNet\concepts\Partialclass\obj\Debug\net9.0\Partial_class.AssemblyInfoInputs.cache
+D:\c# codes\DotNet\concepts\Partialclass\obj\Debug\net9.0\Partial_class.AssemblyInfo.cs
+D:\c# codes\DotNet\concepts\Partialclass\obj\Debug\net9.0\Partial_class.csproj.CoreCompileInputs.cache
+D:\c# codes\DotNet\concepts\Partialclass\obj\Debug\net9.0\Partial_class.sourcelink.json

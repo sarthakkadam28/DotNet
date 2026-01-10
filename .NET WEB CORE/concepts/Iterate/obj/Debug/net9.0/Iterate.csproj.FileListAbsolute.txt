@@ -1,0 +1,15 @@
+D:\c# codes\DotNet\concepts\Iterate\obj\Debug\net9.0\Iterate.GeneratedMSBuildEditorConfig.editorconfig
+D:\c# codes\DotNet\concepts\Iterate\obj\Debug\net9.0\Iterate.AssemblyInfoInputs.cache
+D:\c# codes\DotNet\concepts\Iterate\obj\Debug\net9.0\Iterate.AssemblyInfo.cs
+D:\c# codes\DotNet\concepts\Iterate\obj\Debug\net9.0\Iterate.csproj.CoreCompileInputs.cache
+D:\c# codes\DotNet\concepts\Iterate\obj\Debug\net9.0\Iterate.sourcelink.json
+D:\c# codes\DotNet\concepts\Iterate\bin\Debug\net9.0\Iterate.exe
+D:\c# codes\DotNet\concepts\Iterate\bin\Debug\net9.0\Iterate.deps.json
+D:\c# codes\DotNet\concepts\Iterate\bin\Debug\net9.0\Iterate.runtimeconfig.json
+D:\c# codes\DotNet\concepts\Iterate\bin\Debug\net9.0\Iterate.dll
+D:\c# codes\DotNet\concepts\Iterate\bin\Debug\net9.0\Iterate.pdb
+D:\c# codes\DotNet\concepts\Iterate\obj\Debug\net9.0\Iterate.dll
+D:\c# codes\DotNet\concepts\Iterate\obj\Debug\net9.0\refint\Iterate.dll
+D:\c# codes\DotNet\concepts\Iterate\obj\Debug\net9.0\Iterate.pdb
+D:\c# codes\DotNet\concepts\Iterate\obj\Debug\net9.0\Iterate.genruntimeconfig.cache
+D:\c# codes\DotNet\concepts\Iterate\obj\Debug\net9.0\ref\Iterate.dll

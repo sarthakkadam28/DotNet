@@ -1,0 +1,15 @@
+D:\c# codes\DotNet\concepts\OpertorOverload\bin\Debug\net9.0\OpertorOverload.exe
+D:\c# codes\DotNet\concepts\OpertorOverload\bin\Debug\net9.0\OpertorOverload.deps.json
+D:\c# codes\DotNet\concepts\OpertorOverload\bin\Debug\net9.0\OpertorOverload.runtimeconfig.json
+D:\c# codes\DotNet\concepts\OpertorOverload\bin\Debug\net9.0\OpertorOverload.dll
+D:\c# codes\DotNet\concepts\OpertorOverload\bin\Debug\net9.0\OpertorOverload.pdb
+D:\c# codes\DotNet\concepts\OpertorOverload\obj\Debug\net9.0\OpertorOverload.GeneratedMSBuildEditorConfig.editorconfig
+D:\c# codes\DotNet\concepts\OpertorOverload\obj\Debug\net9.0\OpertorOverload.AssemblyInfoInputs.cache
+D:\c# codes\DotNet\concepts\OpertorOverload\obj\Debug\net9.0\OpertorOverload.AssemblyInfo.cs
+D:\c# codes\DotNet\concepts\OpertorOverload\obj\Debug\net9.0\OpertorOverload.csproj.CoreCompileInputs.cache
+D:\c# codes\DotNet\concepts\OpertorOverload\obj\Debug\net9.0\OpertorOverload.sourcelink.json
+D:\c# codes\DotNet\concepts\OpertorOverload\obj\Debug\net9.0\OpertorOverload.dll
+D:\c# codes\DotNet\concepts\OpertorOverload\obj\Debug\net9.0\refint\OpertorOverload.dll
+D:\c# codes\DotNet\concepts\OpertorOverload\obj\Debug\net9.0\OpertorOverload.pdb
+D:\c# codes\DotNet\concepts\OpertorOverload\obj\Debug\net9.0\OpertorOverload.genruntimeconfig.cache
+D:\c# codes\DotNet\concepts\OpertorOverload\obj\Debug\net9.0\ref\OpertorOverload.dll
