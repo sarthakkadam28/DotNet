@@ -1,4 +1,7 @@
-namespace HRAPP.HRAPP
+using System.Dynamic;
+using System.Security.Cryptography.X509Certificates;
+
+namespace HRAPP.HR
 {
     public class Employee
     {
@@ -39,5 +42,14 @@ namespace HRAPP.HRAPP
         {
             return $"ID: {EmployeeId}, Name: {GetFullName()}, Position: {Position}, Department: {Department}";
         }
+        public virtual string Dowork()
+        {
+          return $"{GetFullName()} is working as a{Position} in {Department} department.";
+        }
+        public virtual decimal ComputePay()
+        {
+          return Salary;
+        }
+        
     }
 }

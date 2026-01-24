@@ -1,6 +1,6 @@
 using System.Threading.Channels;
 
-namespace HRAPP.HRAPP
+namespace HRAPP.HR
 {   
     public class SalesManger:SalesEmployee
     {
@@ -15,7 +15,7 @@ namespace HRAPP.HRAPP
             string firstName,
             string lastName,
             string email,
-            string phone,
+            string  phone,
             string department,
             decimal salary,
             DateTime hireDate,
@@ -34,6 +34,15 @@ namespace HRAPP.HRAPP
     public override string ToString()
     {
         return base. ToString()+ $",Bonus:{Bonus},Final Salary:{GetTotalSalary()}";
+    }
+    public override string Dowork()
+        {
+            return base.Dowork();
+        }
+
+    public override decimal ComputePay()
+    {
+        return base.ComputePay();
     }
 
     }
