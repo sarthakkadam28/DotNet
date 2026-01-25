@@ -1,8 +1,9 @@
+using System.Runtime.CompilerServices;
 using System.Threading.Channels;
-
+using HRAPP.HR.interfaces;
 namespace HRAPP.HR
 {   
-    public class SalesManger:SalesEmployee
+    public class SalesManger:SalesEmployee,IManagerBenefits,IInterviePanel,ITrainer
     {
     public decimal Bonus{get;set;}
     public SalesManger()
@@ -27,6 +28,11 @@ namespace HRAPP.HR
         
         Bonus=bonus;
     }
+
+    public decimal CalculateBonus()
+        {
+            return Bonus;
+        }
     public decimal GetTotalSalary()
     {
         return Salary + Incentive + Bonus;
@@ -44,6 +50,18 @@ namespace HRAPP.HR
     {
         return base.ComputePay();
     }
+    public void Approveleave()
+        {
+           Console.WriteLine("Manager Appraisal completed ");
+        }
+    public void TakeInterview()
+        {
+            Console.WriteLine("Sales Manager conducting interview.");
+        }
+    public void Train()
+        {
+            Console.WriteLine("Sales Manager training sales team.");
+        }
 
     }
 }

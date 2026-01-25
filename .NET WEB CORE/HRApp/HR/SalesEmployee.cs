@@ -1,6 +1,9 @@
+using HRAPP.HR.interfaces;
+
 namespace HRAPP.HR
 {
-    public class SalesEmployee:Employee
+
+    public class SalesEmployee:Employee,IAppraisable
     {
         public decimal Incentive;
         public  SalesEmployee()
@@ -38,5 +41,10 @@ namespace HRAPP.HR
             return Salary;
         }
 
-    }
+        public void ConductAppraisal()
+        {
+           Console.WriteLine("the leave is approved"); 
+        }
+
+    } 
 }

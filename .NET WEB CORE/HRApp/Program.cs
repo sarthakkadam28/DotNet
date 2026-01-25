@@ -1,4 +1,5 @@
 ﻿using HRAPP.HR;
+using HRAPP.HR.interfaces;
 Employee emp1 = new SalesEmployee(
     1,
     "Amit",
@@ -36,3 +37,17 @@ Console.WriteLine("Salary: " + emp1.ComputePay());
 
 Console.WriteLine(emp2);
 Console.WriteLine("Salary: " + emp2.ComputePay());
+
+SalesManger manager = new SalesManger();
+
+IAppraisable appraisable = manager;
+appraisable.ConductAppraisal();
+
+IBonusEligible bonusEligible = manager;
+Console.WriteLine("Bonus: " + bonusEligible.CalculateBonus());
+
+IInterviePanel panel = manager;
+panel.TakeInterview();
+
+ITrainer trainer = manager;
+trainer.Train();
