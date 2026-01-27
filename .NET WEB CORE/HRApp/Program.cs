@@ -1,5 +1,8 @@
-﻿using HRAPP.HR;
+﻿using HR.Services;
+using HRAPP.HR;
 using HRAPP.HR.interfaces;
+using HRAPP.HR.Repositories;
+using HRAPP.HR.Services;
 Employee emp1 = new SalesEmployee(
     1,
     "Amit",
@@ -51,3 +54,21 @@ panel.TakeInterview();
 
 ITrainer trainer = manager;
 trainer.Train();
+
+// inject dependencies 
+IEmployeeRepository repository =new MemoryEmployeeRepository();
+IEmployeeService service =new EmployeeService(repository);
+IPayrollService payroll=new payrollService();
+
+HRProcessor processor =new HRProcessor(service,payroll);
+
+Employee employee1=new SalesEmployee{EmployeeId=1};
+Employee employee2 =new SalesManger{EmployeeId=2};
+
+processor.Process(employee1);
+processor.Process(employee2);
+
+foreach(var emp in service.GetEmployees())
+{
+    processor.Process(emp);
+}

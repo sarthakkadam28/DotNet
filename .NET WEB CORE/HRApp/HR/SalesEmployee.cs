@@ -10,17 +10,8 @@ namespace HRAPP.HR
         {
             
         }
-        public SalesEmployee(int employeeId,
-            string firstName,
-            string lastName,
-            string email,
-            string  phone,
-            string department,
-            decimal salary,
-            DateTime hireDate,
-            string position,
-            decimal incentive)
-                    :base(employeeId,firstName,lastName,email,phone,department,salary,hireDate,position)
+        public SalesEmployee(int employeeId,string firstName,string lastName,string email,string  phone,string department,decimal salary,DateTime hireDate,
+            string position,decimal incentive):base(employeeId,firstName,lastName,email,phone,department,salary,hireDate,position)
         {
             Incentive=incentive;
         }

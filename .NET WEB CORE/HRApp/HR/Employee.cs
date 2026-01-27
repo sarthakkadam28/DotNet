@@ -14,6 +14,7 @@ namespace HRAPP.HR
         public decimal Salary { get; set; }
         public DateTime HireDate { get; set; }
         public string Position { get; set; }
+        public string Location{get;set;}
 
         public Employee()
         {
